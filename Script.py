@@ -209,7 +209,7 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<b>📂 <b>File Name</b>: <code>{filename}</code> \n\n❤️‍🔥 <b>Join</b> [𝗞𝗔𝗡𝗡𝗔𝗗𝗔 𝗠𝗢𝗩𝗜𝗘𝗦](https://t.me/vdmoviez)</b>""" 
+    CAPTION = """{filename}""" 
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
