@@ -1989,7 +1989,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        m=await message.reply_text(f"<b><i> 𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 '{search}' 🔎</i></b>")
+        m=await message.reply_sticker("CAACAgUAAxkBAAITgmXqDuuB0TLypQPlq6OBy8sp7-ByAAKPBwACoxnYV5uaM5Bxr6t1NAQ")
         settings = await get_settings(message.chat.id)
         await msg.message.delete()
     pre = 'filep' if settings['file_secure'] else 'file'
@@ -2001,7 +2001,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text="🤍[{get_size(file.file_size)}]💤{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
+                    text="🤍[{get_size(file.file_size)}] 💤 {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file.file_name.split()))}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -2057,7 +2057,7 @@ async def auto_filter(client, msg, spoll=False):
     TEMPLATE = script.IMDB_TEMPLATE_TXT
     if imdb:
         cap = TEMPLATE.format(
-            qurey=search,
+            qurey=search, opp
             title=imdb['title'],
             votes=imdb['votes'],
             aka=imdb["aka"],
