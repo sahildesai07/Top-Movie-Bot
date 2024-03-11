@@ -33,7 +33,7 @@ async def start(client, message):
                     InlineKeyboardButton('🐾 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝗀𝗋𝗈𝗎𝗉 🐾', url="https://t.me/vdsamr"),
                     InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url='https://t.me/+goi1zMdCehA3Mzc9')
                 ],[
-                  InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
+                  InlineKeyboardButton('💌 𝑆𝑜𝑢𝑟𝑐𝑒 𝑐𝑜𝑑𝑒 💌', callback_data='source')
                 ],[
                     InlineKeyboardButton('☃️𝖩𝗈𝗂𝗇 𝗎𝗉𝖽𝖺𝗍𝖾𝗌 𝖢𝗁𝖺𝗇𝗇𝖾𝗅☃️', url=CHNL_LNK)
                   ]]
@@ -58,7 +58,7 @@ async def start(client, message):
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉 ', callback_data='help'),
                     InlineKeyboardButton('🧩 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
                 ],[
-                  InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
+                  InlineKeyboardButton('💌 𝑆𝑜𝑢𝑟𝑐𝑒 𝑐𝑜𝑑𝑒 💌', callback_data='source')
                 ],[
                     InlineKeyboardButton('☃️𝖩𝗈𝗂𝗇 𝗎𝗉𝖽𝖺𝗍𝖾𝗌 𝖢𝗁𝖺𝗇𝗇𝖾𝗅☃️', url=CHNL_LNK)
                   ]]
@@ -112,7 +112,7 @@ async def start(client, message):
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉', callback_data='help'),
                     InlineKeyboardButton('🧩 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
                 ],[
-                  InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
+                  InlineKeyboardButton('💌 𝑆𝑜𝑢𝑟𝑐𝑒 𝑐𝑜𝑑𝑒 💌', callback_data='source')
                 ],[
                     InlineKeyboardButton('☃️𝖩𝗈𝗂𝗇 𝗎𝗉𝖽𝖺𝗍𝖾𝗌 𝖢𝗁𝖺𝗇𝗇𝖾𝗅☃️', url=CHNL_LNK)
                   ]]
