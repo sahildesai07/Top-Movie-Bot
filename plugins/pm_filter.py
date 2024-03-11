@@ -1960,7 +1960,7 @@ async def auto_filter(client, msg, spoll=False):
             return
         if len(message.text) < 100:
             search = message.text
-            m=await message.reply_sticker("CAACAgUAAxkBAAITgmXqDuuB0TLypQPlq6OBy8sp7-ByAAKPBwACoxnYV5uaM5Bxr6t1NAQ")
+            m=await message.reply_sticker("CAACAgUAAxkBAAIUhGXvhBAc_2_fJNJ88b_9yRZg1w_0AAITDgACF0tAVt49WLo10hy0NAQ")
             search = search.lower()
             find = search.split(" ")
             search = ""
@@ -1989,7 +1989,7 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        m=await message.reply_sticker("CAACAgUAAxkBAAITgmXqDuuB0TLypQPlq6OBy8sp7-ByAAKPBwACoxnYV5uaM5Bxr6t1NAQ")
+        m=await message.reply_sticker("CAACAgUAAxkBAAIUhmXvhFyqpfyudaqbOOy_blQSwJ3wAAL_DAAC6ExBVm3rOXz6s8moNAQ")
         settings = await get_settings(message.chat.id)
         await msg.message.delete()
     pre = 'filep' if settings['file_secure'] else 'file'
