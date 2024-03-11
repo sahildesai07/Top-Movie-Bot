@@ -31,7 +31,7 @@ async def start(client, message):
                     InlineKeyboardButton('🔰 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ 🔰', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('🐾 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝗀𝗋𝗈𝗎𝗉 🐾', url="https://t.me/vdsamr"),
-                    InlineKeyboardButton('💤 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 💤', url='https://t.me/+goi1zMdCehA3Mzc9')
+                    InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url='https://t.me/+goi1zMdCehA3Mzc9')
                 ],[
                   InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
                 ],[
@@ -53,10 +53,10 @@ async def start(client, message):
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('𝖤𝖺𝗋𝗇 𝗆𝗈𝗇𝖾𝗒 💸', callback_data="shortlink_info"),
-                    InlineKeyboardButton('🐾 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🐾', url='https://t.me/+goi1zMdCehA3Mzc9')
+                    InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url='https://t.me/+goi1zMdCehA3Mzc9')
                 ],[
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉 ', callback_data='help'),
-                    InlineKeyboardButton('🧸 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
+                    InlineKeyboardButton('🧩 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
                 ],[
                   InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
                 ],[
@@ -107,10 +107,10 @@ async def start(client, message):
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('𝖤𝖺𝗋𝗇 𝖬𝗈𝗇𝖾𝗒 💸', callback_data="shortlink_info"),
-                    InlineKeyboardButton('🐾 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🐾', url=CHNL_LNK)
+                    InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url=CHNL_LNK)
                 ],[
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉', callback_data='help'),
-                    InlineKeyboardButton('🧸 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
+                    InlineKeyboardButton('🧩 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
                 ],[
                   InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
                 ],[
