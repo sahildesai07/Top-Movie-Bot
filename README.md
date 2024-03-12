@@ -2,7 +2,7 @@
   <img src="https://graph.org/file/d17ce4226f913d957bf59.jpg" alt="DRNXKAN Logo">
 </p>
 <h1 align="center">
-  VJ-FILTER-BOT
+  DRNXKAN
 </h1>
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=𝑊𝑒𝑙𝑐𝑜𝑚𝑒+By+Vdmoviez)
