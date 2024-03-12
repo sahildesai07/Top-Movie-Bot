@@ -10,22 +10,22 @@ class script(object):
     HELP_TXT = """<b>Hᴇʏ {}
 𝗁𝖾𝗋𝖾 𝗂𝗌 𝗍𝗁𝖾 𝗁𝖾𝗅𝗉 𝖿𝗈𝗋 𝖬𝗒 𝖢𝗈𝗆𝗆𝖺𝗇𝖽𝗌.</b>"""
 
-    ABOUT_TXT = """<b>⍟───[ MY ᴅᴇᴛᴀɪʟꜱ ]───⍟
-‣ 𝖬𝗒 𝗇𝖺𝗆𝖾 : <a href=https://t.me/BosskXbot>𝘽𝙤𝙨𝙨𝙠</a>
- ‣ 𝖬𝗒 𝖻𝖾𝗌𝗍 𝖿𝗋𝗂𝖾𝗇𝖽 : <a href='tg://settings'>ಕ್ಲಿಕ್ ಮಾಡಿ</a> 
- ‣ 𝖣𝖾𝗏𝗅𝗈𝗉𝖾𝗋 : <a href='https://t.me/venom_darshu'>𝙉𝙤𝙗𝙤𝙙𝙮❤️‍🩹</a> 
- ‣ 𝖫𝗂𝖻𝗋𝖺𝗋𝗒 : <a href='https://docs.pyrogram.org/'>𝗉𝗒𝗋𝗈𝗀𝗋𝖺𝗆</a> 
- ‣ 𝖫𝖺𝗇𝗀𝗎𝖺𝗀𝖾 : <a href='https://www.python.org/download/releases/3.0/'>𝗉𝗒𝗍𝗁𝗈𝗇 3</a> 
- ‣ 𝖣𝖺𝗍𝖺 𝖻𝖺𝗌𝖾 : <a href='https://www.mongodb.com/'>𝗆𝗈𝗇𝗀𝗈 𝖽𝗇</a> 
- ‣ 𝖡𝗈𝗍 𝗌𝖾𝗋𝗏𝖾𝗋 : <a href='https://heroku.com'>𝖧𝖾𝗋𝗈𝗄𝗎</a> 
- ‣ 𝖡𝗎𝗂𝗅𝖽 : ᴠ2.7.1 [sᴛᴀʙʟᴇ]></b>"""
+    ABOUT_TXT = """<b>⍟───[ 𝑘𝑎𝑙𝑎𝑠ℎ𝑛𝑖𝑘𝑜𝑣 ]───⍟
+ ☂️ 𝖬𝗒 𝗇𝖺𝗆𝖾 : <a href=https://t.me/BosskXbot>𝘽𝙤𝙨𝙨𝙠</a>
+ ❄️ 𝖬𝗒 𝖻𝖾𝗌𝗍 𝖿𝗋𝗂𝖾𝗇𝖽 : <a href='tg://settings'>ಕ್ಲಿಕ್ ಮಾಡಿ</a> 
+ 🧩 𝖣𝖾𝗏𝗅𝗈𝗉𝖾𝗋 : <a href='https://t.me/venom_darshu'>𝙉𝙤𝙗𝙤𝙙𝙮❤️‍🩹</a> 
+ 🔰 𝖫𝗂𝖻𝗋𝖺𝗋𝗒 : <a href='https://docs.pyrogram.org/'>𝗉𝗒𝗋𝗈𝗀𝗋𝖺𝗆</a> 
+ 🪆 𝖫𝖺𝗇𝗀𝗎𝖺𝗀𝖾 : <a href='https://www.python.org/download/releases/3.0/'>𝗉𝗒𝗍𝗁𝗈𝗇 3</a> 
+ 🦸🏻 𝖣𝖺𝗍𝖺 𝖻𝖺𝗌𝖾 : <a href='https://www.mongodb.com/'>𝗆𝗈𝗇𝗀𝗈 𝖽𝗇</a> 
+ 🧑🏻‍🚀 𝖡𝗈𝗍 𝗌𝖾𝗋𝗏𝖾𝗋 : <a href='https://heroku.com'>𝖧𝖾𝗋𝗈𝗄𝗎</a> 
+ 🧬 𝖡𝗎𝗂𝗅𝖽 : ᴠ2.7.1 [sᴛᴀʙʟᴇ]></b>"""
 
     SOURCE_TXT = """
 <b>Hᴇʏ, 𝖳𝗁𝗂𝗌 𝗂𝗌 𝗇𝗈𝗍 𝖺𝗇 𝗈𝗉𝖾𝗇 𝗌𝗈𝗎𝗋𝖼𝖾 𝗉𝗋𝗈𝗃𝖾𝖼𝗍.
 
 𝖳𝗁𝗂𝗌 𝖻𝗈𝗍 𝗁𝖺𝗌 𝗅𝖺𝗍𝖾𝗌𝗍 𝖿𝖾𝖺𝗍𝗎𝗋𝖾𝗌⚡️𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝖽 𝖡𝗒 𝗄𝖺𝗇𝗇𝖺𝖽𝗂𝗀𝖺
 
-𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 - <a href='https://t.me/venom_darshu'>𝙠𝙖𝙣𝙣𝙖𝙙𝙞𝙜𝙖</a></b>"""
+𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋🧑🏻‍🎄 - <a href='https://t.me/venom_darshu'>𝙠𝙖𝙣𝙣𝙖𝙙𝙞𝙜𝙖🪆</a></b>"""
 
 
 
@@ -156,7 +156,7 @@ Nᴀᴍᴇ - {}"""
 
     I_CUDNT = """<b>sᴏʀʀʏ ɴᴏ ꜰɪʟᴇs ᴡᴇʀᴇ ꜰᴏᴜɴᴅ ꜰᴏʀ ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ {} 😕
 
-ᴄʜᴇᴄᴋ ʏᴏᴜʀ sᴘᴇʟʟɪɴɢ ɪɴ ɢᴏᴏɢʟᴇ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ 😃
+ಗೂಗಲ್ ಅಲ್ಲಿ ಸ್ಪೆಲ್ಲಿಂಗ್ ಚೆಕ್ ಮಾಡಿ😃
 
 ᴍᴏᴠɪᴇ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 👇
 
@@ -175,7 +175,7 @@ Nᴀᴍᴇ - {}"""
 
     TOP_ALRT_MSG = """Cʜᴇᴄᴋɪɴɢ Fᴏʀ Mᴏᴠɪᴇ Iɴ Dᴀᴛᴀʙᴀsᴇ..."""
 
-    MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️</b>"""
+    MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️ Pᴏᴡᴇʀᴇᴅ ʙʏ ᴠᴅᴍᴏᴠɪᴇᴢ</b>"""
 
     SHORTLINK_INFO = """
 
