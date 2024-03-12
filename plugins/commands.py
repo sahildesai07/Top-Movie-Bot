@@ -50,9 +50,9 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('🔰 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ 🔰', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('𝖤𝖺𝗋𝗇 𝗆𝗈𝗇𝖾𝗒 💸', callback_data="shortlink_info"),
+                    InlineKeyboardButton('🌊 𝖤𝖺𝗋𝗇 𝗆𝗈𝗇𝖾𝗒 🌊', callback_data="shortlink_info"),
                     InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url='https://t.me/+goi1zMdCehA3Mzc9')
                 ],[
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉 ', callback_data='help'),
@@ -106,7 +106,7 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('𝖤𝖺𝗋𝗇 𝖬𝗈𝗇𝖾𝗒 💸', callback_data="shortlink_info"),
+                    InlineKeyboardButton('🌊 𝖤𝖺𝗋𝗇 𝖬𝗈𝗇𝖾𝗒 🌊', callback_data="shortlink_info"),
                     InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url=CHNL_LNK)
                 ],[
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉', callback_data='help'),
@@ -166,10 +166,10 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                                InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                                InlineKeyboardButton('🧩Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ🧩', url=f'https://t.me/{SUPPORT_CHAT}'),
+                                InlineKeyboardButton('❄️Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ❄️', url=CHNL_LNK)
                             ],[
-                                InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url="https://t.me/venom_darshu")
+                                InlineKeyboardButton('🪩𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥🪩', url="https://t.me/venom_darshu")
                             ],
                             [
                                 InlineKeyboardButton('☂️ Fast Download / Watch Online🧬', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -188,10 +188,10 @@ async def start(client, message):
                     reply_markup=InlineKeyboardMarkup(
                         [
                          [
-                          InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                          InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                          InlineKeyboardButton('🧩Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ🧩', url=f'https://t.me/{SUPPORT_CHAT}'),
+                          InlineKeyboardButton('❄️Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ❄️', url=CHNL_LNK)
                        ],[
-                          InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/venom_darshu")
+                          InlineKeyboardButton("🪩𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥🪩", url="t.me/venom_darshu")
                          ],[ 
                             InlineKeyboardButton('☂️ Fast Download / Watch Online🧬', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
                             ]
@@ -347,10 +347,10 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                      [
-                      InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                      InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                      InlineKeyboardButton('🧩Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ🧩', url=f'https://t.me/{SUPPORT_CHAT}'),
+                      InlineKeyboardButton('❄️Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ❄️', url=CHNL_LNK)
                    ],[
-                      InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/venom_darshu")
+                      InlineKeyboardButton("🪩𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥🪩", url="t.me/venom_darshu")
                      ],
                      [
                         InlineKeyboardButton('☂️ Fast Download / Watch Online🧬', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -413,10 +413,10 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                      [
-                      InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-                      InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+                      InlineKeyboardButton('🧩Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ🧩', url=f'https://t.me/{SUPPORT_CHAT}'),
+                      InlineKeyboardButton('❄️Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ❄️', url=CHNL_LNK)
                    ],[
-                      InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/venom_darshu")
+                      InlineKeyboardButton("🪩𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥🪩", url="t.me/venom_darshu")
                      ],
                      [
                         InlineKeyboardButton('☂️ Fast Download / Watch Online🧬', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
@@ -476,10 +476,10 @@ async def start(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
              [
-              InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
-              InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url=CHNL_LNK)
+              InlineKeyboardButton('🧩Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ🧩', url=f'https://t.me/{SUPPORT_CHAT}'),
+              InlineKeyboardButton('❄️Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ❄️', url=CHNL_LNK)
            ],[
-              InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/venom_darshu")
+              InlineKeyboardButton("🪩𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥🪩", url="t.me/venom_darshu")
              ],
              [
               InlineKeyboardButton('☂️ Fast Download / Watch Online🧬', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @LazyDeveloperr
