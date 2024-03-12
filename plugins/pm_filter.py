@@ -166,7 +166,7 @@ async def next_page(bot, query):
                     [InlineKeyboardButton("🏃‍♂️𝖻𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/10)+1} / {math.ceil(total/10)}", callback_data="pages"), InlineKeyboardButton("𝖭𝖾𝗑𝗍 🧬", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
@@ -187,7 +187,7 @@ async def next_page(bot, query):
                     [InlineKeyboardButton("🏃‍♂️𝖻𝖺𝖼𝗄", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages")]
                 )
             elif off_set is None:
-                btn.append([InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝐍𝐄𝐗𝐓 ➪", callback_data=f"next_{req}_{key}_{n_offset}")])
+                btn.append([InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(f"{math.ceil(int(offset)/int(MAX_B_TN))+1} / {math.ceil(total/int(MAX_B_TN))}", callback_data="pages"), InlineKeyboardButton("𝖭𝖾𝗑𝗍 🧬", callback_data=f"next_{req}_{key}_{n_offset}")])
             else:
                 btn.append(
                     [
@@ -836,13 +836,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=short_{file_id}")
                     return
                 else:
-                    await query.answer(f"Hᴇʏ {query.from_user.first_name}, Tʜɪs Is Nᴏᴛ Yᴏᴜʀ Mᴏᴠɪᴇ Rᴇǫᴜᴇsᴛ. Rᴇǫᴜᴇsᴛ Yᴏᴜʀ's !", show_alert=True)
+                    await query.answer(f"Hᴇʏ {query.from_user.first_name}, ಮಗ ಇದು ನಿಮದಲ್ಲ😕👀,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ... !", show_alert=True)
             else:
                 if clicked == typed:
                     await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={ident}_{file_id}")
                     return
                 else:
-                    await query.answer(f"Hᴇʏ {query.from_user.first_name}, Tʜɪs Is Nᴏᴛ Yᴏᴜʀ Mᴏᴠɪᴇ Rᴇǫᴜᴇsᴛ. Rᴇǫᴜᴇsᴛ Yᴏᴜʀ's !", show_alert=True)
+                    await query.answer(f"Hᴇʏ {query.from_user.first_name}, ಮಗ ಇದು ನಿಮದಲ್ಲ😕👀,\nʀᴇQᴜᴇꜱᴛ ʏᴏᴜʀ'ꜱ...", show_alert=True)
         except UserIsBlocked:
             await query.answer('Uɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
@@ -1299,7 +1299,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉', callback_data='help'),
                     InlineKeyboardButton('🧩 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
                 ],[
-                  InlineKeyboardButton('💌 SOURCE CODE 💌', callback_data='source')
+                  InlineKeyboardButton('💌 𝑆𝑜𝑢𝑟𝑐𝑒 𝑐𝑜𝑑𝑒 💌', callback_data='source')
                 ],[
                     InlineKeyboardButton('☃️𝖩𝗈𝗂𝗇 𝗎𝗉𝖽𝖺𝗍𝖾𝗌 𝖼𝗁𝖺𝗇𝗇𝖾𝗅☃️', url=CHNL_LNK)
                   ]]
@@ -1358,19 +1358,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
              InlineKeyboardButton('⚙️ 𝖠𝖽𝗆𝗂𝗇 𝗈𝗇𝗅𝗒 🔧', callback_data='admin'),
          ], [ 
-             InlineKeyboardButton('𝖥𝗂𝗅𝖾 𝗌𝗍𝗈𝗋𝖾', callback_data='store_file'),   
-             InlineKeyboardButton('𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗉𝗁', callback_data='tele') 
+             InlineKeyboardButton('𝖥𝗂𝗅𝖾 𝗌𝗍𝗈𝗋𝖾💟', callback_data='store_file'),   
+             InlineKeyboardButton('𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗉𝗁❄️', callback_data='tele') 
          ], [ 
-             InlineKeyboardButton('𝖢𝗈𝗇𝗇𝖾𝖼𝗍𝗂𝗈𝗇𝗌', callback_data='coct'), 
-             InlineKeyboardButton('𝖥𝗂𝗅𝗍𝖾𝗋𝗌', callback_data='filters'),  
-             InlineKeyboardButton('𝖸𝖳-𝖽𝗅', callback_data='ytdl') 
+             InlineKeyboardButton('𝖢𝗈𝗇𝗇𝖾𝖼𝗍𝗂𝗈𝗇𝗌🪂', callback_data='coct'), 
+             InlineKeyboardButton('𝖥𝗂𝗅𝗍𝖾𝗋𝗌🏞️', callback_data='filters'),  
+             InlineKeyboardButton('𝖸𝖳-𝖽𝗅☔', callback_data='ytdl') 
          ], [ 
-             InlineKeyboardButton('𝖲𝗁𝖺𝗋𝖾 𝗍𝖾𝗑𝗍', callback_data='share'), 
-             InlineKeyboardButton('𝖲𝗈𝗇𝗀', callback_data='song') 
+             InlineKeyboardButton('𝖲𝗁𝖺𝗋𝖾 𝗍𝖾𝗑𝗍☃️', callback_data='share'), 
+             InlineKeyboardButton('𝖲𝗈𝗇𝗀🧩', callback_data='song') 
          ], [
-             InlineKeyboardButton('𝖤𝖺𝗋𝗇 𝗆𝗈𝗇𝖾𝗒', callback_data='shortlink_info'),
-             InlineKeyboardButton('𝖲𝗍𝗂𝖼𝗄𝖾𝗋-𝗂𝖽', callback_data='sticker'),
-             InlineKeyboardButton('𝖩-𝗌𝗈𝗇', callback_data='json'),  
+             InlineKeyboardButton('𝖤𝖺𝗋𝗇 𝗆𝗈𝗇𝖾𝗒💌', callback_data='shortlink_info'),
+             InlineKeyboardButton('𝖲𝗍𝗂𝖼𝗄𝖾𝗋-𝗂𝖽🤍', callback_data='sticker'),
+             InlineKeyboardButton('𝖩-𝗌𝗈𝗇🫀', callback_data='json'),  
          ], [             
              InlineKeyboardButton('🏠 𝙷𝙾𝙼𝙴 🏠', callback_data='start')
         ]]
@@ -1387,8 +1387,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝗀𝗋𝗈𝗎𝗉', url=GRP_LNK),
-            InlineKeyboardButton('𝖲𝗈𝗎𝗋𝖼𝖾 𝖼𝗈𝖽𝖾', callback_data='source')
+            InlineKeyboardButton('🧩 𝖲𝗎𝗉𝗉𝗈𝗋𝗍 𝗀𝗋𝗈𝗎𝗉 🧩', url=GRP_LNK),
+            InlineKeyboardButton('☔ 𝖲𝗈𝗎𝗋𝖼𝖾 𝖼𝗈𝖽𝖾 ☔', callback_data='source')
         ],[
             InlineKeyboardButton('𝖧𝗈𝗆𝖾', callback_data='start'),
             InlineKeyboardButton('𝖢𝗅𝗈𝗌𝖾', callback_data='close_data')
@@ -2035,16 +2035,16 @@ async def auto_filter(client, msg, spoll=False):
         try:
             if settings['max_btn']:
                 btn.append(
-                    [InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝖭𝖾𝗑𝗍 🧬",callback_data=f"next_{req}_{key}_{offset}")]
                 )
             else:
                 btn.append(
-                    [InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+                    [InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/int(MAX_B_TN))}",callback_data="pages"), InlineKeyboardButton(text="𝖭𝖾𝗑𝗍 🧬",callback_data=f"next_{req}_{key}_{offset}")]
                 )
         except KeyError:
             await save_group_settings(message.chat.id, 'max_btn', True)
             btn.append(
-                [InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝐍𝐄𝐗𝐓 ➪",callback_data=f"next_{req}_{key}_{offset}")]
+                [InlineKeyboardButton("𝗉𝖺𝗀𝖾", callback_data="pages"), InlineKeyboardButton(text=f"1/{math.ceil(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="𝖭𝖾𝗑𝗍 🧬",callback_data=f"next_{req}_{key}_{offset}")]
             )
     else:
         btn.append(
