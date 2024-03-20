@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://graph.org/file/d57d6f83abb6b8d0efb02.jpg" alt="VJ-Filter-Bot Logo">
+  <img src="https://telegra.ph/file/b0f72b06ccd7d68ef9e0b.jpg" alt="𝐒𝐞𝐚𝐫𝐜𝐡 𝐏𝐫𝐢𝐦𝐞 𝐌𝐨𝐯𝐢𝐞𝐳">
 </p>
 <h1 align="center">
   VJ-FILTER-BOT
