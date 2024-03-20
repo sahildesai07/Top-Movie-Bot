@@ -210,6 +210,10 @@ Tɪᴘ: Sᴇʟᴇᴄᴛ "Lᴀɴɢᴜᴀɢᴇs" ᴏʀ "Sᴇᴀsᴏɴs" Bᴜᴛᴛ
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
     CAPTION = """<b>📂Fɪʟᴇɴᴀᴍᴇ : {file_name}
+    ╔════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗
+▫️<a href=https://t.me/PK_LinkZz> Daily Updates </a>
+▫️<a href=https://t.me/Pkmovie_request> ʀᴇǫᴜᴇsᴛ ᴍᴏᴠɪᴇs​ </a>
+╚════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╝
 
 <b> Size ⚙️: {file_size}</b>""" 
 
