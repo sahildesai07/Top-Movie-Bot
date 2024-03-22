@@ -3,4 +3,4 @@
 # Ask Doubt on telegram @KingVJ01
 
 web: python3 bot.py
-WORKER: python3 bot.py
+worker: python3 bot.py
