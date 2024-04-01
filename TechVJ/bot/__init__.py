@@ -2,7 +2,6 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-#Thanks @Lazy helping this journey 
 import logging
 import logging.config
 logging.config.fileConfig('logging.conf')
@@ -28,7 +27,7 @@ from pyrogram import Client
 from info import *
 
 
-class LazyPrincessXBot(Client):
+class TechVJXBot(Client):
 
     def __init__(self):
         super().__init__(
@@ -79,7 +78,7 @@ class LazyPrincessXBot(Client):
                 yield message
                 current += 1
       
-LazyPrincessBot = LazyPrincessXBot()
+TechVJBot = TechVJXBot()
 
 multi_clients = {}
 work_loads = {}
