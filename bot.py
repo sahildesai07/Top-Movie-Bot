@@ -2,7 +2,6 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-
 import sys
 import glob
 import importlib
@@ -40,22 +39,22 @@ from plugins import web_server
 
 import asyncio
 from pyrogram import idle
-from lazybot import LazyPrincessBot
-from util.keepalive import ping_server
-from lazybot.clients import initialize_clients
+from TechVJ.bot import TechVJBot
+from TechVJ.util.keepalive import ping_server
+from TechVJ.bot.clients import initialize_clients
 
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
-LazyPrincessBot.start()
+TechVJBot.start()
 loop = asyncio.get_event_loop()
 
 
-async def Lazy_start():
+async def start():
     print('\n')
-    print('Initalizing Lazy Bot')
-    bot_info = await LazyPrincessBot.get_me()
-    LazyPrincessBot.username = bot_info.username
+    print('Initalizing Your Bot')
+    bot_info = await TechVJBot.get_me()
+    TechVJBot.username = bot_info.username
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -67,14 +66,14 @@ async def Lazy_start():
             load = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(load)
             sys.modules["plugins." + plugin_name] = load
-            print("Lazy Imported => " + plugin_name)
+            print("Tech VJ Imported => " + plugin_name)
     if ON_HEROKU:
         asyncio.create_task(ping_server())
     b_users, b_chats = await db.get_banned()
     temp.BANNED_USERS = b_users
     temp.BANNED_CHATS = b_chats
     await Media.ensure_indexes()
-    me = await LazyPrincessBot.get_me()
+    me = await TechVJBot.get_me()
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
@@ -86,7 +85,7 @@ async def Lazy_start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    await LazyPrincessBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
+    await TechVJBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
     app = web.AppRunner(await web_server())
     await app.setup()
     bind_address = "0.0.0.0"
@@ -96,7 +95,7 @@ async def Lazy_start():
 
 if __name__ == '__main__':
     try:
-        loop.run_until_complete(Lazy_start())
+        loop.run_until_complete(start())
     except KeyboardInterrupt:
         logging.info('Service Stopped Bye 👋')
 
