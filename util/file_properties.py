@@ -1,10 +1,9 @@
-#Thanks @Lazydeveloperr helping this journey 
 from pyrogram import Client
 from typing import Any, Optional
 from pyrogram.types import Message
 from pyrogram.file_id import FileId
 from pyrogram.raw.types.messages import Messages
-from server.exceptions import FIleNotFound
+from TechVJ.server.exceptions import FIleNotFound
 
 
 async def parse_file_id(message: "Message") -> Optional[FileId]:
