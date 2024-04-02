@@ -12,7 +12,7 @@ services:
     repo: https://github.com/VJBots/VJ-FILTER-BOT.git # optional
     region: oregon # optional (defaults to oregon)
     plan: free # optional (defaults to starter)
-    branch: main # optional (defaults to master)
+    branch: Tech_VJ # optional (defaults to master)
     numInstances: 1 # optional (defaults to 1)
     healthCheckPath: /
 
