@@ -184,7 +184,6 @@ python3 bot.py
 ## Note 🏷️
  
 * [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/VJ_Bots)
-* * [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/kingvj01)
 
 [Note To A So Called Dev](https://telegram.dog/vj_botz): 
 
@@ -195,8 +194,6 @@ Fork the repo and edit as per your needs.
 Licensed under [GNU AGPL 2.0.](https://github.com/EvamariaTG/evamaria/blob/master/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
 
-
-python3 bot.py
 </pre>
 </p>
 </details>
