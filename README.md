@@ -16,9 +16,9 @@
 - [x] Token Verification Added
 - [x] Send All Button Added
 - [x] Custom Tutorial Button
-- [x] Bot Pm File Auto Delete Added</b>
+- [x] Bot Pm File Auto Delete Added
 
-<b>Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Update Regarding Repo.</b>
+Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Update Regarding Repo.</b>
 
 ## Commands
 ```
@@ -74,7 +74,7 @@
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
 * `FDQN`: Add Your Deploy Server App url Must Add this Stream Working Properly.</b>
 ### Optional Variables
-<b>* `PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
+* <b>`PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
 * Check [info.py](https://github.com/VJBots/VJ-Filter-Bot/blob/main/info.py) for more optional variables.</b>
 
