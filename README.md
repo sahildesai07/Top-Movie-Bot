@@ -185,9 +185,9 @@ python3 bot.py
  
 * [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/VJ_Bots)
 
-[Note To A So Called Dev](https://telegram.dog/vj_botz): 
+<b>[Note To A So Called Dev](https://telegram.dog/vj_botz): 
 
-Fork the repo and edit as per your needs.
+Fork the repo and edit as per your needs.</b>
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
