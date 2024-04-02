@@ -9,8 +9,9 @@
 </p>
 
 ## Main Feature 
-
-- [x] <b>Stream Feature Added With Many Player Support
+<b>
+  
+- [x] Stream Feature Added With Many Player Support
 - [x] Language & Season Choose Option
 - [x] Custom Url Shortner Support
 - [x] Token Verification Added
@@ -156,7 +157,7 @@ Fork the repo and edit as per your needs.</b>
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-<b>Licensed under [GNU AGPL 2.0.](https://github.com/EvamariaTG/evamaria/blob/master/LICENSE)
+<b>Licensed under [GNU AGPL 2.0.](https://github.com/VJBots/VJ-Filter-Bot/blob/Tech_VJ/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.</b>
 
 </pre>
