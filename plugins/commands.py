@@ -143,7 +143,7 @@ async def start(client, message):
                     await db.update_user(user_data)  # Use the update_user method to update or insert user data
                     await delete_all_referal_users(user_id)
                     await client.send_message(chat_id = user_id, text = "You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}".format(REFERAL_PREMEIUM_TIME))
-           
+                    return 
     try:
         pre, file_id = data.split('_', 1)
     except:
