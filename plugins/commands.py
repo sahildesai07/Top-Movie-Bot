@@ -14,7 +14,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
-from database.users_chats_db import db, referal
+from database.users_chats_db import db, delete_all_referal_users, get_referal_users_count, get_referal_all_users, referal_add_user
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, OWNER_USERNAME, REFERAL_PREMEIUM_TIME, REFERAL_COUNT, PAYMENT_TEXT, PAYMENT_QR, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM_USER
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial, get_seconds
 from database.connections_mdb import active_connection
@@ -129,17 +129,8 @@ async def start(client, message):
     data = message.command[1]
     if data.split("-", 1)[0] == "VJ":
         user_id = data.split("-", 1)[1]
-        referal.insert_one({"_id": user_id, "referrals": ""})
-        users = referal.find({"_id": user_id})
-        for user in users:
-            if user['referrals'] == message.from_user.id:
-                return 
-    #    referred_users = list(referal.find({"_id": user_id}))
-    #    if not referred_users:
-    #        referal.insert_one({"_id": user_id, "referrals": ""})
-    #        return 
+        await referal_add_user(user_id, message.from_user.id)
         if user_id:
-            referal.update_one({"_id": user_id}, {"$set": {"referrals": message.from_user.id}})
             await message.reply(f"You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot")
             user_referrals = referal.find_one({"_id": user_id})
             if user_referrals:
