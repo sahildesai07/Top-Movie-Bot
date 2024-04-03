@@ -9,7 +9,7 @@ from info import DATABASE_NAME, DATABASE_URI, CUSTOM_FILE_CAPTION, IMDB, IMDB_TE
 
 my_client = MongoClient(DATABASE_URI)
 my_db = my_client["referal"]
-referal = my_db["users"]
+referal = my_db["user"]
 
 class Database:
     
