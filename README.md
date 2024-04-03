@@ -11,6 +11,7 @@
 ## Main Feature 
 <b>
   
+- [x] Premium And Refer To Get Premium Added
 - [x] Stream Feature Added With Many Player Support
 - [x] Language & Season Choose Option
 - [x] Custom Url Shortner Support
