@@ -125,6 +125,7 @@ async def start(client, message):
         )
         return
     data = message.command[1]
+    
     try:
         pre, file_id = data.split('_', 1)
     except:
