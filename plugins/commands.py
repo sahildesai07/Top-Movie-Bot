@@ -140,7 +140,7 @@ async def start(client, message):
                 num_referrals = len(user_referrals.get("referrals", []))
             else:
                 num_referrals = "No user start the bot with your referral link"
-            await client.send_message(chat_id = user_id, text = f"{} start the bot with your referral link\n\nTotal Referals - {}".format(message.from_user.mention, num_referrals))
+            await client.send_message(chat_id = user_id, text = "{} start the bot with your referral link\n\nTotal Referals - {}".format(message.from_user.mention, num_referrals))
             if num_referrals == REFERAL_COUNT:
                 time = REFERAL_PREMEIUM_TIME       
                 seconds = await get_seconds(time)
@@ -148,7 +148,7 @@ async def start(client, message):
                 user_data = {"id": user_id, "expiry_time": expiry_time} 
                 await db.update_user(user_data)
                 referal.update_many({"_id": user_id}, {"$set": {"referrals": ""}})
-                await client.send_message(chat_id = user_id, text = f"You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}".format(REFERAL_PREMEIUM_TIME))
+                await client.send_message(chat_id = user_id, text = "You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}".format(REFERAL_PREMEIUM_TIME))
            
     try:
         pre, file_id = data.split('_', 1)
