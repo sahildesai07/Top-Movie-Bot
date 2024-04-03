@@ -132,6 +132,7 @@ async def start(client, message):
         referred_users = list(referal.find({"_id": user_id}))
         if not referred_users:
             referal.insert_one({"_id": user_id, "referrals": ""})
+            return 
         if user_id:
             referal.update_one({"_id": user_id}, {"$set": {"referrals": message.from_user.id}})
             await message.reply(f"You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot")
