@@ -829,7 +829,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
 
         try:
-            if settings['is_shortlink'] and clicked not in PREMIUM_USER:
+            if settings['is_shortlink'] and not await db.has_premium_access(query.from_user.id):
                 if clicked == typed:
                     temp.SHORT[clicked] = query.message.chat.id
                     await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=short_{file_id}")
@@ -854,7 +854,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, key = query.data.split("#")
         settings = await get_settings(query.message.chat.id)
         try:
-            if settings['is_shortlink'] and clicked not in PREMIUM_USER:
+            if settings['is_shortlink'] and not await db.has_premium_access(query.from_user.id):
                 await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=sendfiles1_{key}")
                 return
             else:
