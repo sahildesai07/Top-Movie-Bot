@@ -7,14 +7,16 @@ import os
 import logging
 import random
 import asyncio
+import time
+import datetime
 from Script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
-from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM_USER
-from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial
+from database.users_chats_db import db, referal
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, REFERAL_PREMEIUM_TIME, REFERAL_COUNT, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, PREMIUM_USER
+from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial, get_seconds
 from database.connections_mdb import active_connection
 # from plugins.pm_filter import ENABLE_SHORTLINK
 import re, asyncio, os, sys
@@ -125,7 +127,29 @@ async def start(client, message):
         )
         return
     data = message.command[1]
-    
+    if data.split("-", 1)[0] == "VJ":
+        user_id = data.split("-", 1)[1]
+        referred_users = list(referal.find({"_id": user_id}))
+        if not referred_users:
+            referal.insert_one({"_id": user_id, "referrals": ""})
+        if not await db.is_user_exist(message.from_user.id):
+            referal.update_one({"_id": user_id}, {"$set": {"referrals": message.from_user.id}})
+            await message.reply(f"You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot")
+            user_referrals = referal.find_one({"_id": user_id})
+            if user_referrals:
+                num_referrals = len(user_referrals.get("referrals", []))
+            else:
+                num_referrals = "No user start the bot with your referral link"
+            await client.send_message(chat_id = user_id, text = f"{} start the bot with your referral link\n\nTotal Referals - {}".format(message.from_user.mention, num_referrals))
+            if num_referrals == REFERAL_COUNT:
+                time = REFERAL_PREMEIUM_TIME       
+                seconds = await get_seconds(time)
+                expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
+                user_data = {"id": user_id, "expiry_time": expiry_time} 
+                await db.update_user(user_data)
+                referal.update_many({"_id": user_id}, {"$set": {"referrals": ""}})
+                await client.send_message(chat_id = user_id, text = f"You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}".format(REFERAL_PREMEIUM_TIME))
+           
     try:
         pre, file_id = data.split('_', 1)
     except:
