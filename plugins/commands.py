@@ -132,7 +132,8 @@ async def start(client, message):
         referal.insert_one({"_id": user_id, "referrals": ""})
         users = referal.find({"_id": user_id})
         for user in users:
-            user['referrals'] == message.from_user.id
+            if user['referrals'] == message.from_user.id:
+                return 
     #    referred_users = list(referal.find({"_id": user_id}))
     #    if not referred_users:
     #        referal.insert_one({"_id": user_id, "referrals": ""})
