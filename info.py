@@ -52,6 +52,12 @@ DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://sushankm16:4i1WAfPYKWy
 DATABASE_NAME = environ.get('DATABASE_NAME', "vkbotsthalpathy")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
+# Premium And Referal Settings
+REFERAL_COUNT = int(environ.get('REFERAL_COUNT', '20')) # number of referal count
+REFERAL_PREMEIUM_TIME = environ.get('REFERAL_PREMEIUM_TIME', '1month')
+PAYMENT_QR = environ.get('PAYMENT_QR', 'https://graph.org/file/55749b0d3eaee3a5b958b.jpg')
+PAYMENT_TEXT = environ.get('PAYMENT_TEXT', '')
+
 # Others
 VERIFY = bool(environ.get('VERIFY', False))
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'moneykamalo.com')
