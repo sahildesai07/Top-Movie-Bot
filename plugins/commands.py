@@ -1078,6 +1078,35 @@ async def showshortlink(bot, message):
         else:
             return await message.reply_text("Shortener url and Tutorial Link Not Connected. Check this commands, /shortlink and /set_tutorial")
 
+@Client.on_message(filters.command("set_caption"))
+async def setcaption(bot, message):
+    userid = message.from_user.id if message.from_user else None
+    if not userid:
+        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
+    chat_type = message.chat.type
+    if chat_type == enums.ChatType.PRIVATE:
+        return await message.reply_text("This Command Work Only in group\n\nTry it in your own group")
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grpid = message.chat.id
+        title = message.chat.title
+    else:
+        return
+    userid = message.from_user.id
+    user = await bot.get_chat_member(grpid, userid)
+    if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
+        return
+    else:
+        pass
+    if len(message.command) == 1:
+        return await message.reply("<b>Give me your caption along with this command\n\nCommand Usage: /set_caption your caption\n\nFilling - <code>{file_name}</code>\n<code>{file_size}</code>\n<code>{original_caption}</code></b>")
+    elif len(message.command) == 2:
+        reply = await message.reply_text("<b>Please Wait...</b>")
+        caption = message.command[1]
+        await save_group_settings(grpid, 'caption', caption)
+        await reply.edit_text(f"<b>Successfully Added Caption\n\nHere is your caption for your group {title} - <code>{caption}</code></b>")
+    else:
+        return await message.reply("<b>You entered Incorrect Format\n\nFormat: /set_caption your caption</b>")
+        
 
 @Client.on_message(filters.command("set_tutorial"))
 async def settutorial(bot, message):
