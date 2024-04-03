@@ -129,10 +129,10 @@ async def start(client, message):
     data = message.command[1]
     if data.split("-", 1)[0] == "VJ":
         user_id = data.split("-", 1)[1]
-        referred_users = list(referal.find({"_id": user_id}))
-        if not referred_users:
-            referal.insert_one({"_id": user_id, "referrals": ""})
-            return 
+    #    referred_users = list(referal.find({"_id": user_id}))
+    #    if not referred_users:
+    #        referal.insert_one({"_id": user_id, "referrals": ""})
+    #        return 
         if user_id:
             referal.update_one({"_id": user_id}, {"$set": {"referrals": message.from_user.id}})
             await message.reply(f"You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot")
@@ -1221,7 +1221,7 @@ async def remove_premium_cmd_handler(client, message):
 @Client.on_message(filters.command("plan"))
 async def plans_cmd_handler(client, message):                
     btn = [            
-        [InlineKeyboardButton("ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ʀᴇᴄᴇɪᴘᴛ 🧾", url=OWNER_USERNAME)],
+        [InlineKeyboardButton("ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ʀᴇᴄᴇɪᴘᴛ 🧾", url=f"https://t.me/{OWNER_USERNAME}")],
         [InlineKeyboardButton("⚠️ ᴄʟᴏsᴇ / ᴅᴇʟᴇᴛᴇ ⚠️", callback_data="close_data")]
     ]
     reply_markup = InlineKeyboardMarkup(btn)
