@@ -129,6 +129,10 @@ async def start(client, message):
     data = message.command[1]
     if data.split("-", 1)[0] == "VJ":
         user_id = data.split("-", 1)[1]
+        referal.insert_one({"_id": user_id, "referrals": ""})
+        users = referal.find({"_id": user_id})
+        for user in users:
+            user['referrals'] == message.from_user.id
     #    referred_users = list(referal.find({"_id": user_id}))
     #    if not referred_users:
     #        referal.insert_one({"_id": user_id, "referrals": ""})
