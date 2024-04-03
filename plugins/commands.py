@@ -137,11 +137,12 @@ async def start(client, message):
             if num_referrals == REFERAL_COUNT:
                 time = REFERAL_PREMEIUM_TIME       
                 seconds = await get_seconds(time)
-                expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
-                user_data = {"id": user_id, "expiry_time": expiry_time} 
-                await db.update_user(user_data)
-                await delete_all_referal_users(user_id)
-                await client.send_message(chat_id = user_id, text = "You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}".format(REFERAL_PREMEIUM_TIME))
+                if seconds > 0:
+                    expiry_time = datetime.datetime.now() + datetime.timedelta(seconds=seconds)
+                    user_data = {"id": user_id, "expiry_time": expiry_time} 
+                    await db.update_user(user_data)  # Use the update_user method to update or insert user data
+                    await delete_all_referal_users(user_id)
+                    await client.send_message(chat_id = user_id, text = "You Have Successfully Completed Total Referal.\n\nYou Added In Premium For {}".format(REFERAL_PREMEIUM_TIME))
            
     try:
         pre, file_id = data.split('_', 1)
