@@ -13,6 +13,7 @@
   
 - [x] Premium Plan Feature Added
 - [x] Refer To Get Premium Added
+- [x] Url Shortner On / Off Feature Added
 - [x] Stream Feature Added With Many Player Support
 - [x] Language & Season Choose Option
 - [x] Custom Url Shortner Support
