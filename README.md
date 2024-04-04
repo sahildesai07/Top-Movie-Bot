@@ -14,8 +14,9 @@
 - [x] Premium Plan Feature Added
 - [x] Refer To Get Premium Added
 - [x] Url Shortner On / Off Feature Added
+- [x] Pm Search On / Off Added (Spell Check Not Work)
 - [x] Stream Feature Added With Many Player Support
-- [x] Language & Season Choose Option
+- [x] Language & Season & Quality Choose Option
 - [x] Custom Url Shortner Support
 - [x] Token Verification Added
 - [x] Send All Button Added
