@@ -1,4 +1,4 @@
-# Don't Remove Credit @VJ_Botz
+o# Don't Remove Credit @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
@@ -20,7 +20,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '20738979'))
 API_HASH = environ.get('API_HASH', 'a6d015153068a35390a336fe0a38dd64')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6447608812:AAEX6VOqjrPToy8EXbuDf3ak7DNlD5egbjA")
+BOT_TOKEN = environ.get('BOT_TOKEN', "6316374715:AAEVFf3pLtAN9eJikLzNPU0dHiDYVJxe__4")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
