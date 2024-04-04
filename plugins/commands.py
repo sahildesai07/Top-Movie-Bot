@@ -1,7 +1,7 @@
 # Don't Remove Credit @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-# premium code credit - @Rishikesh-Sharma09
+# premium code credit - @Rishikesh-Sharma09 and code is implemented by - @VJBots
 # referal code credit - @VJBots
 
 import os
