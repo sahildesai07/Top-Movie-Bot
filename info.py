@@ -120,7 +120,7 @@ URL = "https://demo-gsmz.onrender.com".format(FQDN) if ON_HEROKU or NO_PORT else
     "https://demo-gsmz.onrender.com/".format(FQDN, PORT)
 SLEEP_THRESHOLD = int(environ.get('SLEEP_THRESHOLD', '60'))
 WORKERS = int(environ.get('WORKERS', '4'))
-SESSION_NAME = str(environ.get('SESSION_NAME', 'LazyBot'))
+SESSION_NAME = str(environ.get('SESSION_NAME', 'StreamBot'))
 MULTI_CLIENT = False
 name = str(environ.get('name', 'TechVJBot'))
 PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
