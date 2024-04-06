@@ -1,4 +1,4 @@
-pyrogram
+pyrofork 
 tgcrypto 
 pymongo[srv]
 motor
