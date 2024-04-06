@@ -96,7 +96,7 @@ PUBLIC_FILE_STORE = is_enabled((environ.get('PUBLIC_FILE_STORE', "True")), True)
 
 LANGUAGES = ["malayalam", "mal", "tamil", "tam" ,"english", "eng", "hindi", "hin", "telugu", "tel", "kannada", "kan"]
 
-SEASONS = ["season 1" , "season 2" , "season 3" , "season 4", "season 5" , "season 6" , "season 7" , "season 8" , "season 9" , "season 10"]
+SEASONS = ["season 1", "S01", "season 2", "S02", "season 3", "S03", "season 4", "S04", "season 5", "S05", "season 6", "S06", "season 7", "S07", "season 8", "S08", "season 9", "S09", "season 10", "S10"]
 
 QUALITIES = ["360p", "480p", "720p", "1080p", "1440p", "2160p"]
 
