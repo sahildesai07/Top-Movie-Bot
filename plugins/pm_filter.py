@@ -330,7 +330,7 @@ async def episodes_cb_handler(client: Client, query: CallbackQuery):
     
 
 @Client.on_callback_query(filters.regex(r"^fe#"))
-async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
+async def filter_episodes_cb_handler(client: Client, query: CallbackQuery):
     _, lang, key = query.data.split("#")
     curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
     search = FRESH.get(key)
