@@ -52,6 +52,7 @@ SPELL_CHECK = {}
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
+    #  await message.react(emoji="♥️")
     if message.chat.id != SUPPORT_CHAT_ID:
         manual = await manual_filters(client, message)
         if manual == False:
@@ -75,6 +76,7 @@ async def give_filter(client, message):
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
+    #  await message.react(emoji="♥️")
     content = message.text
     user = message.from_user.first_name
     user_id = message.from_user.id
@@ -131,6 +133,7 @@ async def next_page(bot, query):
 
         btn.insert(0, 
             [
+                InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ ❤️‍🔥', callback_data=f"qualities#{key}"),
                 InlineKeyboardButton(f'Sᴇʟᴇᴄᴛ 🕳️', 'select'),
                 InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs 🪂", callback_data=f"languages#{key}"),
                 InlineKeyboardButton("Sᴇᴀsᴏɴs ❄️",  callback_data=f"seasons#{key}")
@@ -144,6 +147,7 @@ async def next_page(bot, query):
         btn = []
         btn.insert(0, 
             [
+                InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ ❤️‍🔥', callback_data=f"qualities#{key}"),
                 InlineKeyboardButton(f'Sᴇʟᴇᴄᴛ 🕳️', 'select'),
                 InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs 🪂", callback_data=f"languages#{key}"),
                 InlineKeyboardButton("Sᴇᴀsᴏɴs ❄️",  callback_data=f"seasons#{key}")
@@ -360,6 +364,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         ]
         btn.insert(0, 
             [
+               InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ ❤️‍🔥', callback_data=f"qualities#{key}"),
                 InlineKeyboardButton(f'Sᴇʟᴇᴄᴛ 🕳️', 'select'),
                 InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs 🪂", callback_data=f"languages#{key}"),
                 InlineKeyboardButton("Sᴇᴀsᴏɴs ❄️",  callback_data=f"seasons#{key}")
@@ -373,6 +378,7 @@ async def filter_languages_cb_handler(client: Client, query: CallbackQuery):
         btn = []
         btn.insert(0, 
             [
+                InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ ❤️‍🔥', callback_data=f"qualities#{key}"),
                 InlineKeyboardButton(f'Sᴇʟᴇᴄᴛ 🕳️', 'select'),
                 InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs 🪂", callback_data=f"languages#{key}"),
                 InlineKeyboardButton("Sᴇᴀsᴏɴs ❄️",  callback_data=f"seasons#{key}")
@@ -553,6 +559,7 @@ async def filter_seasons_cb_handler(client: Client, query: CallbackQuery):
         btn = []
         btn.insert(0, 
             [
+               InlineKeyboardButton(f'ǫᴜᴀʟɪᴛʏ ❤️‍🔥', callback_data=f"qualities#{key}"),
                 InlineKeyboardButton(f'Sᴇʟᴇᴄᴛ 🕳️', 'select'),
                 InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇs 🪂", callback_data=f"languages#{key}"),
                 InlineKeyboardButton("Sᴇᴀsᴏɴs ❄️",  callback_data=f"seasons#{key}")
