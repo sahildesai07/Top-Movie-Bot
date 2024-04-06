@@ -98,6 +98,8 @@ LANGUAGES = ["malayalam", "mal", "tamil", "tam" ,"english", "eng", "hindi", "hin
 
 SEASONS = ["season 1", "S01", "season 2", "S02", "season 3", "S03", "season 4", "S04", "season 5", "S05", "season 6", "S06", "season 7", "S07", "season 8", "S08", "season 9", "S09", "season 10", "S10"]
 
+EPISODES = ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12", "E13", "E14", "E15", "E16", "E17", "E18", "E19", "E20", "E21", "E22", "E23", "E24", "E25", "E26", "E27", "E28", "E29", "E30", "E31", "E32", "E33", "E34", "E35", "E36", "E37", "E38", "E39", "E40"]
+
 QUALITIES = ["360p", "480p", "720p", "1080p", "1440p", "2160p"]
 
 
