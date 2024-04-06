@@ -152,6 +152,7 @@ python3 bot.py
 
 ## Thanks to 
  - <b>Thanks To Dan For His Awesome [Library](https://github.com/pyrogram/pyrogram)
+ - Thanks To Mayuri-Chan For His Awesome [Library](https://github.com/Mayuri-Chan/pyrofork)
  - Thanks To [Tech VJ](https://youtube.com/@Tech_VJ)
  - Thanks To [Eva Marie](https://t.me/TeamEvamaria)
  - Thanks To All Everyone In This Journey</b>
