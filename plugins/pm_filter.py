@@ -1787,18 +1787,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":
         buttons = [[
-                    InlineKeyboardButton('🔰 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ 🔰', url=f'http://telegram.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('🔰 Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ 🔰', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
                     InlineKeyboardButton('🌊 𝖤𝖺𝗋𝗇 𝗆𝗈𝗇𝖾𝗒 🌊', callback_data="shortlink_info"),
-                    InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url=GRP_LNK)
+                    InlineKeyboardButton('🏞️ 𝖬𝗈𝗏𝗂𝖾 𝗀𝗋𝗈𝗎𝗉 🏞️', url='https://t.me/+goi1zMdCehA3Mzc9')
                 ],[
-                    InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉', callback_data='help'),
+                    InlineKeyboardButton('☔ 𝖧𝖾𝗅𝗉 ', callback_data='help'),
                     InlineKeyboardButton('🧩 𝖠𝖻𝗈𝗎𝗍', callback_data='about')
-                  ]]
                 ],[
                   InlineKeyboardButton('🔻 ɢᴇᴛ ғʀᴇᴇ/ᴘᴀɪᴅ sᴜʙsᴄʀɪᴘᴛɪᴏɴ 🔻', callback_data='subscription')
                 ],[
-                    InlineKeyboardButton('☃️𝖩𝗈𝗂𝗇 𝗎𝗉𝖽𝖺𝗍𝖾𝗌 𝖼𝗁𝖺𝗇𝗇𝖾𝗅☃️', url=CHNL_LNK)
+                    InlineKeyboardButton('☃️𝖩𝗈𝗂𝗇 𝗎𝗉𝖽𝖺𝗍𝖾𝗌 𝖢𝗁𝖺𝗇𝗇𝖾𝗅☃️', url=CHNL_LNK)
                   ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
