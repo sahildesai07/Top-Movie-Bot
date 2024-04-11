@@ -228,10 +228,10 @@ async def start(client, message):
                                                         InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
                 )
                 
-        except Exception as e:
-            print(e)  # print the error message
-            await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
-            return
+   #     except Exception as e:
+    #        print(e)  # print the error message
+   #         await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+    #        return
                 msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
