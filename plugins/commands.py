@@ -205,7 +205,7 @@ async def start(client, message):
                 f_caption = f"{title}"
             try:
                 # Create the inline keyboard button with callback_data
-                await client.send_cached_media(
+                msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
@@ -219,15 +219,22 @@ async def start(client, message):
                                 InlineKeyboardButton('𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥', url="https://t.me/KingVJ01")
                             ],
                             [
-                                InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
+                                InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{msg.get("file_id")}') #Don't change anything without contacting me @KingVJ01
                             ]
                         ]
                     )
                 )
+                filesarr.append(msg)
+                k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+                await asyncio.sleep(600)
+                for x in filesarr:
+                    await x.delete()
+                await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
+                
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
-                await client.send_cached_media(
+                msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
@@ -240,11 +247,18 @@ async def start(client, message):
                        ],[
                           InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/KingVJ01")
                          ],[ 
-                            InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
+                            InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{msg.get("file_id")}') #Don't change anything without contacting me @KingVJ01
                             ]
                         ]
                     )
                 )
+                filesarr.append(msg)
+                k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+                await asyncio.sleep(600)
+                for x in filesarr:
+                    await x.delete()
+                await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
+            
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
