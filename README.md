@@ -15,8 +15,7 @@
 - [x] Refer To Get Premium Added
 - [x] Url Shortner On / Off Feature Added
 - [x] Pm Search On / Off Added (Spell Check Not Work)
-- [x] Stream Feature Added With Many Player Support
-- [x] Stream Feature Fixed In Batch 
+- [x] Stream Feature Added With Many Player Support 
 - [x] Language & Season & Quality & Episode Choose Option
 - [x] Custom Url Shortner Support
 - [x] Token Verification Added
