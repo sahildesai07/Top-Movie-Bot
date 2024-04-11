@@ -24,6 +24,8 @@ from database.connections_mdb import active_connection
 import re, asyncio, os, sys
 import json
 import base64
+from urllib.parse import quote_plus
+from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
