@@ -205,10 +205,10 @@ async def start(client, message):
                 f_caption = f"{title}"
             try:
                 # Create the inline keyboard button with callback_data
-                file_id=msg.get("file_id")
+                
                 msg = await client.send_cached_media(
                     chat_id=message.from_user.id,
-                    file_id=file_id,
+                    file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     reply_markup=InlineKeyboardMarkup(
