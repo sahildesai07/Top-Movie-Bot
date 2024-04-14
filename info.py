@@ -112,7 +112,7 @@ QUALITIES = ["360p", "480p", "720p", "1080p", "1440p", "2160p"]
 
 
 # Online Stream and Download
-STREAM_MODE = bool(environ.get('STREAM_MODE', True))
+STREAM_MODE = bool(environ.get('STREAM_MODE', True)) # Set True or Flase
 
 # If Stream Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
 NO_PORT = bool(environ.get('NO_PORT', False))
@@ -138,9 +138,9 @@ else:
     ON_HEROKU = False
 HAS_SSL=bool(getenv('HAS_SSL',False))
 if HAS_SSL:
-    URL = "https://mytestvj-1712ee43580d.herokuapp.com/"
+    URL = "https://mytestvj-998c9929dc7a.herokuapp.com/"
 else:
-    URL = "https://mytestvj-1712ee43580d.herokuapp.com/"
+    URL = "https://mytestvj-998c9929dc7a.herokuapp.com/"
 
 
 
