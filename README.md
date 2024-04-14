@@ -83,7 +83,7 @@ Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Updat
 * `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/I36_OTWvT2w)
 * `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com).
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
-* `FDQN`: Add Your Deploy Server App url Must Add this Stream Working Properly.</b>
+* `URL`: Add Your Deploy Server App url Must Add this for Stream Working Properly.</b>
 ### Optional Variables
 * <b>`PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
