@@ -1385,8 +1385,6 @@ async def stop_button(bot, message):
 
 @Client.on_message(filters.command("nofsub"))
 async def nofsub(client, message):
-    if SHORTLINK_MODE == False:
-        return 
     userid = message.from_user.id if message.from_user else None
     if not userid:
         return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
