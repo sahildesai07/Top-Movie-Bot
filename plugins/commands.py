@@ -1474,7 +1474,7 @@ async def fsub(client, message):
     else:
         return
     userid = message.from_user.id
-    user = await client.get_chat_member(grp_id, userid)
+    user = await client.get_chat_member(grpid, userid)
     if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
         return
     else:
@@ -1489,7 +1489,7 @@ async def fsub(client, message):
     channels = "Channels:\n"
     for id in fsub_ids:
         try:
-            chat = await client.get_chat(int(id))
+            chat = await client.get_chat(id)
         except Exception as e:
             return await message.reply_text(f"{id} is invalid!\nMake sure this bot admin in that channel.\n\nError - {e}")
         if chat.type != enums.ChatType.CHANNEL:
