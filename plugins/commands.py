@@ -6,6 +6,8 @@
 # referal code credit - @VJBots
 
 import os
+import string
+import time
 import logging
 import random
 import asyncio
