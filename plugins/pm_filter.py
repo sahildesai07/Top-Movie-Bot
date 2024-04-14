@@ -1309,6 +1309,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except Exception as e:
             logger.exception(e)
             await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=sendfiles4_{key}")
+
+    elif query.data.startswith("tryagain"):
+        ident, chat_id, data = query.data.split("#")
+        settings = await get_settings(int(chat_id))
+        btn = await is_subscribed(client, query, settings['fsub'])
+        if btn:
+            await query.answer("Kindly Join Given Channel Then Click On Try Again Button", show_alert=True)
+        else:
+            await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={data}")
     
     elif query.data.startswith("del"):
         ident, file_id = query.data.split("#")
