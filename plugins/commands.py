@@ -18,7 +18,7 @@ from pyrogram.types import *
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
 from database.users_chats_db import db, delete_all_referal_users, get_referal_users_count, get_referal_all_users, referal_add_user
 from info import CHANNELS, ADMINS, SHORTLINK_MODE, PREMIUM_AND_REFERAL_MODE, STREAM_MODE, AUTH_CHANNEL, OWNER_USERNAME, REFERAL_PREMEIUM_TIME, REFERAL_COUNT, PAYMENT_TEXT, PAYMENT_QR, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, CHNL_LNK, GRP_LNK, REQST_CHANNEL, SUPPORT_CHAT_ID, SUPPORT_CHAT, MAX_B_TN, VERIFY, SHORTLINK_API, SHORTLINK_URL, TUTORIAL, IS_TUTORIAL, URL
-from utils import get_settings, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial, get_seconds
+from utils import get_settings, is_subscribed, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial, get_seconds
 from database.connections_mdb import active_connection
 # from plugins.pm_filter import ENABLE_SHORTLINK
 import re, asyncio, os, sys
@@ -265,11 +265,6 @@ async def start(client, message):
                         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚀 Fast Download 🚀", url=download),  # we download Link
                                                             InlineKeyboardButton('🖥️ Watch online 🖥️', url=stream)]])  # web stream Link
                     )
-                
-   #     except Exception as e:
-    #        print(e)  # print the error message
-   #         await query.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
-    #        return
                 if STREAM_MODE == True:
                     button = [[
                         InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ Gʀᴏᴜᴘ', url=f'https://t.me/{SUPPORT_CHAT}'),
@@ -394,6 +389,25 @@ async def start(client, message):
     if data.startswith("sendfiles"):
         chat_id = int("-" + file_id.split("-")[1])
         userid = message.from_user.id if message.from_user else None
+        settings = await get_settings(chat_id)
+        if settings['fsub'] != None:
+            try:
+                btn = await is_subscribed(client, message, int(settings['fsub']))
+                if btn:
+                    btn.append(
+                        [InlineKeyboardButton("♻️ Try Again ♻️", callback_data=f"tryagain#{chat_id}#{data}")]
+                    )
+                    reply_markup = InlineKeyboardMarkup(btn)
+                
+                await message.reply_photo(
+                    photo=random.choice(PICS),
+                    caption=f"👋 Hello {message.from_user.mention},\n\nPlease join update channel then and try again. 😇",
+                    reply_markup=reply_markup,
+                    parse_mode=enums.ParseMode.HTML
+                )
+                return
+            except:
+                pass
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=allfiles_{file_id}")
         k = await client.send_message(chat_id=message.from_user.id,text=f"<b>Get All Files in a Single Click!!!\n\n📂 ʟɪɴᴋ ➠ : {g}\n\n<i>Note: This message is deleted in 5 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(
                 [
@@ -413,6 +427,25 @@ async def start(client, message):
     elif data.startswith("short"):
         user = message.from_user.id
         chat_id = temp.SHORT.get(user)
+        settings = await get_settings(chat_id)
+        if settings['fsub'] != None:
+            try:
+                btn = await is_subscribed(client, message, int(settings['fsub']))
+                if btn:
+                    btn.append(
+                        [InlineKeyboardButton("♻️ Try Again ♻️", callback_data=f"tryagain#{chat_id}#{data}")]
+                    )
+                    reply_markup = InlineKeyboardMarkup(btn)
+                
+                await message.reply_photo(
+                    photo=random.choice(PICS),
+                    caption=f"👋 Hello {message.from_user.mention},\n\nPlease join update channel then and try again. 😇",
+                    reply_markup=reply_markup,
+                    parse_mode=enums.ParseMode.HTML
+                )
+                return
+            except:
+                pass
         files_ = await get_file_details(file_id)
         files = files_[0]
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
@@ -499,6 +532,24 @@ async def start(client, message):
         else:
             chat_id = temp.SHORT.get(user)
         settings = await get_settings(chat_id)
+        if settings['fsub'] != None:
+            try:
+                btn = await is_subscribed(client, message, int(settings['fsub']))
+                if btn:
+                    btn.append(
+                        [InlineKeyboardButton("♻️ Try Again ♻️", callback_data=f"tryagain#{chat_id}#{data}")]
+                    )
+                    reply_markup = InlineKeyboardMarkup(btn)
+                
+                await message.reply_photo(
+                    photo=random.choice(PICS),
+                    caption=f"👋 Hello {message.from_user.mention},\n\nPlease join update channel then and try again. 😇",
+                    reply_markup=reply_markup,
+                    parse_mode=enums.ParseMode.HTML
+                )
+                return
+            except:
+                pass
         if settings['is_shortlink'] not await db.has_premium_access(user):
             files_ = await get_file_details(file_id)
             files = files_[0]
