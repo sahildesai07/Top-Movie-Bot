@@ -1464,12 +1464,16 @@ async def nofsub(client, message):
 async def fsub(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply("<b>You are Anonymous admin you can't use this command !\n\nTurn Off Anonymous To Use This Command.</b>")
+        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
     chat_type = message.chat.type
-    if chat_type not in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        return await message.reply_text("Use this command in group.")      
-    grp_id = message.chat.id
-    title = message.chat.title
+    if chat_type == enums.ChatType.PRIVATE:
+        return await message.reply_text("This Command Work Only in group\n\nTry it in your own group")
+    elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        grpid = message.chat.id
+        title = message.chat.title
+    else:
+        return
+    userid = message.from_user.id
     user = await client.get_chat_member(grp_id, userid)
     if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
         return
@@ -1491,7 +1495,7 @@ async def fsub(client, message):
         if chat.type != enums.ChatType.CHANNEL:
             return await message.reply_text(f"{id} is not channel.")
         channels += f'{chat.title}\n'
-    await save_group_settings(grp_id, 'fsub', fsub_ids)
+    await save_group_settings(grpid, 'fsub', fsub_ids)
     await message.reply_text(f"Successfully set force channels for {title} to\n\n{channels}")
         
 
