@@ -1477,7 +1477,7 @@ async def fsub(client, message):
         ids = message.text.split(" ", 1)[1]
         fsub_ids = list(map(int, ids.split()))
     except IndexError:
-        return await message.reply_text("Command Incomplete!\n\nAdd Multiple Channel By Seperate Space. Like: /set_fsub id1 id2 id3")
+        return await message.reply_text("Command Incomplete!\n\nAdd Multiple Channel By Seperate Space. Like: /fsub id1 id2 id3")
     except ValueError:
         return await message.reply_text('Make Sure Id is Integer.')        
     channels = "Channels:\n"
