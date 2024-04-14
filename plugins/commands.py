@@ -446,6 +446,7 @@ async def start(client, message):
                 return
             except:
                 pass
+            return 
         files_ = await get_file_details(file_id)
         files = files_[0]
         g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=file_{file_id}")
@@ -550,6 +551,7 @@ async def start(client, message):
                 return
             except:
                 pass
+            return 
         if settings['is_shortlink'] not await db.has_premium_access(user):
             files_ = await get_file_details(file_id)
             files = files_[0]
