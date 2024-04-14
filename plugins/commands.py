@@ -1454,7 +1454,7 @@ async def nofsub(client, message):
         return
     else:
         pass
-    await save_group_settings(grp_id, 'fsub', None)
+    await save_group_settings(grpid, 'fsub', None)
     await message.reply_text(f"Successfully removed force subscribe.")
 
 @Client.on_message(filters.command('fsub'))
@@ -1482,7 +1482,7 @@ async def fsub(client, message):
     channels = "Channels:\n"
     for id in fsub_ids:
         try:
-            chat = await client.get_chat(id)
+            chat = await client.get_chat(int(id))
         except Exception as e:
             return await message.reply_text(f"{id} is invalid!\nMake sure this bot admin in that channel.\n\nError - {e}")
         if chat.type != enums.ChatType.CHANNEL:
