@@ -120,11 +120,6 @@ STREAM_MODE = bool(environ.get('STREAM_MODE', True)) # Set True or Flase
 # If Stream Mode Is True Then Fill All Required Variable, If False Then Don't Fill.
 NO_PORT = bool(environ.get('NO_PORT', False))
 APP_NAME = None
-if 'DYNO' in environ:
-    ON_HEROKU = True
-    APP_NAME = environ.get('APP_NAME')
-else:
-    ON_HEROKU = False
 BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
 SLEEP_THRESHOLD = int(environ.get('SLEEP_THRESHOLD', '60'))
 WORKERS = int(environ.get('WORKERS', '4'))
@@ -135,15 +130,9 @@ PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
 if 'DYNO' in environ:
     ON_HEROKU = True
     APP_NAME = str(getenv('APP_NAME'))
-
 else:
     ON_HEROKU = False
-HAS_SSL=bool(getenv('HAS_SSL',False))
-if HAS_SSL:
-    URL = "https://mytestvj-998c9929dc7a.herokuapp.com/"
-else:
-    URL = "https://mytestvj-998c9929dc7a.herokuapp.com/"
-
+URL = environ.get("URL", "https://mytestvj-998c9929dc7a.herokuapp.com/")
 
 
 LOG_STR = "Current Cusomized Configurations are:-\n"
