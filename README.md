@@ -13,6 +13,8 @@
   
 - [x] Premium Plan Feature Added
 - [x] Refer To Get Premium Added
+- [x] Premium And Refer On / Off Added
+- [x] Stream Feature On / Off Added
 - [x] Url Shortner On / Off Feature Added
 - [x] Pm Search On / Off Added (Spell Check Not Work)
 - [x] Stream Feature Added With Many Player Support 
