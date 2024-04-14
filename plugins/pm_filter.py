@@ -2398,7 +2398,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
         settings = await get_settings(grpid)
 
-        if settings is not None and SHORTLINK_MODE == True:
+        if SHORTLINK_MODE == True:
             buttons = [
                 [
                     InlineKeyboardButton('Rᴇsᴜʟᴛ Pᴀɢᴇ',
@@ -2512,6 +2512,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                          callback_data=f'setgs#max_btn#{settings["max_btn"]}#{str(grp_id)}')
                 ]
             ]
+        if settings is not None:
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     await query.answer(MSG_ALRT)
