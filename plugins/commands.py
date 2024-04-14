@@ -1467,7 +1467,7 @@ async def fsub(client, message):
         return await message.reply_text("Use this command in group.")      
     grp_id = message.chat.id
     title = message.chat.title
-    user = await client.get_chat_member(grpid, userid)
+    user = await client.get_chat_member(grp_id, userid)
     if user.status != enums.ChatMemberStatus.ADMINISTRATOR and user.status != enums.ChatMemberStatus.OWNER and str(userid) not in ADMINS:
         return
     else:
