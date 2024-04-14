@@ -73,6 +73,18 @@ async def pub_is_subscribed(bot, query, channel):
             pass
     return btn
 
+async def pub_subscribed(bot, query, channel): 
+    try:
+        for id in channel:
+            user = await bot.get_chat_member(int(id), query.from_user.id)
+    except UserNotParticipant:
+        pass
+    except Exception as e:
+        logger.exception(e)
+    else:
+        if user.status != enums.ChatMemberStatus.BANNED:
+            return True
+    return False
 
 async def is_subscribed(bot, query):
     try:
