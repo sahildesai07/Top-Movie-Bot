@@ -2,7 +2,6 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-# https://github.com/odysseusmax/animated-lamp/blob/master/bot/database/database.py
 import re
 from pymongo.errors import DuplicateKeyError
 import motor.motor_asyncio
@@ -160,6 +159,7 @@ class Database:
             'shortlink': SHORTLINK_URL,
             'shortlink_api': SHORTLINK_API,
             'is_shortlink': IS_SHORTLINK,
+            'fsub': None
             'tutorial': TUTORIAL,
             'is_tutorial': IS_TUTORIAL
         }
