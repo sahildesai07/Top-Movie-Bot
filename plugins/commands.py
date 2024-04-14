@@ -853,7 +853,7 @@ async def settings(client, message):
     else:
         pass
 
-     if SHORTLINK_MODE == True:
+    if SHORTLINK_MODE == True:
         buttons = [
             [
                 InlineKeyboardButton(
