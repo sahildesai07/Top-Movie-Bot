@@ -1506,7 +1506,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(btn2)
         await query.message.edit_text(f"<b>Yᴏᴜʀ sᴇᴛᴛɪɴɢs ᴍᴇɴᴜ ғᴏʀ {title} ʜᴀs ʙᴇᴇɴ sᴇɴᴛ ᴛᴏ ʏᴏᴜʀ PM</b>")
         await query.message.edit_reply_markup(reply_markup)
-        if settings is not None and SHORTLINK_MODE == True:
+        if SHORTLINK_MODE == True:
             buttons = [
                 [
                     InlineKeyboardButton('Rᴇsᴜʟᴛ Pᴀɢᴇ',
@@ -1620,6 +1620,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                                          callback_data=f'setgs#max_btn#{settings["max_btn"]}#{str(grp_id)}')
                 ]
             ]
+        if settings is not None:
             reply_markup = InlineKeyboardMarkup(buttons)
             await client.send_message(
                 chat_id=userid,
@@ -2387,9 +2388,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if str(grp_id) != str(grpid):
             await query.message.edit("Yᴏᴜʀ Aᴄᴛɪᴠᴇ Cᴏɴɴᴇᴄᴛɪᴏɴ Hᴀs Bᴇᴇɴ Cʜᴀɴɢᴇᴅ. Gᴏ Tᴏ /connections ᴀɴᴅ ᴄʜᴀɴɢᴇ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴄᴏɴɴᴇᴄᴛɪᴏɴ.")
             return await query.answer(MSG_ALRT)
-
-        if set_type == 'is_shortlink' and query.from_user.id not in ADMINS:
-            return await query.answer(text=f"Hey {query.from_user.first_name}, You can't change shortlink settings for your group !\n\nIt's an admin only setting !", show_alert=True)
 
         if status == "True":
             await save_group_settings(grpid, set_type, False)
