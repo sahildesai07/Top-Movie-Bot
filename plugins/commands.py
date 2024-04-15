@@ -1386,10 +1386,10 @@ async def stop_button(bot, message):
 async def nofsub(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
+        return await message.reply(f"<b>You are anonymous admin. Turn off anonymous admin and try again this command</b>")
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text("This Command Work Only in group\n\nTry it in your own group")
+        return await message.reply_text("<b>This Command Work Only in group\n\nTry it in your own group</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grpid = message.chat.id
         title = message.chat.title
@@ -1402,16 +1402,16 @@ async def nofsub(client, message):
     else:
         pass
     await save_group_settings(grpid, 'fsub', None)
-    await message.reply_text(f"Successfully removed force subscribe.")
+    await message.reply_text(f"<b>Successfully removed force subscribe from {title}.</b>")
 
 @Client.on_message(filters.command('fsub'))
 async def fsub(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Turn off anonymous admin and try again this command")
+        return await message.reply(f"<b>You are anonymous admin. Turn off anonymous admin and try again this command</b>")
     chat_type = message.chat.type
     if chat_type == enums.ChatType.PRIVATE:
-        return await message.reply_text("This Command Work Only in group\n\nTry it in your own group")
+        return await message.reply_text("<b>This Command Work Only in group\n\nTry it in your own group</b>")
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         grpid = message.chat.id
         title = message.chat.title
@@ -1427,20 +1427,20 @@ async def fsub(client, message):
         ids = message.text.split(" ", 1)[1]
         fsub_ids = [int(id) for id in ids.split()]
     except IndexError:
-        return await message.reply_text("Command Incomplete!\n\nAdd Multiple Channel By Seperate Space. Like: /fsub id1 id2 id3")
+        return await message.reply_text("<b>Command Incomplete!\n\nAdd Multiple Channel By Seperate Space. Like: /fsub id1 id2 id3</b>")
     except ValueError:
-        return await message.reply_text('Make Sure Id is Integer.')        
+        return await message.reply_text('<b>Make Sure Ids are Integer.</b>')        
     channels = "Channels:\n"
     for id in fsub_ids:
         try:
             chat = await client.get_chat(id)
         except Exception as e:
-            return await message.reply_text(f"{id} is invalid!\nMake sure this bot admin in that channel.\n\nError - {e}")
+            return await message.reply_text(f"<b>{id} is invalid!\nMake sure this bot admin in that channel.\n\nError - {e}</b>")
         if chat.type != enums.ChatType.CHANNEL:
-            return await message.reply_text(f"{id} is not channel.")
+            return await message.reply_text(f"<b>{id} is not channel.</b>")
         channels += f'{chat.title}\n'
     await save_group_settings(grpid, 'fsub', fsub_ids)
-    await message.reply_text(f"Successfully set force channels for {title} to\n\n{channels}")
+    await message.reply_text(f"<b>Successfully set force channels for {title} to\n\n{channels}\n\nYou can remove it by /nofsub.</b>")
         
 
 @Client.on_message(filters.command("add_premium"))
