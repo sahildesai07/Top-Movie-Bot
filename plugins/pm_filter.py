@@ -1336,15 +1336,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
             logger.exception(e)
             await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=sendfiles4_{key}")
 
-    elif query.data.startswith("tryagain"):
-        ident, chat_id, data = query.data.split("#")
-        settings = await get_settings(int(chat_id))
-        btn = await is_subscribed(client, query, settings['fsub'])
+    elif query.data.startswith("unmuteme"):
+        ident, userid = query.data.split("#")
+        user_id = query.from_user.id
+        settings = await get_settings(int(query.message.chat.id))
+        if userid == 0:
+            await query.answer("You are anonymous admin !", show_alert=True)
+            return
+        if userid != user_id:
+            await query.answer("Not For You ☠️", show_alert=True)
+            return
+        btn = await pub_is_subscribed(client, query, settings['fsub'])
         if btn:
-            await query.answer("Kindly Join Given Channel Then Click On Try Again Button", show_alert=True)
+           await query.answer("Kindly Join Given Channel Then Click On Unmute Button", show_alert=True)
         else:
-            await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start={data}")
-    
+            await client.unban_chat_member(query.message.chat.id, user_id)
+            await query.answer("Unmuted Successfully !", show_alert=True)
+            try:
+                await query.message.delete()
+            except:
+                return
+   
     elif query.data.startswith("del"):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
