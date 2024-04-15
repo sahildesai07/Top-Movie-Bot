@@ -23,7 +23,7 @@ from info import *
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_tutorial, send_all, get_cap
+from utils import get_size, is_subscribed, pub_is_subscribed, get_poster, search_gagala, temp, get_settings, save_group_settings, get_shortlink, get_tutorial, send_all, get_cap
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import (
@@ -54,8 +54,31 @@ SPELL_CHECK = {}
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def give_filter(client, message):
-  #  await message.react(emoji="♥️")
     if message.chat.id != SUPPORT_CHAT_ID:
+        settings = await get_settings(message.chat.id)
+        chatid = message.chat.id
+        userid = message.from_user.id if message.from_user else None
+        user_id = message.from_user.id if message.from_user else 0
+        if settings['fsub'] != None:
+            try:
+                btn = await pub_is_subscribed(client, message, int(settings['fsub']))
+                if btn:
+                    btn.append(
+                        [InlineKeyboardButton("Unmute Me 🔕", callback_data=f"unmuteme#{user_id}")]
+                    )
+                    reply_markup = InlineKeyboardMarkup(btn)
+                
+                await client.restrict_chat_member(chatid, message.from_user.id, ChatPermissions(can_send_messages=False))
+                await message.reply_photo(
+                    photo=random.choice(PICS),
+                    caption=f"👋 Hello {message.from_user.mention},\n\nPlease join the channel then click on unmute me button. 😇",
+                    reply_markup=reply_markup,
+                    parse_mode=enums.ParseMode.HTML
+                )
+                return
+            except Exception as e:
+                print(e)
+            
         manual = await manual_filters(client, message)
         if manual == False:
             settings = await get_settings(message.chat.id)
