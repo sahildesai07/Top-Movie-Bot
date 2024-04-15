@@ -12,7 +12,8 @@
 <b>
   
 - [x] Premium Plan Feature 
-- [x] Refer To Get Premium 
+- [x] Refer To Get Premium
+- [x] Custom Force Subscribe 
 - [x] Premium And Refer On / Off 
 - [x] Stream Feature On / Off 
 - [x] Url Shortner On / Off Feature 
