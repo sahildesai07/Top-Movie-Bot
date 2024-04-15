@@ -56,15 +56,13 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     if message.chat.id != SUPPORT_CHAT_ID:
         settings = await get_settings(message.chat.id)
-        chatid = message.chat.id
-        userid = message.from_user.id if message.from_user else None
-        user_id = message.from_user.id if message.from_user else 0
+        chatid = message.chat.id 
         if settings['fsub'] != None:
             try:
                 btn = await pub_is_subscribed(client, message, settings['fsub'])
                 if btn:
                     btn.append(
-                        [InlineKeyboardButton("Unmute Me 🔕", callback_data=f"unmuteme#{user_id}")]
+                        [InlineKeyboardButton("Unmute Me 🔕", callback_data=f"unmuteme#{message.from_user.id}")]
                     )
                     reply_markup = InlineKeyboardMarkup(btn)
                 
