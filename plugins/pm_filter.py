@@ -61,7 +61,7 @@ async def give_filter(client, message):
         user_id = message.from_user.id if message.from_user else 0
         if settings['fsub'] != None:
             try:
-                btn = await pub_is_subscribed(client, message, int(settings['fsub']))
+                btn = await pub_is_subscribed(client, message, settings['fsub'])
                 if btn:
                     btn.append(
                         [InlineKeyboardButton("Unmute Me 🔕", callback_data=f"unmuteme#{user_id}")]
