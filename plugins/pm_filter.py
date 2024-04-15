@@ -1342,19 +1342,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if userid == 0:
             await query.answer("You are anonymous admin !", show_alert=True)
             return
-        if userid != user_id:
-            await query.answer("Not For You ☠️", show_alert=True)
-            return
-        btn = await pub_is_subscribed(client, query, settings['fsub'])
-        if btn:
-           await query.answer("Kindly Join Given Channel Then Click On Unmute Button", show_alert=True)
-        else:
-            await client.unban_chat_member(query.message.chat.id, user_id)
-            await query.answer("Unmuted Successfully !", show_alert=True)
-            try:
-                await query.message.delete()
-            except:
-                return
+        try:
+            btn = await pub_is_subscribed(client, query, settings['fsub'])
+            if btn:
+                await query.answer("Kindly Join Given Channel Then Click On Unmute Button", show_alert=True)
+            else:
+                await client.unban_chat_member(query.message.chat.id, user_id)
+                await query.answer("Unmuted Successfully !", show_alert=True)
+                try:
+                    await query.message.delete()
+                except:
+                    return
+        except:
+            await query.answer("Not For Your My Dear", show_alert=True)
    
     elif query.data.startswith("del"):
         ident, file_id = query.data.split("#")
