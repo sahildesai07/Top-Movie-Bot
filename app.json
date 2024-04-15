@@ -1,6 +1,6 @@
 {
     "name": "VJ-FILTER-BOT",
-    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
+    "description": "This is auto filter bot with many advanced features.",
     "stack": "container",
     "keywords": [
       "telegram",
@@ -31,15 +31,15 @@
             "required": true
         },
         "CHANNELS": {
-            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
-            "required": false
+            "description": "ID of file channel. Separate multiple IDs by space.",
+            "required": true
         },
         "ADMINS": {
-            "description": "Username or ID of Admin. Separate multiple Admins by space.",
+            "description": "ID of Admin. Separate multiple Admins id by space.",
             "required": true
         },
         "PICS": {
-            "description": "Add some telegraph link of pictures .",
+            "description": "Add some telegraph link of pictures.",
             "required": false
         },
         "LOG_CHANNEL": {
@@ -47,7 +47,7 @@
             "required": true
         },
         "AUTH_USERS": {
-            "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
+            "description": "ID of users to give access of auth command.Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
             "required": false
         },
         "AUTH_CHANNEL": {
