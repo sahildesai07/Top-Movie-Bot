@@ -22,7 +22,7 @@ async def removethumb(client, message):
 	
 @Client.on_message(filters.private & filters.command(['set_thumb']))
 async def addthumbs(client, message):
-    thumb = await bot.ask(message.chat.id, "**Send me your thumbnail**")
+    thumb = await client.ask(message.chat.id, "**Send me your thumbnail**")
     if thumb.media and thumb.media == enums.MessageMediaType.PHOTO:
 	await db.set_thumbnail(user_id, file_id=thumb.photo.file_id)                
         await message.reply("**Thumbnail saved successfully**✅️")
