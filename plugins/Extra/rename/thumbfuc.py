@@ -2,10 +2,10 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-from pyrogram import Client, filters
-from helper.database import db
+from pyrogram import Client, filters, enums
+from database.users_chats_db import db
 
-@Client.on_message(filters.private & filters.command(['viewthumb']))
+@Client.on_message(filters.private & filters.command(['view_thumb']))
 async def viewthumb(client, message):    
     thumb = await db.get_thumbnail(message.from_user.id)
     if thumb:
@@ -15,14 +15,17 @@ async def viewthumb(client, message):
     else:
         await message.reply_text("😔**Sorry ! No thumbnail found...**😔") 
 		
-@Client.on_message(filters.private & filters.command(['delthumb']))
+@Client.on_message(filters.private & filters.command(['del_thumb']))
 async def removethumb(client, message):
     await db.set_thumbnail(message.from_user.id, file_id=None)
     await message.reply_text("**Thumbnail deleted successfully**✅️")
 	
-@Client.on_message(filters.private & filters.photo)
+@Client.on_message(filters.private & filters.command(['set_thumb']))
 async def addthumbs(client, message):
-    LazyDev = await message.reply_text("Please Wait ...")
-    await db.set_thumbnail(message.from_user.id, file_id=message.photo.file_id)                
-    await LazyDev.edit("**Thumbnail saved successfully**✅️")
+    thumb = await bot.ask(message.chat.id, "**Send me your thumbnail**")
+    if thumb.media and thumb.media == enums.MessageMediaType.PHOTO:
+	await db.set_thumbnail(user_id, file_id=thumb.photo.file_id)                
+        await message.reply("**Thumbnail saved successfully**✅️")
+    else:
+	await message.reply("**This is not a picture**")
 	
