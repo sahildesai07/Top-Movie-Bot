@@ -52,7 +52,7 @@ ytthumb
 jinja2
 apscheduler
 pyshorteners
-pyromod
+pyromod==1.5
 colorama
 openai==0.25.0
 
