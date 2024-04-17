@@ -23,6 +23,7 @@ async def refunc(client, message):
                     new_name = new_name.replace(".", "")  # Remove the dot from new_name
                 else:
                     new_name = new_name
+                print(new_name)
                 try:
                     out = filename.split(".")
                     out_name = out[-1]
