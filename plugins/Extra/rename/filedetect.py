@@ -20,10 +20,9 @@ async def refunc(client, message):
             mg_id = media.reply_to_message.id
             try:
                 if "." in new_name:
-                    out = new_name.split(".")
-                    vjnew_name = "".join(out)  # Join all parts without the dot
+                    new_name = new_name.replace(".", "")  # Remove the dot from new_name
                 else:
-                    vjnew_name = new_name
+                    new_name = new_name
                 try:
                     out = filename.split(".")
                     out_name = out[-1]
@@ -46,6 +45,10 @@ async def refunc(client, message):
                 await message.reply_text(f"**Select the output file type**\n**🎞New Name** :- ```{out_filename}```", reply_to_message_id=mg_id, reply_markup=markup)
 
             except:
+                if "." in new_name:
+                    new_name = new_name.replace(".", "")  # Remove the dot from new_name
+                else:
+                    new_name = new_name
                 try:
                     out = filename.split(".")
                     out_name = out[-1]
