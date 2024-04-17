@@ -127,7 +127,7 @@ else:
 URL = environ.get("URL", "https://mytestvj-998c9929dc7a.herokuapp.com/")
 
 
-# Rename Mode ; If True Then Bot Rename File Else Not
+# Rename Info ; If True Then Bot Rename File Else Not
 RENAME_MODE = bool(environ.get('RENAME_MODE', True)) # Set True or Flase
 
 
