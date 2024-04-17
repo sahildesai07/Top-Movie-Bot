@@ -2,11 +2,14 @@ from asyncio import sleep
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
 from pyrogram.errors import FloodWait
+from info import RENAME_MODE
 import humanize
 import random
 
 @Client.on_message(filters.private & filters.command("rename"))
 async def rename_start(client, message):
+    if RENAME_MODE == False:
+        return 
     msg = await client.ask(message.chat.id, "**Now send me your file/video/audio to rename.**")
     if not msg.media:
       return await message.reply("**Please send me supported media.**")
