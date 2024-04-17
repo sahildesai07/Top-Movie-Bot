@@ -19,10 +19,6 @@ async def refunc(client, message):
             mime = types[0]
             mg_id = media.reply_to_message.id
             try:
-                out = new_name.split(".")
-              #  out[1]
-                out_name = out[1]
-                out_filename = new_name
                 if "." in new_name:
                     out = new_name.split(".")
                     new_name = "".join(out)  # Join all parts without the dot
