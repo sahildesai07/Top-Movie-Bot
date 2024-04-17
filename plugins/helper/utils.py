@@ -44,8 +44,8 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
                     ]]
                 )
             )
-        except:
-            pass
+        except Exception as e:
+            print(e)
 
 def humanbytes(size):
     # https://stackoverflow.com/a/49361727/4723940
