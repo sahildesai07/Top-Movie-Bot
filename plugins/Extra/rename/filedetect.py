@@ -26,7 +26,7 @@ async def refunc(client, message):
                         new_name = new_name.replace(".mkv", "")
                 else:
                     new_name = new_name
-                print(new_name)
+             #   print(new_name)
                 await message.reply_to_message.delete()
                 if mime == "video":
                     markup = InlineKeyboardMarkup([[
