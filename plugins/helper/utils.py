@@ -4,7 +4,7 @@
 
 import math
 import time 
-from helper.txt import mr
+from Script import script
 from pyrogram.errors import UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import enums
@@ -28,7 +28,7 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             ''.join(["█" for i in range(math.floor(percentage / 5))]),
             ''.join(["░" for i in range(20 - math.floor(percentage / 5))]))
             
-        tmp = progress + mr.PROGRESS_BAR.format( 
+        tmp = progress + script.PROGRESS_BAR.format( 
             round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
@@ -80,18 +80,6 @@ def convert(seconds):
     seconds %= 60      
     return "%d:%02d:%02d" % (hour, minutes, seconds)
 
-async def not_subscribed(_, client, message):
-   if not client.force_channel:
-      return False
-   try:             
-      user = await client.get_chat_member(client.force_channel, message.from_user.id)
-   except UserNotParticipant:
-      pass
-   else:
-      if user.status != enums.ChatMemberStatus.BANNED:                       
-         return False 
-   return True
-         
 
 
 
