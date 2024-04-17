@@ -2,7 +2,7 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-from plugins.helper.utils import progress_for_pyrogram, convert, humanize
+from plugins.helper.utils import progress_for_pyrogram, convert, humanbytes
 from pyrogram import Client, filters
 from pyrogram.types import (  InlineKeyboardButton, InlineKeyboardMarkup,ForceReply)
 from hachoir.metadata import extractMetadata
@@ -12,6 +12,9 @@ import os
 import humanize
 from PIL import Image
 import time
+import logging
+logger = logging.getLogger(__name__)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 @Client.on_callback_query(filters.regex('cancel'))
 async def cancel(bot,update):
