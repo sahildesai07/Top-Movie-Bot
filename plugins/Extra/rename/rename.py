@@ -13,7 +13,7 @@ async def rename_start(client, message):
     msg = await client.ask(message.chat.id, "**Now send me your file/video/audio to rename.**")
     if not msg.media:
         return await message.reply("**Please send me supported media.**")
-    if msg.media == enums.MessageMediaType.VIDEO or enums.MessageMediaType.DOCUMENT or enums.MessageMediaType.AUDIO:
+    if msg.media in [enums.MessageMediaType.VIDEO, enums.MessageMediaType.DOCUMENT, enums.MessageMediaType.AUDIO]:
         file = getattr(msg, msg.media.value)
         filename = file.file_name
         filesize = humanize.naturalsize(file.file_size) 
