@@ -53,7 +53,7 @@ async def doc(bot, update):
             return 
         splitpath = path.split("/downloads/")
         dow_file_name = splitpath[1]
-        old_file_name =f"downloads/{dow_file_name}"
+        old_file_name = f"downloads/{dow_file_name}"
         os.rename(old_file_name, file_path)
         duration = 0
         try:
