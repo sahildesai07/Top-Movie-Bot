@@ -19,8 +19,11 @@ async def refunc(client, message):
             mime = types[0]
             mg_id = media.reply_to_message.id
             try:
-                if "." in new_name:
-                    new_name = new_name.replace(".", "")  # Remove the dot from new_name
+                if ".mp4" or ".mkv" in new_name:
+                    if ".mp4" in new_name:
+                        new_name = new_name.replace(".mp4", "")  # Remove the dot from new_name
+                    if ".mkv" in new_name:
+                        new_name = new_name.replace(".mkv", "")
                 else:
                     new_name = new_name
                 print(new_name)
