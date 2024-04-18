@@ -13,11 +13,13 @@
   
 - [x] Premium Plan Feature 
 - [x] Refer To Get Premium
-- [x] Custom Force Subscribe 
+- [x] Custom Force Subscribe
+- [x] Rename Feature & On /Off
 - [x] Premium And Refer On / Off 
 - [x] Stream Feature On / Off 
 - [x] Url Shortner On / Off Feature 
 - [x] Pm Search On / Off (Spell Check Not Work)
+- [x] Custom Stream
 - [x] Stream Feature With Many Player Support 
 - [x] Language & Season & Quality & Episode Choose Option
 - [x] Custom Url Shortner Support
