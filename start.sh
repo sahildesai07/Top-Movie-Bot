@@ -11,6 +11,6 @@ else
   git clone $UPSTREAM_REPO /VJ-FILTER-BOT 
 fi
 cd /VJ-FILTER-BOT 
-pip3 install -U -r requirements.txt
+pip3 install requirements.txt
 echo "Starting Bot...."
 python3 bot.py
