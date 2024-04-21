@@ -158,17 +158,16 @@ Use these settings when adding a monitor:</b>
 </details>
 
 <details><summary><b>Deploy To VPS</summary>
-```
-git clone https://github.com/VJBots/VJ-Filter-Bot
-```
+`git clone https://github.com/VJBots/VJ-Filter-Bot`
+
 Install Packages
-```
-pip3 install -U -r requirements.txt
-```
+
+`pip3 install -U -r requirements.txt`
+
 Edit info.py with variables as given below then run bot
-```
-python3 bot.py
-```
+
+`python3 bot.py`
+
 </b>
 </details>
 
