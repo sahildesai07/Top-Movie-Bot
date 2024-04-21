@@ -157,16 +157,19 @@ Use these settings when adding a monitor:</b>
 </a>
 </details>
 
-<details><summary><b>Deploy To VPS</b></summary>
-<p>
-<pre>
+<details><summary><b>Deploy To VPS</summary>
+```
 git clone https://github.com/VJBots/VJ-Filter-Bot
-# Install Packages
+```
+Install Packages
+```
 pip3 install -U -r requirements.txt
+```
 Edit info.py with variables as given below then run bot
+```
 python3 bot.py
-</pre>
-</p>
+```
+</b>
 </details>
 
 <hr>
@@ -181,7 +184,7 @@ python3 bot.py
 
 ## Note 🏷️
  
-* [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/VJ_Bots)
+* [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/KingVJ01)
 
 <b>[Note To A So Called Dev](https://telegram.dog/vj_botz): 
 
