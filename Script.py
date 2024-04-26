@@ -215,15 +215,17 @@ Nᴀᴍᴇ - {}"""
 
 IMDb Data:
 
-<b>🏷 Title</b>: <a href={url}>{title}</a>
-🎭 Genres: {genres}
-📆 Year: <a href={url}/releaseinfo>{year}</a>
-🌟 Rating: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
-☀️ Languages : <code>{languages}</code>
-📀 RunTime: {runtime} Minutes
-📆 Release Info : {release_date}
-🎛 Countries : <code>{countries}</code>
+<b>☘️ Title</b>: <a href={url}>{title}</a>
 
+📆 Year ➜ <a href={url}/releaseinfo>{year}</a>
+🌟 Rating ➜ <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
+📕 Languages ➜ <code>{languages}</code>
+⏰ RunTime ➜ {runtime} Minutes
+📆 Release Info ➜ {release_date}
+🌍 Countries ➜ <code>{countries}</code>
+📖 Genres ➜ {genres}
+
+@DiniduSilva | @FilmsWithSinhalaSub
 
 ⏰Result Shown in: {remaining_seconds} <i>seconds</i> 🔥
 
@@ -303,11 +305,12 @@ Aᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs:
  </b>""" 
 
     PROGRESS_BAR = """\n
-╭━━━━❰ Tech VJ Renaming... ❱━➣
-┣⪼ 🗂️ : {1} | {2}
-┣⪼ ⏳️ : {0}%
-┣⪼ 🚀 : {3}/s
-┣⪼ ⏱️ : {4}
+╭━━━━❰ Silva Bot Is Renaming... ❱━➣
+┣➜ 🗂️ : {1} | {2}
+┣➜ ⏳️ : {0}%
+┣➜ 🚀 : {3}/s
+┣➜ ⏱️ : {4}
+┣➜ 🌼 : @DiniduSilva | @FilmsWithSinhalaSub
 ╰━━━━━━━━━━━━━━━➣ """
   
     ABOOK_TXT = """<b>ʜᴇʟᴩ : ᴀᴜᴅɪᴏʙᴏᴏᴋ 
