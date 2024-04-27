@@ -609,7 +609,7 @@ async def start(client, message):
                 ],[
                     InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
                 ]]
-            else:
+          else:
                 button = [[
                     InlineKeyboardButton('ᴅᴇᴀʟꜱ ᴄʜᴀɴɴᴇʟ 🛍️', url=f'https://t.me/+CCg4crEbXGoxOTdl'),
                     InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ 🤖', url='https://t.me/Fizzy_Botz')
