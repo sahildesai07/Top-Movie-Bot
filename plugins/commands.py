@@ -602,7 +602,7 @@ async def start(client, message):
             )
             return
     if STREAM_MODE == True:
-        button =[[
+        button = [[
                     InlineKeyboardButton('ᴅᴇᴀʟꜱ ᴄʜᴀɴɴᴇʟ 🛍️', url=f'https://t.me/+CCg4crEbXGoxOTdl'),
                     InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ 🤖', url='https://t.me/Fizzy_Botz')
                 
