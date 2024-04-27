@@ -11,7 +11,7 @@ from info import ADMINS
 from utils import broadcast_messages, broadcast_messages_group
 import asyncio
         
-@Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("broadcast") & filters.user(ADMINS))
 async def pm_broadcast(bot, message):
     if not message.reply_to_message:
         return await message.reply_text("<b>Reply this command to your broadcast message.</b>")
