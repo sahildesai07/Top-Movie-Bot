@@ -56,8 +56,10 @@ async def pm_broadcast(bot, message):
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-@Client.on_message(filters.command("grp_broadcast") & filters.user(ADMINS) & filters.reply)
+@Client.on_message(filters.command("grp_broadcast") & filters.user(ADMINS))
 async def broadcast_group(bot, message):
+    if not message.reply_to_message:
+        return await message.reply_text("<b>Reply this command to your broadcast message.</b>")
     groups = await db.get_all_chats()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
