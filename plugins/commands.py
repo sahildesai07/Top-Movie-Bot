@@ -602,21 +602,19 @@ async def start(client, message):
             )
             return
     if STREAM_MODE == True:
-        button = [[
-            InlineKeyboardButton('Deals Channel', url=f'https://t.me/+CCg4crEbXGoxOTdl'),
-            InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url='https://t.me/Fizzy_Botz')
-        ],[
-            InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="https://t.me/Goitachi")
-        ],[
-            InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
-        ]]
-    else:
-        button = [[
-            InlineKeyboardButton('Deals Channel', url=f'https://t.me/+CCg4crEbXGoxOTdl'),
-            InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ', url='https://t.me/Fizzy_Botz')
-        ],[
-            InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="https://t.me/Goitachi")
-        ]]
+        button =[[
+                    InlineKeyboardButton('ᴅᴇᴀʟꜱ ᴄʜᴀɴɴᴇʟ 🛍️', url=f'https://t.me/+CCg4crEbXGoxOTdl'),
+                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ 🤖', url='https://t.me/Fizzy_Botz')
+                
+                ],[
+                    InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}') #Don't change anything without contacting me @KingVJ01
+                ]]
+            else:
+                button = [[
+                    InlineKeyboardButton('ᴅᴇᴀʟꜱ ᴄʜᴀɴɴᴇʟ 🛍️', url=f'https://t.me/+CCg4crEbXGoxOTdl'),
+                    InlineKeyboardButton('Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ 🤖', url='https://t.me/Fizzy_Botz')
+               
+                ]]
     msg = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
