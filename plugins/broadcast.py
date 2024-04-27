@@ -12,8 +12,9 @@ from utils import broadcast_messages, broadcast_messages_group
 import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
-# https://t.me/GetTGLink/4178
-async def verupikkals(bot, message):
+async def pm_broadcast(bot, message):
+    if not message.reply_to_message:
+        return await message.reply_text("<b>Reply this command to your broadcast message.</b>")
     users = await db.get_all_users()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
@@ -25,7 +26,6 @@ async def verupikkals(bot, message):
     blocked = 0
     deleted = 0
     failed =0
-
     success = 0
     async for user in users:
         if 'id' in user:
@@ -43,7 +43,7 @@ async def verupikkals(bot, message):
             if not done % 20:
                 await sts.edit(f"Broadcast in progress:\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
         else:
-            # Handle the case where 'id' key is missing in the user dictionary
+            # Handle the case where 'id' key is missing in the user dictionary 
             done += 1
             failed += 1
             if not done % 20:
