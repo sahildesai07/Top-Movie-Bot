@@ -51,7 +51,7 @@ async def pm_broadcast(bot, message):
         time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
         await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
     except Exception as e:
-        print(e)
+        print(f"error: {e}")
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
