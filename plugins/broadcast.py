@@ -13,11 +13,9 @@ import asyncio
         
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS))
 async def pm_broadcast(bot, message):
-    if not message.reply_to_message:
-        return await message.reply_text("<b>Reply this command to your broadcast message.</b>")
+    b_msg = await bot.ask(chat_id = message.from_user.id, text = "Now Send Me Your Broadcast Message")
     try:
         users = await db.get_all_users()
-        b_msg = message.reply_to_message
         sts = await message.reply_text('Broadcasting your messages...')
         start_time = time.time()
         total_users = await db.total_users_count()
