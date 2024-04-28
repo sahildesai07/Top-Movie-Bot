@@ -14,7 +14,7 @@
 - [x] Premium Plan Feature 
 - [x] Refer To Get Premium
 - [x] Custom Force Subscribe
-- [x] Rename Feature & On /Off
+- [x] Rename Feature & On / Off
 - [x] Premium And Refer On / Off 
 - [x] Stream Feature On / Off 
 - [x] Url Shortner On / Off Feature 
@@ -22,6 +22,7 @@
 - [x] Custom Stream
 - [x] Stream Feature With Many Player Support 
 - [x] Language & Season & Quality & Episode Choose Option
+- [x] Auto Approve & On / Off
 - [x] Custom Url Shortner Support
 - [x] Token Verification 
 - [x] Send All Button 
