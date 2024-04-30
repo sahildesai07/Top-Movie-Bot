@@ -10,7 +10,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(filters.command(["share_text", "share", "sharetext"]))
 async def share_text(client, message):
-    vj = await bot.ask(chat_id = message.from_user.id, text = "Now Send me your text.")
+    vj = await client.ask(chat_id = message.from_user.id, text = "Now Send me your text.")
     if vj and (vj.text or vj.caption):
         input_text = vj.text or vj.caption
     else:
