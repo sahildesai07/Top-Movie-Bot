@@ -23,23 +23,23 @@ def convert(text):
 
 
 @Client.on_message(filters.command("tts"))
-async def text_to_speech(_, message: Message):
-    if not message.reply_to_message:
-        return await message.reply_text("Reply to some text ffs.")
-    if not message.reply_to_message.text:
-        return await message.reply_text("Reply to some text ffs.")
-    m = await message.reply_text("Processing")
-    text = message.reply_to_message.text
-    try:
-        loop = get_running_loop()
-        audio = await loop.run_in_executor(None, convert, text)
-        await message.reply_audio(audio)
-        await m.delete()
-        audio.close()
-    except Exception as e:
-        await m.edit(e)
-        e = traceback.format_exc()
-        print(e)
+async def text_to_speech(bot, message: Message):
+    vj = await bot.ask(chat_id = message.from_user.id, text = "Now send me your text.")
+    if vj.text:
+        m = await vj.reply_text("Processing")
+        text = vj.text
+        try:
+            loop = get_running_loop()
+            audio = await loop.run_in_executor(None, convert, text)
+            await vj.reply_audio(audio)
+            await m.delete()
+            audio.close()
+        except Exception as e:
+            await m.edit(e)
+            e = traceback.format_exc()
+            print(e)
+    else:
+        await vj.reply_text("Send me only text Buddy.")
 
 
 
