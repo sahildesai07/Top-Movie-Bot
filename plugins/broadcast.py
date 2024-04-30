@@ -47,7 +47,7 @@ async def pm_broadcast(bot, message):
                     await sts.edit(f"Broadcast in progress:\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")    
     
         time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
-        await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
+        await sts.edit(f"Broadcast Completed:\nCompleted in {time_taken} seconds.\n\nTotal Users: {total_users}\nCompleted: {done} / {total_users}\nSuccess: {success}\nBlocked: {blocked}\nDeleted: {deleted}")
     except Exception as e:
         print(f"error: {e}")
 
@@ -59,7 +59,7 @@ async def pm_broadcast(bot, message):
 async def broadcast_group(bot, message):
     b_msg = await bot.ask(chat_id = message.from_user.id, text = "Now Send Me Your Broadcast Message")
     groups = await db.get_all_chats()
-    b_msg = message.reply_to_message
+ #   b_msg = message.reply_to_message
     sts = await message.reply_text(
         text='Broadcasting your messages To Groups...'
     )
