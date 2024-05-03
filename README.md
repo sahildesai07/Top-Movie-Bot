@@ -31,7 +31,7 @@
 
 Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Update Regarding Repo.</b>
 
-#### How To Deploy : [Video Tutorial](https://youtu.be/J5tiWdc_AWM)
+### How To Deploy : [Video Tutorial](https://youtu.be/J5tiWdc_AWM)
 
 ## Commands
 ```
