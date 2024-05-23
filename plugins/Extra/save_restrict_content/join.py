@@ -14,7 +14,7 @@ async def join(bot, message):
         await client.join_chat(invite_link)
         return await message.reply("Successfully joined the Channel")
     except UserAlreadyParticipant:
-        return await message.reply("User is already a participant."
+        return await message.reply("User is already a participant.")
     except (InviteHashInvalid, InviteHashExpired):
         return await message.reply("Could not join. Maybe your link is expired or Invalid.")
     except FloodWait:
