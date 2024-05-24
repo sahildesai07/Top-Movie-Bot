@@ -9,6 +9,7 @@ from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from info import SAVE_RESTRICTED_MODE
 
 MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
@@ -18,6 +19,8 @@ DOWNLOAD_LOCATION = "/app"
 
 @Client.on_message(filters.private & filters.command(['cancel_save']))
 async def cancel_save(client: Client, message: Message):
+    if SAVE_RESTRICTED_MODE == False:
+        return 
     update = message.from_user.id
     save = await db.get_save(update)
     if save == False:
@@ -27,6 +30,8 @@ async def cancel_save(client: Client, message: Message):
 
 @Client.on_message(filters.private & filters.command(['save']))
 async def start_save(client: Client, message: Message):
+    if SAVE_RESTRICTED_MODE == False:
+        return 
     update = message.from_user.id
     save = await db.get_save(update)
     if save == True:
