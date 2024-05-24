@@ -195,9 +195,20 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                     os.remove(file)
             except Exception:
                 pass
-        except Exception:
-            pass
-        await edit.delete()
+            await edit.delete()
+        except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
+            await client.edit_message_text(sender, edit_id, "Have you joined the channel?")
+            return
+        except PeerIdInvalid:
+            chat = msg_link.split("/")[-3]
+            try:
+                int(chat)
+                new_link = f"t.me/c/{chat}/{msg_id}"
+            except:
+                new_link = f"t.me/b/{chat}/{msg_id}"
+            return await get_msg(userbot, client, bot, sender, edit_id, msg_link, i)
+        except Exception as e:
+            print(e)
     else:
         edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
         chat =  msg_link.split("t.me")[1].split("/")[1]
