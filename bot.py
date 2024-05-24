@@ -85,7 +85,7 @@ async def start():
             tech_vj_userbot.start()
         except BaseException:
             print("Userbot Error ! Have you added SESSION while deploying??")
-    
+            sys.exit(1)
         temp.USERBOT = tech_vj_userbot
         temp.TELETHON = telethon_bot
     logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
