@@ -39,7 +39,7 @@ async def start_save(client: Client, message: Message):
 
     link = await client.ask(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ, ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴛʜɪs ᴍᴇssᴀɢᴇ.**")
     if not 't.me' in link:
-        await link.reply("**ɴᴏ ʟɪɴᴋ ғᴏᴜɴᴅ.**")
+        return await link.reply("**ɴᴏ ʟɪɴᴋ ғᴏᴜɴᴅ.**")
     _range = await client.ask(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏғ ғɪʟᴇs/ʀᴀɴɢᴇ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴀᴠᴇ ғʀᴏᴍ ᴛʜᴇ ɢɪᴠᴇɴ ᴍᴇssᴀɢᴇ, ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴛʜɪs ᴍᴇssᴀɢᴇ.**")
     try:
         value = int(_range.text)
