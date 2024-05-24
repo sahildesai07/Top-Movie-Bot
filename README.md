@@ -13,6 +13,7 @@
   
 - [x] Premium Plan Feature 
 - [x] Refer To Get Premium
+- [x] Save Restricted Content (Upload Speed Upto 20 MB/Sec) & On / Off
 - [x] Custom Force Subscribe
 - [x] Rename Feature & On / Off
 - [x] Premium And Refer On / Off 
