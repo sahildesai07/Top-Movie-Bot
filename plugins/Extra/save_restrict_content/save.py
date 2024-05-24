@@ -189,10 +189,12 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                     except Exception:
                         return
                     return
-        try:
-            os.remove(file)
-            if os.path.isfile(file) == True:
+            try:
                 os.remove(file)
+                if os.path.isfile(file) == True:
+                    os.remove(file)
+            except Exception:
+                pass
         except Exception:
             pass
         await edit.delete()
