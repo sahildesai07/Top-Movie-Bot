@@ -45,6 +45,8 @@ START_CHAR = ('\'', '"', SMART_OPEN)
 
 # temp db for banned 
 class temp(object):
+    USERBOT = None
+    TELETHON = None
     BANNED_USERS = []
     BANNED_CHATS = []
     ME = None
