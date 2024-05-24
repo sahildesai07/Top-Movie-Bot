@@ -55,8 +55,6 @@ class Database:
             file_id=None,
             caption=None,
             save=False,
-            chat_id=None,
-            invite_link=None,
             ban_status=dict(
                 is_banned=False,
                 ban_reason="",
@@ -261,22 +259,7 @@ class Database:
 
     async def get_save(self, id):
         user = await self.col.find_one({'id': int(id)})
-        return user.get('save', False)
-        
-    async def set_chat_id(self, id, chat_id):
-        await self.col.update_one({'id': int(id)}, {'$set': {'chat_id': chat_id}})
-
-    async def get_chat_id(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get('chat_id', None)
-
-    async def set_invite_link(self, id, invite_link):
-        await self.col.update_one({'id': int(id)}, {'$set': {'invite_link': invite_link}})
-
-    async def get_invite_link(self, id):
-        user = await self.col.find_one({'id': int(id)})
-        return user.get('invite_link', None)
-        
-        
+        return user.get('save', False) 
+    
 
 db = Database(DATABASE_URI, DATABASE_NAME)
