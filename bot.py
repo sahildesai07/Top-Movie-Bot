@@ -81,6 +81,11 @@ async def start():
     if SAVE_RESTRICTED_MODE == True:
         telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN) 
         tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
+        try:
+            tech_vj_userbot.start()
+        except BaseException:
+            print("Userbot Error ! Have you added SESSION while deploying??")
+    
         temp.USERBOT = tech_vj_userbot
         temp.TELETHON = telethon_bot
     logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
