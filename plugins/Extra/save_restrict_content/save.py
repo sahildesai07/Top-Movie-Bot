@@ -49,10 +49,10 @@ async def start_save(client: Client, message: Message):
     except ValueError:
         await _range.reply("**ʀᴀɴɢᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɪɴᴛᴇɢᴇʀ**")
     await db.set_save(update, save=True)
-    await run_save(temp.USERBOT, client, update, _link, value) 
+    await run_save(client, update, _link, value) 
     await db.set_save(update, save=False)
 
-async def run_save(uclient, client, sender, link, _range):
+async def run_save(client, sender, link, _range):
     for i in range(_range):
         timer = 60
         if i < 25:
@@ -76,28 +76,23 @@ async def run_save(uclient, client, sender, link, _range):
             await client.send_message(sender, "**ʙᴀᴛᴄʜ ᴄᴏᴍᴘʟᴇᴛᴇᴅ.**")
             break
         try:
-            await get_bulk_msg(uclient, client, sender, link, i) 
+            await get_bulk_msg(client, sender, link, i) 
         except FloodWait as fw:
             if int(fw.x) > 299:
                 await client.send_message(sender, "**ᴄᴀɴᴄᴇʟʟɪɴɢ ʙᴀᴛᴄʜ sɪɴᴄᴇ ʏᴏᴜ ʜᴀᴠᴇ ғʟᴏᴏᴅᴡᴀɪᴛ ᴍᴏʀᴇ ᴛʜᴀɴ 5 ᴍɪɴᴜᴛᴇs.**")
                 break
             await asyncio.sleep(fw.x + 5)
-            await get_bulk_msg(uclient, client, sender, link, i)
+            await get_bulk_msg(client, sender, link, i)
         protection = await client.send_message(sender, f"**sʟᴇᴇᴘɪɴɢ ғᴏʀ** `{timer}` **sᴇᴄᴏɴᴅs ᴛᴏ ᴀᴠᴏɪᴅ ғʟᴏᴏᴅᴡᴀɪᴛs ᴀɴᴅ ᴘʀᴏᴛᴇᴄᴛ ᴀᴄᴄᴏᴜɴᴛ**")
         await asyncio.sleep(timer)
         await protection.delete()
     await client.send_message(sender, "**ʙᴀᴛᴄʜ ᴄᴏᴍᴘʟᴇᴛᴇᴅ.**")
 
-async def get_bulk_msg(uclient, client, sender, msg_link, i):
+async def get_bulk_msg(client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    await get_msg(uclient, client, temp.TELETHON, sender, x.id, msg_link, i)
+    await get_msg(client, temp.TELETHON, sender, x.id, msg_link, i)
 
-async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
-    
-    """ userbot: PyrogramUserBot
-    client: PyrogramBotClient
-    bot: TelethonBotClient """
-    
+async def get_msg(client, bot, sender, edit_id, msg_link, i):
     edit = ""
     chat = ""
     round_message = False
@@ -112,7 +107,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
-            msg = await uclient.get_messages(chat, msg_id)
+            msg = await temp.USERBOT.get_messages(chat, msg_id)
             if msg.media:
                 if msg.media==MessageMediaType.WEB_PAGE:
                     edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
@@ -136,7 +131,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                 if msg.document.file_size > MAX:
                     return await client.edit_message_text(sender, edit_id, f"**ғᴀɪʟᴇᴅ ᴛᴏ sᴀᴠᴇ:** `{msg_link}`\n\n**ᴇʀʀᴏʀ: Can't Upload File Bigger Than 2 GB**")
            
-            file = await uclient.download_media(
+            file = await temp.USERBOT.download_media(
                 msg,
                 progress=progress_for_pyrogram,
                 progress_args=(
@@ -159,7 +154,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
                         attributes = [DocumentAttributeVideo(duration=msg.video.duration, w=msg.video.width, h=msg.video.height, round_message=round_message, supports_streaming=True)] 
                         try:
-                            thumb_path = await uclient.download_media(msg.video.thumbs[0].file_id)
+                            thumb_path = await temp.USERBOT.download_media(msg.video.thumbs[0].file_id)
                         except:
                             thumb_path = None
                         await bot.send_file(sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
@@ -167,7 +162,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
                         attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, round_message=round_message, supports_streaming=True)] 
                         try:
-                            thumb_path = await uclient.download_media(msg.video_note.thumbs[0].file_id)
+                            thumb_path = await temp.USERBOT.download_media(msg.video_note.thumbs[0].file_id)
                         except:
                             thumb_path = None
                         await bot.send_file(chat_sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
@@ -175,7 +170,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                         UT = time.time()
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
                         try:
-                            thumb_path = await uclient.download_media(msg.document.thumbs[0].file_id)
+                            thumb_path = await temp.USERBOT.download_media(msg.document.thumbs[0].file_id)
                         except:
                             thumb_path = None
                         await bot.send_file(chat_sender, uploader, caption=caption, thumb=thumb_path, force_document=True)
@@ -197,7 +192,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                 pass
             await edit.delete()
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
-            await client.edit_message_text(sender, edit_id, "Have you joined the channel?")
+            await client.edit_message_text(sender, edit_id, "**My Owner Account Don't Join Your Channel.\n\nSend /join then send your channel invite link then try again**")
             return
         except PeerIdInvalid:
             chat = msg_link.split("/")[-3]
@@ -206,7 +201,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
                 new_link = f"t.me/c/{chat}/{msg_id}"
             except:
                 new_link = f"t.me/b/{chat}/{msg_id}"
-            return await get_msg(userbot, client, bot, sender, edit_id, msg_link, i)
+            return await get_msg(client, bot, sender, edit_id, msg_link, i)
         except Exception as e:
             print(e)
     else:
@@ -217,7 +212,7 @@ async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
             if msg.empty:
                 new_link = f't.me/b/{chat}/{int(msg_id)}'
                 #recurrsion 
-                return await get_msg(uclient, client, bot, sender, edit_id, new_link, i)
+                return await get_msg(client, bot, sender, edit_id, new_link, i)
             await client.copy_message(sender, chat, msg_id)
         except Exception as e:
             print(e)
