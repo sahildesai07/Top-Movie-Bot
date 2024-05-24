@@ -1,7 +1,7 @@
 import os, asyncio, time, math, json
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message 
-from database.user_chat_db import db
+from database.users_chats_db import db
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
 from pyrogram.enums import MessageMediaType
@@ -44,7 +44,7 @@ async def start_save(client: Client, message: Message):
     except ValueError:
         await _range.reply("**ʀᴀɴɢᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɪɴᴛᴇɢᴇʀ**")
     await db.set_save(update, save=True)
-    await run_save(uclient, client, update, _link, value) 
+    await run_save(temp.USERBOT, client, update, _link, value) 
     await db.set_save(update, save=False)
 
 async def run_save(uclient, client, sender, link, _range):
@@ -85,8 +85,7 @@ async def run_save(uclient, client, sender, link, _range):
 
 async def get_bulk_msg(uclient, client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    TechVJ = temp.TELETHON
-    await get_msg(uclient, client, TechVJ, sender, x.id, msg_link, i)
+    await get_msg(uclient, client, temp.TELETHON, sender, x.id, msg_link, i)
 
 async def get_msg(uclient, client, bot, sender, edit_id, msg_link, i):
     
