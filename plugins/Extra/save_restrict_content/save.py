@@ -15,7 +15,7 @@ MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
 UN_FINISHED_PROGRESS_STR = "⬜"
 DOWNLOAD_LOCATION = "/app"
-
+TechVJ = temp.TELETHON
 
 @Client.on_message(filters.private & filters.command(['cancel_save']))
 async def cancel_save(client: Client, message: Message):
@@ -29,7 +29,7 @@ async def cancel_save(client: Client, message: Message):
     await message.reply("**ᴅᴏɴᴇ.**")
 
 
-@temp.TELETHON.on(events.NewMessage(incoming=True, pattern='/save'))
+@TechVJ.on(events.NewMessage(incoming=True, pattern='/save'))
 async def start_save(event):
     if SAVE_RESTRICTED_MODE == False:
         return 
@@ -37,7 +37,7 @@ async def start_save(event):
     save = await db.get_save(update)
     if save == True:
         return await event.reply("**ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ sᴛᴀʀᴛᴇᴅ ᴏɴᴇ ʙᴀᴛᴄʜ, ᴡᴀɪᴛ ғᴏʀ ɪᴛ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ʏᴏᴜ ᴅᴜᴍʙғᴜᴄᴋ ᴏᴡɴᴇʀ ❗**\n\n**Cancel Ongoing Task By - /cancel_save**")
-    async with temp.TELETHON.conversation(event.chat_id) as conv: 
+    async with TechVJ.conversation(event.chat_id) as conv: 
         if save != True:
             await conv.send_message("**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ, ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴛʜɪs ᴍᴇssᴀɢᴇ.**", buttons=Button.force_reply())
             try:
