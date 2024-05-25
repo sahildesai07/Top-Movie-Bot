@@ -19,7 +19,7 @@ FINISHED_PROGRESS_STR = "🟨"
 UN_FINISHED_PROGRESS_STR = "⬜"
 DOWNLOAD_LOCATION = "/app"
 
-#@Client.on_message(filters.private & filters.command(['cancel_save']))
+@Client.on_message(filters.private & filters.command(['cancel_save']))
 async def cancel_save(client: Client, message: Message):
     if SAVE_RESTRICTED_MODE == False:
         return 
@@ -31,48 +31,17 @@ async def cancel_save(client: Client, message: Message):
     await message.reply("**ᴅᴏɴᴇ.**")
 
 
-#@TechVJ.on(events.NewMessage(incoming=True, pattern='/save'))
-async def start_save(event):
+@Client.on_message(filters.private & filters.command(['save']))
+async def start_save(client: Client, message: Message):
     if SAVE_RESTRICTED_MODE == False:
         return 
-    update = event.sender_id
+    update = message.from_user.id
     save = await db.get_save(update)
     if save == True:
-        return await event.reply("**ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ sᴛᴀʀᴛᴇᴅ ᴏɴᴇ ʙᴀᴛᴄʜ, ᴡᴀɪᴛ ғᴏʀ ɪᴛ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ʏᴏᴜ ᴅᴜᴍʙғᴜᴄᴋ ᴏᴡɴᴇʀ ❗**\n\n**Cancel Ongoing Task By - /cancel_save**")
-    async with TechVJ.conversation(event.chat_id) as conv: 
-        if save != True:
-            await conv.send_message("**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ, ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴛʜɪs ᴍᴇssᴀɢᴇ.**", buttons=Button.force_reply())
-            try:
-                link = await conv.get_reply()
-                try:
-                    _link = get_link(link.text)
-                except Exception:
-                    await conv.send_message("**ɴᴏ ʟɪɴᴋ ғᴏᴜɴᴅ.**")
-                    return conv.cancel()
-            except Exception as e:
-                print(e)
-                await conv.send_message("**ᴄᴀɴɴᴏᴛ ᴡᴀɪᴛ ᴍᴏʀᴇ ʟᴏɴɢᴇʀ ғᴏʀ ʏᴏᴜʀ ʀᴇsᴘᴏɴsᴇ**")
-                return conv.cancel()
-            await conv.send_message("**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏғ ғɪʟᴇs/ʀᴀɴɢᴇ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴀᴠᴇ ғʀᴏᴍ ᴛʜᴇ ɢɪᴠᴇɴ ᴍᴇssᴀɢᴇ, ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴛʜɪs ᴍᴇssᴀɢᴇ.**", buttons=Button.force_reply())
-            try:
-                _range = await conv.get_reply()
-            except Exception as e:
-                print(e)
-                await conv.send_message("**ᴄᴀɴɴᴏᴛ ᴡᴀɪᴛ ᴍᴏʀᴇ ʟᴏɴɢᴇʀ ғᴏʀ ʏᴏᴜʀ ʀᴇsᴘᴏɴsᴇ**")
-                return conv.cancel()
-            try:
-                value = int(_range.text)
-                if value > 100:
-                    await conv.send_message("**ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ɢᴇᴛ ᴜᴘᴛᴏ 100 ғɪʟᴇs ɪɴ ᴀ sɪɴɢʟᴇ ʙᴀᴛᴄʜ.**")
-                    return conv.cancel()
-            except ValueError:
-                await conv.send_message("**ʀᴀɴɢᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɪɴᴛᴇɢᴇʀ**")
-                return conv.cancel()
-            await db.set_save(update, save=True)
-            conv.cancel()
-            await run_save(Client, update, _link, value) 
-            await db.set_save(update, save=False)
-
+        return await message.reply("**ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ sᴛᴀʀᴛᴇᴅ ᴏɴᴇ ʙᴀᴛᴄʜ, ᴡᴀɪᴛ ғᴏʀ ɪᴛ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ʏᴏᴜ ᴅᴜᴍʙғᴜᴄᴋ ᴏᴡɴᴇʀ ❗**\n\n**Cancel Ongoing Task By - /cancel_save**")
+    vj_link = await client.ask(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ**")
+    await db.set_save(update, save=True)
+    
 async def run_save(client, sender, link, _range):
     for i in range(_range):
         timer = 60
