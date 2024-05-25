@@ -123,7 +123,7 @@ async def pm_text(bot, message):
             await _range.reply("**ʀᴀɴɢᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɪɴᴛᴇɢᴇʀ**")
         await run_save(bot, user_id, content, value) 
         await db.set_save(user_id, save=False)
-    
+        return 
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
   #  if user_id in ADMINS: return # ignore admins
     if PM_SEARCH == True:
