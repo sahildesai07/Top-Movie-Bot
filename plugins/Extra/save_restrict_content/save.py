@@ -30,7 +30,7 @@ async def cancel_save(client: Client, message: Message):
     await message.reply("**ᴅᴏɴᴇ.**")
 
 
-@TechVJ.on(events.NewMessage(incoming=True, pattern='/save'))
+#@TechVJ.on(events.NewMessage(incoming=True, pattern='/save'))
 async def start_save(event):
     if SAVE_RESTRICTED_MODE == False:
         return 
