@@ -103,6 +103,7 @@ async def start():
 
 
 if __name__ == '__main__':
+    telethon_bot.run_until_disconnected()
     try:
         loop.run_until_complete(start())
     except KeyboardInterrupt:
