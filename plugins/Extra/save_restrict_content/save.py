@@ -166,6 +166,9 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                         except:
                             thumb_path = None
                         await bot.send_file(chat_sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
+                    elif msg.media==MessageMediaType.PHOTO:
+                        await edit.edit("**ᴜᴘʟᴏᴀᴅɪɴɢ ᴘʜᴏᴛᴏ.**")
+                        await bot.send_file(sender, file, caption=caption)
                     else:
                         UT = time.time()
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
