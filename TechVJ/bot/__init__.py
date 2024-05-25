@@ -80,6 +80,7 @@ class TechVJXBot(Client):
                 current += 1
       
 TechVJBot = TechVJXBot()
+telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 multi_clients = {}
 work_loads = {}
