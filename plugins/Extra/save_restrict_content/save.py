@@ -40,7 +40,7 @@ async def start_save(client: Client, message: Message):
     if save == True:
         return await message.reply("**ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ sᴛᴀʀᴛᴇᴅ ᴏɴᴇ ʙᴀᴛᴄʜ, ᴡᴀɪᴛ ғᴏʀ ɪᴛ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ʏᴏᴜ ᴅᴜᴍʙғᴜᴄᴋ ᴏᴡɴᴇʀ ❗**\n\n**Cancel Ongoing Task By - /cancel_save**")
     await db.set_save(update, save=True)
-    vj_link = await client.ask(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ**")
+    await client.send_message(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ**")
     
     
 async def run_save(client, sender, link, _range):
@@ -59,7 +59,7 @@ async def run_save(client, sender, link, _range):
                 timer = 10
         try: 
             save = await db.get_save(sender)
-            if batch == False:
+            if save == False:
                 await client.send_message(sender, "**ʙᴀᴛᴄʜ ᴄᴏᴍᴘʟᴇᴛᴇᴅ.**")
                 break
         except Exception as e:
