@@ -1,3 +1,5 @@
+# under maintenance 
+
 import os, asyncio, time, math, json, re
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message 
@@ -9,7 +11,6 @@ from telethon import events, Button, errors
 from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
-from bot import telethon_bot as TechVJ
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import SAVE_RESTRICTED_MODE
 
@@ -18,7 +19,7 @@ FINISHED_PROGRESS_STR = "🟨"
 UN_FINISHED_PROGRESS_STR = "⬜"
 DOWNLOAD_LOCATION = "/app"
 
-@Client.on_message(filters.private & filters.command(['cancel_save']))
+#@Client.on_message(filters.private & filters.command(['cancel_save']))
 async def cancel_save(client: Client, message: Message):
     if SAVE_RESTRICTED_MODE == False:
         return 
