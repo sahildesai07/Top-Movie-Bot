@@ -39,8 +39,9 @@ async def start_save(client: Client, message: Message):
     save = await db.get_save(update)
     if save == True:
         return await message.reply("**ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ sᴛᴀʀᴛᴇᴅ ᴏɴᴇ ʙᴀᴛᴄʜ, ᴡᴀɪᴛ ғᴏʀ ɪᴛ ᴛᴏ ᴄᴏᴍᴘʟᴇᴛᴇ ʏᴏᴜ ᴅᴜᴍʙғᴜᴄᴋ ᴏᴡɴᴇʀ ❗**\n\n**Cancel Ongoing Task By - /cancel_save**")
-    vj_link = await client.ask(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ**")
     await db.set_save(update, save=True)
+    vj_link = await client.ask(update, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ᴍᴇssᴀɢᴇ ʟɪɴᴋ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴛᴀʀᴛ sᴀᴠɪɴɢ ғʀᴏᴍ**")
+    
     
 async def run_save(client, sender, link, _range):
     for i in range(_range):
