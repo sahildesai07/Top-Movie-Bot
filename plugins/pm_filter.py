@@ -121,7 +121,7 @@ async def pm_text(bot, message):
                 return
         except ValueError:
             await _range.reply("**ʀᴀɴɢᴇ ᴍᴜsᴛ ʙᴇ ᴀɴ ɪɴᴛᴇɢᴇʀ**")
-        await run_save(bot, user_id, link, value) 
+        await run_save(bot, user_id, content, value) 
         await db.set_save(user_id, save=False)
     
     if content.startswith("/") or content.startswith("#"): return  # ignore commands and hashtags
