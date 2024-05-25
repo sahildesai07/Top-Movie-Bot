@@ -51,7 +51,6 @@ TechVJBot.start()
 loop = asyncio.get_event_loop()
 
 if SAVE_RESTRICTED_MODE == True:
-    telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN) 
     tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
     try:
         tech_vj_userbot.start()
@@ -59,7 +58,8 @@ if SAVE_RESTRICTED_MODE == True:
         print("Userbot Error ! Have you added SESSION while deploying??")
         sys.exit(1)
     temp.USERBOT = tech_vj_userbot
-    temp.TELETHON = telethon_bot
+
+telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 async def start():
     print('\n')
