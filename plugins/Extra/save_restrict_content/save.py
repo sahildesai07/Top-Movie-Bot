@@ -5,6 +5,7 @@ from database.users_chats_db import db
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
 from pyrogram.enums import MessageMediaType
+from telethon import events, Button, errors, TelegramClien
 from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
