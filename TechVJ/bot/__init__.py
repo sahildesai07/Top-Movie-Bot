@@ -23,7 +23,6 @@ from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from aiohttp import web
-from telethon.sync import TelegramClient
 from pyrogram import Client
 from info import *
 
@@ -80,7 +79,6 @@ class TechVJXBot(Client):
                 current += 1
       
 TechVJBot = TechVJXBot()
-#telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 multi_clients = {}
 work_loads = {}
