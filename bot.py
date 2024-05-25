@@ -40,7 +40,7 @@ from telethon.sync import TelegramClient
 import asyncio
 from pyromod import listen
 from pyrogram import idle
-from TechVJ.bot import TechVJBot
+from TechVJ.bot import TechVJBot, telethon_bot
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
 
