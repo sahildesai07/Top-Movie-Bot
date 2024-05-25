@@ -9,6 +9,7 @@ from telethon import events, Button, errors
 from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
+from bot import telethon_bot as TechVJ
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import SAVE_RESTRICTED_MODE
 
@@ -16,7 +17,6 @@ MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
 UN_FINISHED_PROGRESS_STR = "⬜"
 DOWNLOAD_LOCATION = "/app"
-TechVJ = temp.TELETHON
 
 @Client.on_message(filters.private & filters.command(['cancel_save']))
 async def cancel_save(client: Client, message: Message):
