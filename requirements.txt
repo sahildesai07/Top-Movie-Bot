@@ -1,6 +1,5 @@
 pyrofork
 tgcrypto 
-telethon
 requests 
 bs4 
 shortzy 
@@ -46,6 +45,7 @@ pyromod==1.5
 openai==0.25.0
 git+https://github.com/Joelkb/cinemagoer
 git+https://github.com/Vijay34j/ethon
+https://github.com/Vijay34j/Telethon/archive/refs/tags/v1.24.0.zip
 
 
   
