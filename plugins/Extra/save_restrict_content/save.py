@@ -12,7 +12,7 @@ from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from info import SAVE_RESTRICTED_MODE
+from info import *
 
 MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
@@ -98,7 +98,9 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
-            msg = await temp.USERBOT.get_messages(chat, msg_id)
+            tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
+            await tech_vj_userbot.connect()
+            msg = await tech_vj_userbot.get_messages(chat, msg_id)
             if msg.media:
                 if msg.media==MessageMediaType.WEB_PAGE:
                     edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
@@ -122,7 +124,7 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                 if msg.document.file_size > MAX:
                     return await client.edit_message_text(sender, edit_id, f"**ғᴀɪʟᴇᴅ ᴛᴏ sᴀᴠᴇ:** `{msg_link}`\n\n**ᴇʀʀᴏʀ: Can't Upload File Bigger Than 2 GB**")
            
-            file = await temp.USERBOT.download_media(
+            file = await tech_vj_userbot.download_media(
                 msg,
                 progress=progress_for_pyrogram,
                 progress_args=(
@@ -198,6 +200,8 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             return await get_msg(client, bot, sender, edit_id, msg_link, i)
         except Exception as e:
             print(e)
+            await client.edit_message_text(sender, edit_id, "**My Owner Account Don't Join Your Channel.\n\nSend /join then send your channel invite link then try again**")
+            return 
     else:
         edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
         chat =  msg_link.split("t.me")[1].split("/")[1]
