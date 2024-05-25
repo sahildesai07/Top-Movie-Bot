@@ -106,7 +106,7 @@ async def pm_text(bot, message):
     user = message.from_user.first_name
     user_id = message.from_user.id
     save = await db.get_save(user_id)
-    if save == True:
+    if save == True and SAVE_RESTRICTED_MODE == True:
         try:
             link = get_link(content)
             if not link:
