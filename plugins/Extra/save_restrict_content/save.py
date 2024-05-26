@@ -14,6 +14,7 @@ from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import *
+from bot import telethon_bot
 
 MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
@@ -82,9 +83,7 @@ async def run_save(client, sender, link, _range):
 
 async def get_bulk_msg(client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    bot = TelegramClient('bot', API_ID, API_HASH)
-    await bot.start(bot_token=BOT_TOKEN)
-    await get_msg(client, bot, sender, x.id, msg_link, i)
+    await get_msg(client, telethon_bot, sender, x.id, msg_link, i)
 
 async def get_msg(client, bot, sender, edit_id, msg_link, i):
     edit = ""
