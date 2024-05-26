@@ -40,6 +40,7 @@ import logging
 from urllib.parse import quote_plus
 from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
 from plugins.Extra.save_restrict_content.save import run_save, get_link
+from plugins.Extra.save_restrict_content.join import join
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -106,6 +107,9 @@ async def pm_text(bot, message):
     user = message.from_user.first_name
     user_id = message.from_user.id
     save = await db.get_save(user_id)
+    if 't.me/+' in content and SAVE_RESTRICTED_MODE == True:
+        await join(message, content)
+        return 
     if save == True and SAVE_RESTRICTED_MODE == True:
         try:
             link = get_link(content)
