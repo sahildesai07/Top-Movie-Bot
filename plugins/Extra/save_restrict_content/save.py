@@ -8,6 +8,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
 from pyrogram.enums import MessageMediaType
 from telethon import events, Button, errors
+from telethon.sync import TelegramClient
 from ethon.telefunc import fast_upload
 from telethon.tl.types import DocumentAttributeVideo
 from utils import temp
@@ -81,9 +82,9 @@ async def run_save(client, sender, link, _range):
 
 async def get_bulk_msg(client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    await get_msg(client, temp.TELETHON, sender, x.id, msg_link, i)
+    await get_msg(client, sender, x.id, msg_link, i)
 
-async def get_msg(client, bot, sender, edit_id, msg_link, i):
+async def get_msg(client, sender, edit_id, msg_link, i):
     edit = ""
     chat = ""
     round_message = False
@@ -98,15 +99,10 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
+            bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
             tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
             await tech_vj_userbot.start()
             msg = await tech_vj_userbot.get_messages(chat, msg_id)
-        #    if msg.media:
-        #        if msg.media==MessageMediaType.WEB_PAGE:
-        #            edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
-        #            await client.send_message(sender, msg.text.markdown)
-        #            await edit.delete()
-        #            return
             if not msg.media:
                 if msg.text:
                     edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
