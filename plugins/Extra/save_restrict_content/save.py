@@ -1,5 +1,3 @@
-# under maintenance 
-
 import os, asyncio, time, math, json, re
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message 
@@ -7,10 +5,7 @@ from database.users_chats_db import db
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
 from pyrogram.enums import MessageMediaType
-from telethon import events, Button, errors
-from telethon.sync import TelegramClient
-from ethon.telefunc import fast_upload
-from telethon.tl.types import DocumentAttributeVideo
+from ethon.pyfunc import video_metadata
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import *
@@ -82,10 +77,9 @@ async def run_save(client, sender, link, _range):
 
 async def get_bulk_msg(client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    VJ = True
-    await get_msg(client, VJ, sender, x.id, msg_link, i)
+    await get_msg(client, sender, x.id, msg_link, i)
 
-async def get_msg(client, bot, sender, edit_id, msg_link, i):
+async def get_msg(client, sender, edit_id, msg_link, i):
     edit = ""
     chat = ""
     round_message = False
@@ -100,8 +94,6 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
-            bot = TelegramClient('bot', API_ID, API_HASH)
-            await bot.start(bot_token=BOT_TOKEN)
             tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
             await tech_vj_userbot.start()
             msg = await tech_vj_userbot.get_messages(chat, msg_id)
@@ -137,47 +129,73 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             caption=None
             if msg.caption is not None:
                 caption = msg.caption
-            VJ = True
-            if VJ == True:
-                try: 
-                    if msg.media==MessageMediaType.VIDEO and msg.video.mime_type in ["video/mp4", "video/x-matroska"]:
-                        UT = time.time()
-                        uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
-                        attributes = [DocumentAttributeVideo(duration=msg.video.duration, w=msg.video.width, h=msg.video.height, round_message=round_message, supports_streaming=True)] 
-                        try:
-                            thumb_path = await tech_vj_userbot.download_media(msg.video.thumbs[0].file_id)
-                        except:
-                            thumb_path = None
-                        await bot.send_file(sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
-                    elif msg.media==MessageMediaType.VIDEO_NOTE:
-                        uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
-                        attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, round_message=round_message, supports_streaming=True)] 
-                        try:
-                            thumb_path = await tech_vj_userbot.download_media(msg.video_note.thumbs[0].file_id)
-                        except:
-                            thumb_path = None
-                        await bot.send_file(chat_sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
-                    elif msg.media==MessageMediaType.PHOTO:
-                        await edit.edit("**ᴜᴘʟᴏᴀᴅɪɴɢ ᴘʜᴏᴛᴏ.**")
-                        await bot.send_file(sender, file, caption=caption)
-                    else:
-                        UT = time.time()
-                        uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
-                        try:
-                            thumb_path = await tech_vj_userbot.download_media(msg.document.thumbs[0].file_id)
-                        except:
-                            thumb_path = None
-                        await bot.send_file(sender, uploader, caption=caption, thumb=thumb_path, force_document=True)
-                    if os.path.isfile(file) == True:
-                        os.remove(file)
-                except Exception as e:
-                    print(e)
-                    await client.edit_message_text(sender, edit_id, f'**ғᴀɪʟᴇᴅ ᴛᴏ sᴀᴠᴇ:** `{msg_link}`\n\n**ᴇʀʀᴏʀ**: {str(e)}')
-                    try:
-                        os.remove(file)
-                    except Exception:
-                        return
-                    return
+            if msg.media==MessageMediaType.VIDEO_NOTE:
+                round_message = True
+                data = video_metadata(file)
+                height, width, duration = data["height"], data["width"], data["duration"]
+                print(f'd: {duration}, w: {width}, h:{height}')
+                try:
+                    thumb_path = await tech_vj_userbot.download_media(msg.video_note.thumbs[0].file_id)
+                except Exception:
+                    thumb_path = None
+                await client.send_video_note(
+                    chat_id=sender,
+                    video_note=file,
+                    length=height, duration=duration, 
+                    thumb=thumb_path,
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        client,
+                        '**ᴜᴘʟᴏᴀᴅɪɴɢ:**\n',
+                        edit,
+                        time.time()
+                    )
+                )
+            elif msg.media==MessageMediaType.VIDEO and msg.video.mime_type in ["video/mp4", "video/x-matroska"]:
+                data = video_metadata(file)
+                height, width, duration = data["height"], data["width"], data["duration"]
+                print(f'd: {duration}, w: {width}, h:{height}')
+                try:
+                    thumb_path = await tech_vj_userbot.download_media(msg.video.thumbs[0].file_id)
+                except Exception:
+                    thumb_path = None
+                await client.send_video(
+                    chat_id=sender,
+                    video=file,
+                    caption=caption,
+                    supports_streaming=True,
+                    height=height, width=width, duration=duration, 
+                    thumb=thumb_path,
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        client,
+                        '**ᴜᴘʟᴏᴀᴅɪɴɢ:**\n',
+                        edit,
+                        time.time()
+                    )
+                )
+            
+            elif msg.media==MessageMediaType.PHOTO:
+                await edit.edit("**ᴜᴘʟᴏᴀᴅɪɴɢ ᴘʜᴏᴛᴏ.**")
+                await client.send_photo(sender, file, caption=caption)
+            else:
+                try:
+                    thumb_path = await tech_vj_userbot.download_media(msg.document.thumbs[0].file_id)
+                except Exception:
+                    thumb_path = None
+                await client.send_document(
+                    sender,
+                    file, 
+                    caption=caption,
+                    thumb=thumb_path,
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        client,
+                        '**ᴜᴘʟᴏᴀᴅɪɴɢ:**\n',
+                        edit,
+                        time.time()
+                    )
+                )
             try:
                 os.remove(file)
                 if os.path.isfile(file) == True:
@@ -186,7 +204,7 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                 pass
             await edit.delete()
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
-            await client.edit_message_text(sender, edit_id, "**My Owner Account Don't Join Your Channel.\n\nSend /join then send your channel invite link then try again**")
+            await client.edit_message_text(sender, edit_id, "**I am not joined the channel?\n\nSend Channel Invite Link First Then Try.**")
             return
         except PeerIdInvalid:
             chat = msg_link.split("/")[-3]
@@ -195,7 +213,7 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                 new_link = f"t.me/c/{chat}/{msg_id}"
             except:
                 new_link = f"t.me/b/{chat}/{msg_id}"
-            return await get_msg(client, bot, sender, edit_id, msg_link, i)
+            return await get_msg(client, sender, edit_id, msg_link, i)
         except Exception as e:
             print(e)
             await client.edit_message_text(sender, edit_id, "**My Owner Account Don't Join Your Channel.\n\nSend /join then send your channel invite link then try again**")
@@ -208,7 +226,7 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             if msg.empty:
                 new_link = f't.me/b/{chat}/{int(msg_id)}'
                 #recurrsion 
-                return await get_msg(client, bot, sender, edit_id, new_link, i)
+                return await get_msg(client, sender, edit_id, new_link, i)
             await client.copy_message(sender, chat, msg_id)
         except Exception as e:
             print(e)
