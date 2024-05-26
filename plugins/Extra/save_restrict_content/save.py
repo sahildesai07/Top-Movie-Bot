@@ -101,12 +101,12 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
             await tech_vj_userbot.start()
             msg = await tech_vj_userbot.get_messages(chat, msg_id)
-            if msg.media:
-                if msg.media==MessageMediaType.WEB_PAGE:
-                    edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
-                    await client.send_message(sender, msg.text.markdown)
-                    await edit.delete()
-                    return
+        #    if msg.media:
+        #        if msg.media==MessageMediaType.WEB_PAGE:
+        #            edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
+        #            await client.send_message(sender, msg.text.markdown)
+        #            await edit.delete()
+        #            return
             if not msg.media:
                 if msg.text:
                     edit = await client.edit_message_text(sender, edit_id, "**ᴄʟᴏɴɪɴɢ.**")
