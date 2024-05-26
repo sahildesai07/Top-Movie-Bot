@@ -99,7 +99,8 @@ async def get_msg(client, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
-            bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+            bot = TelegramClient('bot', API_ID, API_HASH)
+            await bot.start(bot_token=BOT_TOKEN)
             tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
             await tech_vj_userbot.start()
             msg = await tech_vj_userbot.get_messages(chat, msg_id)
