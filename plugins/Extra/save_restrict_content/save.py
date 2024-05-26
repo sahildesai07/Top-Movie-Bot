@@ -82,9 +82,11 @@ async def run_save(client, sender, link, _range):
 
 async def get_bulk_msg(client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    await get_msg(client, sender, x.id, msg_link, i)
+    bot = TelegramClient('bot', API_ID, API_HASH)
+    await bot.start(bot_token=BOT_TOKEN)
+    await get_msg(client, bot, sender, x.id, msg_link, i)
 
-async def get_msg(client, sender, edit_id, msg_link, i):
+async def get_msg(client, bot, sender, edit_id, msg_link, i):
     edit = ""
     chat = ""
     round_message = False
@@ -99,8 +101,6 @@ async def get_msg(client, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
-            bot = TelegramClient('bot', API_ID, API_HASH)
-            await bot.start(bot_token=BOT_TOKEN)
             tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
             await tech_vj_userbot.start()
             msg = await tech_vj_userbot.get_messages(chat, msg_id)
