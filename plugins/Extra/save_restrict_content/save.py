@@ -144,7 +144,7 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
                         attributes = [DocumentAttributeVideo(duration=msg.video.duration, w=msg.video.width, h=msg.video.height, round_message=round_message, supports_streaming=True)] 
                         try:
-                            thumb_path = await temp.USERBOT.download_media(msg.video.thumbs[0].file_id)
+                            thumb_path = await tech_vj_userbot.download_media(msg.video.thumbs[0].file_id)
                         except:
                             thumb_path = None
                         await bot.send_file(sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
@@ -152,7 +152,7 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
                         attributes = [DocumentAttributeVideo(duration=duration, w=width, h=height, round_message=round_message, supports_streaming=True)] 
                         try:
-                            thumb_path = await temp.USERBOT.download_media(msg.video_note.thumbs[0].file_id)
+                            thumb_path = await tech_vj_userbot.download_media(msg.video_note.thumbs[0].file_id)
                         except:
                             thumb_path = None
                         await bot.send_file(chat_sender, uploader, caption=caption, thumb=thumb_path, attributes=attributes, force_document=False)
@@ -163,10 +163,10 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
                         UT = time.time()
                         uploader = await fast_upload(f'{file}', f'{file}', UT, bot, edit, '**ᴜᴘʟᴏᴀᴅɪɴɢ:**')
                         try:
-                            thumb_path = await temp.USERBOT.download_media(msg.document.thumbs[0].file_id)
+                            thumb_path = await tech_vj_userbot.download_media(msg.document.thumbs[0].file_id)
                         except:
                             thumb_path = None
-                        await bot.send_file(chat_sender, uploader, caption=caption, thumb=thumb_path, force_document=True)
+                        await bot.send_file(sender, uploader, caption=caption, thumb=thumb_path, force_document=True)
                     if os.path.isfile(file) == True:
                         os.remove(file)
                 except Exception as e:
