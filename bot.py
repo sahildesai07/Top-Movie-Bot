@@ -44,6 +44,7 @@ from pyrogram import idle
 from TechVJ.bot import TechVJBot
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
+from plugins.Extra.save_restrict_content.save import telethon_bot
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
@@ -94,6 +95,7 @@ async def start():
 
 
 if __name__ == '__main__':
+    telethon_bot.run_until_dissconnect()
     try:
         loop.run_until_complete(start())
     except KeyboardInterrupt:
