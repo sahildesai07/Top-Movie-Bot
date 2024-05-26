@@ -306,5 +306,5 @@ def get_link(string):
         return False
 
 if __name__ == '__main__':
-    await telethon_bot..start(bot_token=BOT_TOKEN)
+    await telethon_bot.start(bot_token=BOT_TOKEN)
     telethon_bot.run_until_disconnected()
