@@ -36,6 +36,8 @@ from datetime import date, datetime
 import pytz
 from aiohttp import web
 from plugins import web_server
+
+from telethon.sync import TelegramClient
 import asyncio
 from pyromod import listen
 from pyrogram import idle
