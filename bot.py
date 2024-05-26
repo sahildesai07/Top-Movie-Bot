@@ -45,9 +45,6 @@ from TechVJ.bot import TechVJBot
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
 
-telethon_bot = TelegramClient('bot', API_ID, API_HASH)
-    
-
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
 TechVJBot.start()
@@ -84,7 +81,6 @@ async def start():
     logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
     logging.info(LOG_STR)
     logging.info(script.LOGO)
-    await telethon_bot.start(bot_token=BOT_TOKEN)
     tz = pytz.timezone('Asia/Kolkata')
     today = date.today()
     now = datetime.now(tz)
@@ -98,7 +94,6 @@ async def start():
 
 
 if __name__ == '__main__':
-    telethon_bot.run_until_disconnected()
     try:
         loop.run_until_complete(start())
     except KeyboardInterrupt:
