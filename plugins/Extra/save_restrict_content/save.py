@@ -15,8 +15,6 @@ from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import *
 
-telethon_bot = TelegramClient('bot', API_ID, API_HASH)
-
 MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
 UN_FINISHED_PROGRESS_STR = "⬜"
@@ -84,7 +82,8 @@ async def run_save(client, sender, link, _range):
 
 async def get_bulk_msg(client, sender, msg_link, i):
     x = await client.send_message(sender, text="**ᴘʀᴏᴄᴇssɪɴɢ ❗**")
-    await get_msg(client, telethon_bot, sender, x.id, msg_link, i)
+    VJ = True
+    await get_msg(client, VJ, sender, x.id, msg_link, i)
 
 async def get_msg(client, bot, sender, edit_id, msg_link, i):
     edit = ""
@@ -101,6 +100,8 @@ async def get_msg(client, bot, sender, edit_id, msg_link, i):
             chat = int('-100' + str(msg_link.split("/")[-2]))
         file = ""
         try:
+            bot = TelegramClient('bot', API_ID, API_HASH)
+            await bot.start(bot_token=BOT_TOKEN)
             tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
             await tech_vj_userbot.start()
             msg = await tech_vj_userbot.get_messages(chat, msg_id)
@@ -305,6 +306,3 @@ def get_link(string):
     except Exception:
         return False
 
-if __name__ == '__main__':
-    await telethon_bot.start(bot_token=BOT_TOKEN)
-    telethon_bot.run_until_disconnected()
