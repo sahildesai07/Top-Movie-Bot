@@ -36,7 +36,6 @@ from datetime import date, datetime
 import pytz
 from aiohttp import web
 from plugins import web_server
-from telethon.sync import TelegramClient
 import asyncio
 from pyromod import listen
 from pyrogram import idle
@@ -78,16 +77,6 @@ async def start():
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
-    if SAVE_RESTRICTED_MODE == True:
-        telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
-        tech_vj_userbot = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
-        try:
-            tech_vj_userbot.start()
-        except BaseException:
-            print("Userbot Error ! Have you added SESSION while deploying??")
-            sys.exit(1)
-        temp.USERBOT = tech_vj_userbot
-        temp.TELETHON = telethon_bot
     logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
     logging.info(LOG_STR)
     logging.info(script.LOGO)
@@ -104,7 +93,6 @@ async def start():
 
 
 if __name__ == '__main__':
-   # telethon_bot.run_until_disconnected()
     try:
         loop.run_until_complete(start())
     except KeyboardInterrupt:
