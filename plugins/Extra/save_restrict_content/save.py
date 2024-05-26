@@ -15,7 +15,7 @@ from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import *
 
-telethon_bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+telethon_bot = TelegramClient('bot', API_ID, API_HASH)
 
 MAX = 2 * 1024 * 1024 * 1024
 FINISHED_PROGRESS_STR = "🟨"
@@ -306,4 +306,5 @@ def get_link(string):
         return False
 
 if __name__ == '__main__':
+    await telethon_bot..start(bot_token=BOT_TOKEN)
     telethon_bot.run_until_disconnected()
