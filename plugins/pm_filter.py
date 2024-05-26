@@ -114,7 +114,8 @@ async def pm_text(bot, message):
         try:
             link = get_link(content)
             if not link:
-                return await message.reply("**ɴᴏ ʟɪɴᴋ ғᴏᴜɴᴅ.**")
+                pass
+              #  return await message.reply("**ɴᴏ ʟɪɴᴋ ғᴏᴜɴᴅ.**")
         except TypeError:
             return 
         _range = await bot.ask(user_id, "**sᴇɴᴅ ᴍᴇ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏғ ғɪʟᴇs/ʀᴀɴɢᴇ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴀᴠᴇ ғʀᴏᴍ ᴛʜᴇ ɢɪᴠᴇɴ ᴍᴇssᴀɢᴇ**")
