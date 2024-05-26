@@ -14,7 +14,8 @@ async def join(message, invite_link):
     if SAVE_RESTRICTED_MODE == False:
         return 
     try:
-        client = temp.USERBOT
+        client = Client("saverestricted", session_string=SESSION_STRING, api_hash=API_HASH, api_id=API_ID)
+        await client.connect()
         await client.join_chat(invite_link)
         return await message.reply("Successfully joined the Channel")
     except UserAlreadyParticipant:
