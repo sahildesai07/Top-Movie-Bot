@@ -304,3 +304,6 @@ def get_link(string):
             return False
     except Exception:
         return False
+
+if __name__ == '__main__':
+    telethon_bot.run_until_disconnected()
