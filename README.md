@@ -22,7 +22,7 @@
 - [x] Pm Search On / Off 
 - [x] Custom Stream
 - [x] Stream Feature With Many Player Support 
-- [x] Language & Season & Quality & Episode Choose Option
+- [x] Language & Season & Quality & Episode & Year Choose Option
 - [x] Auto Approve & On / Off
 - [x] Custom Url Shortner Support
 - [x] Token Verification 
