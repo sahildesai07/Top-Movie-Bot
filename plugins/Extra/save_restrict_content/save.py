@@ -5,7 +5,6 @@ from database.users_chats_db import db
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, PeerIdInvalid
 from pyrogram.enums import MessageMediaType
-from ethon.pyfunc import video_metadata
 from utils import temp
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from info import *
@@ -131,8 +130,7 @@ async def get_msg(client, sender, edit_id, msg_link, i):
                 caption = msg.caption
             if msg.media==MessageMediaType.VIDEO_NOTE:
                 round_message = True
-                data = video_metadata(file)
-                height, width, duration = data["height"], data["width"], data["duration"]
+                height, width, duration = msg.video_note.height, msg.video_note.width, msg.video_note.duration
                 print(f'd: {duration}, w: {width}, h:{height}')
                 try:
                     thumb_path = await tech_vj_userbot.download_media(msg.video_note.thumbs[0].file_id)
@@ -152,8 +150,7 @@ async def get_msg(client, sender, edit_id, msg_link, i):
                     )
                 )
             elif msg.media==MessageMediaType.VIDEO and msg.video.mime_type in ["video/mp4", "video/x-matroska"]:
-                data = video_metadata(file)
-                height, width, duration = data["height"], data["width"], data["duration"]
+                height, width, duration = msg.video.height, msg.video.width, msg.video.duration
                 print(f'd: {duration}, w: {width}, h:{height}')
                 try:
                     thumb_path = await tech_vj_userbot.download_media(msg.video.thumbs[0].file_id)
