@@ -343,24 +343,16 @@ async def years_cb_handler(client: Client, query: CallbackQuery):
     search = search.replace(' ', '_')
     btn = []
     for i in range(0, len(YEARS)-1, 4):
-        btn.append([
-            InlineKeyboardButton(
-                text=YEARS[i].title(),
-                callback_data=f"fy#{YEARS[i].lower()}#{key}"
-            ),
-            InlineKeyboardButton(
-                text=YEARS[i+1].title(),
-                callback_data=f"fy#{YEARS[i+1].lower()}#{key}"
-            ),
-            InlineKeyboardButton(
-                text=YEARS[i+3].title(),
-                callback_data=f"fy#{YEARS[i+3].lower()}#{key}"
-            ),
-            InlineKeyboardButton(
-                text=YEARS[i+4].title(),
-                callback_data=f"fy#{YEARS[i+4].lower()}#{key}"
-            ),
-        ])
+        row = []
+        for j in range(4):
+            if i+j < len(YEARS):
+                row.append(
+                    InlineKeyboardButton(
+                        text=YEARS[i+j].title(),
+                        callback_data=f"fe#{YEARS[i+j].lower()}#{key}"
+                    )
+                )
+        btn.append(row)
 
     btn.insert(
         0,
@@ -503,24 +495,16 @@ async def episodes_cb_handler(client: Client, query: CallbackQuery):
     search = search.replace(' ', '_')
     btn = []
     for i in range(0, len(EPISODES)-1, 4):
-        btn.append([
-            InlineKeyboardButton(
-                text=EPISODES[i].title(),
-                callback_data=f"fe#{EPISODES[i].lower()}#{key}"
-            ),
-            InlineKeyboardButton(
-                text=EPISODES[i+1].title(),
-                callback_data=f"fe#{EPISODES[i+1].lower()}#{key}"
-            ),
-            InlineKeyboardButton(
-                text=EPISODES[i+3].title(),
-                callback_data=f"fe#{EPISODES[i+3].lower()}#{key}"
-            ),
-            InlineKeyboardButton(
-                text=EPISODES[i+4].title(),
-                callback_data=f"fe#{EPISODES[i+4].lower()}#{key}"
-            ),
-        ])
+        row = []
+        for j in range(4):
+            if i+j < len(EPISODES):
+                row.append(
+                    InlineKeyboardButton(
+                        text=EPISODES[i+j].title(),
+                        callback_data=f"fe#{EPISODES[i+j].lower()}#{key}"
+                    )
+                )
+        btn.append(row)
 
     btn.insert(
         0,
