@@ -2,30 +2,19 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-import logging
-from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, MAX_LIST_ELM, SHORTLINK_MODE, SHORTLINK_URL, SHORTLINK_API, IS_SHORTLINK, LOG_CHANNEL, TUTORIAL, GRP_LNK, CHNL_LNK, CUSTOM_FILE_CAPTION
+import logging, asyncio, os, re, random, pytz, aiohttp, requests, string, json, http.client
+from info import *
 from imdb import Cinemagoer 
-import asyncio
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
 from pyrogram import enums
+from pyrogram.errors import *
 from typing import Union
 from Script import script
-import pytz
-import random 
-import re
-import os
 from datetime import datetime, date
-import string
 from typing import List
 from database.users_chats_db import db
 from bs4 import BeautifulSoup
-import requests
-import aiohttp
 from shortzy import Shortzy
-import http.client
-import json
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
