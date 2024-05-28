@@ -5,16 +5,7 @@
 # premium code is implemented by - @VJBots
 # referal code credit - @VJBots
 
-import os
-import string
-import logging
-import random
-import asyncio
-import time
-import datetime
-import re, sys
-import json
-import base64
+import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
 from Script import script
 from pyrogram import Client, filters, enums
 from pyrogram.errors import ChatAdminRequired, FloodWait
