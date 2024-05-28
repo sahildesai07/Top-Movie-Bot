@@ -36,6 +36,7 @@ Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Updat
 
 ## Commands
 ```
+• /index - 𝑖𝑛𝑑𝑒𝑥 𝑓𝑖𝑙𝑒 𝑓𝑟𝑜𝑚 𝑦𝑜𝑢𝑟 𝑐ℎ𝑎𝑛𝑛𝑒𝑙
 • /logs - 𝑡𝑜 𝑔𝑒𝑡 𝑡ℎ𝑒 𝑟𝑒𝑐𝑒𝑛𝑡 𝑒𝑟𝑟𝑜𝑟𝑠
 • /stats - 𝑡𝑜 𝑔𝑒𝑡 𝑠𝑡𝑎𝑡𝑢𝑠 𝑜𝑓 𝑓𝑖𝑙𝑒𝑠 𝑖𝑛 𝑑𝑏.
 • /connections - 𝑇𝑜 𝑠𝑒𝑒 𝑎𝑙𝑙 𝑐𝑜𝑛𝑛𝑒𝑐𝑡𝑒𝑑 𝑔𝑟𝑜𝑢𝑝𝑠
@@ -94,6 +95,11 @@ Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Updat
 • /view_thumb - 𝑣𝑖𝑒𝑤 𝑦𝑜𝑢𝑟 𝑠𝑎𝑣𝑒𝑑 𝑡ℎ𝑢𝑚𝑏𝑛𝑎𝑖𝑙
 • /del_thumb - 𝑑𝑒𝑙𝑒𝑡𝑒 𝑦𝑜𝑢𝑟 𝑠𝑎𝑣𝑒𝑑 𝑡ℎ𝑢𝑚𝑏𝑛𝑎𝑖𝑙
 • /stream - 𝑔𝑒𝑛𝑒𝑟𝑎𝑡𝑒 𝑠𝑡𝑟𝑒𝑎𝑚 𝑎𝑛𝑑 𝑑𝑜𝑤𝑛𝑙𝑜𝑎𝑑 𝑙𝑖𝑛𝑘 𝑜𝑓 𝑦𝑜𝑢𝑟 𝑓𝑖𝑙𝑒
+• /save - 𝑑𝑜𝑤𝑛𝑙𝑜𝑎𝑑 𝑟𝑒𝑠𝑡𝑟𝑖𝑐𝑡𝑒𝑑 𝑐𝑜𝑛𝑡𝑒𝑛𝑡 𝑓𝑟𝑜𝑚 𝑐ℎ𝑎𝑛𝑛𝑒𝑙 𝑏𝑦 𝑝𝑜𝑠𝑡 𝑙𝑖𝑛𝑘
+• /join - 𝑠𝑒𝑛𝑑 𝑖𝑛𝑣𝑖𝑡𝑒 𝑙𝑖𝑛𝑘 𝑜𝑓 𝑟𝑒𝑠𝑡𝑟𝑖𝑐𝑡𝑒𝑑 𝑐ℎ𝑎𝑛𝑛𝑒𝑙 𝑓𝑟𝑜𝑚 𝑤ℎ𝑖𝑐ℎ 𝑦𝑜𝑢 𝑤𝑎𝑛𝑡 𝑡𝑜 𝑑𝑜𝑤𝑛𝑙𝑜𝑎𝑑 𝑐𝑜𝑛𝑡𝑒𝑛𝑡
+• /telegraph - 𝑔𝑒𝑡 𝑡𝑒𝑙𝑒𝑔𝑟𝑎𝑝ℎ 𝑙𝑖𝑛𝑘 𝑜𝑓 𝑎𝑛𝑦 𝑓𝑖𝑙𝑒 𝑢𝑛𝑑𝑒𝑟 5𝑚𝑏
+• /stickerid - 𝑡𝑜 𝑔𝑒𝑡 𝑖𝑑 𝑎𝑛𝑑 𝑢𝑛𝑖𝑞𝑢𝑒 𝐼'𝑑 𝑜𝑓 𝑠𝑡𝑖𝑐𝑘𝑒𝑟
+• /font - 𝑡𝑜 𝑔𝑒𝑡 𝑎𝑛𝑦 𝑡𝑦𝑝𝑒 𝑜𝑓 𝑓𝑜𝑛𝑡 𝑜𝑓 𝑎𝑛𝑦 𝑤𝑜𝑟𝑑
 ```
 
 ## Variables
