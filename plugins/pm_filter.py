@@ -102,7 +102,6 @@ async def give_filter(client, message):
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
-  #  await message.react(emoji="♥️")
     content = message.text
     user = message.from_user.first_name
     user_id = message.from_user.id
@@ -349,7 +348,7 @@ async def years_cb_handler(client: Client, query: CallbackQuery):
                 row.append(
                     InlineKeyboardButton(
                         text=YEARS[i+j].title(),
-                        callback_data=f"fe#{YEARS[i+j].lower()}#{key}"
+                        callback_data=f"fy#{YEARS[i+j].lower()}#{key}"
                     )
                 )
         btn.append(row)
