@@ -3,19 +3,12 @@
 # Ask Doubt on telegram @KingVJ01
 
 import io
+from info import ADMINS
 from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from database.gfilters_mdb import(
-   add_gfilter,
-   get_gfilters,
-   delete_gfilter,
-   count_gfilters
-)
-
+from database.gfilters_mdb import add_gfilter, get_gfilters, delete_gfilter, count_gfilters
 from database.connections_mdb import active_connection
 from utils import get_file_id, gfilterparser, split_quotes
-from info import ADMINS
-
 
 @Client.on_message(filters.command(['gfilter', 'addg']) & filters.incoming & filters.user(ADMINS))
 async def addgfilter(client, message):
