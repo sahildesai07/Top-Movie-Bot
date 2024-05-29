@@ -2,16 +2,13 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-import re
-import logging
+import re, logging
 from pyrogram import Client, filters
 from info import DELETE_CHANNELS
 from database.ia_filterdb import Media, unpack_new_file_id
 
 logger = logging.getLogger(__name__)
-
 media_filter = filters.document | filters.video | filters.audio
-
 
 @Client.on_message(filters.chat(DELETE_CHANNELS) & media_filter)
 async def deletemultiplemedia(bot, message):
