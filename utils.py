@@ -13,12 +13,13 @@ from Script import script
 from datetime import datetime, date
 from typing import List
 from database.users_chats_db import db
+from database.join_reqs import JoinReqs
 from bs4 import BeautifulSoup
 from shortzy import Shortzy
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
+join_db = JoinReqs
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\((buttonurl|buttonalert):(?:/{0,2})(.+?)(:same)?\))")
 
 imdb = Cinemagoer() 
@@ -61,17 +62,25 @@ async def pub_is_subscribed(bot, query, channel):
     return btn
 
 async def is_subscribed(bot, query):
-    try:
-        user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
-    except UserNotParticipant:
-        pass
-    except Exception as e:
-        logger.exception(e)
+    if REQUEST_TO_JOIN_MODE == True and join_db().isActive():
+        try:
+            user = await join_db().get_user(query.from_user.id)
+            if user and user["user_id"] == query.from_user.id:
+                return True    
+        except Exception as e:
+            logger.exception(e)
+            return False
     else:
-        if user.status != enums.ChatMemberStatus.BANNED:
-            return True
-
-    return False
+        try:
+            user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+        except UserNotParticipant:
+            pass
+        except Exception as e:
+            logger.exception(e)
+        else:
+            if user.status != enums.ChatMemberStatus.BANNED:
+                return True
+        return False
 
 async def get_poster(query, bulk=False, id=False, file=None):
     if not id:
