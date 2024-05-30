@@ -66,18 +66,19 @@ async def is_subscribed(bot, query):
         try:
             user = await join_db().get_user(query.from_user.id)
             if user and user["user_id"] == query.from_user.id:
-                return True    
+                return True
+            else:
+                try:
+                    user_data = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
+                except UserNotParticipant:
+                    pass
+                except Exception as e:
+                    logger.exception(e)
+                else:
+                    if user_data.status != enums.ChatMemberStatus.BANNED:
+                        return True
         except Exception as e:
             logger.exception(e)
-            try:
-                user_data = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
-            except UserNotParticipant:
-                pass
-            except Exception as e:
-                logger.exception(e)
-            else:
-                if user_data.status != enums.ChatMemberStatus.BANNED:
-                    return True
             return False
     else:
         try:
