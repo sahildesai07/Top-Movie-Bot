@@ -517,52 +517,28 @@ async def get_tutorial(chat_id):
         TUTORIAL_URL = TUTORIAL
     return TUTORIAL_URL
         
-async def get_verify_shorted_link(link):
-    API = SHORTLINK_API
-    URL = SHORTLINK_URL
-    https = link.split(":")[0]
-    if "http" == https:
-        https = "https"
-        link = link.replace("http", https)
-
-    if URL == "api.shareus.in":
-        url = f"https://{URL}/shortLink"
-        params = {"token": API,
-                  "format": "json",
-                  "link": link,
-                  }
+async def get_verify_shorted_link(link, url, api):
+    API = api
+    URL = url
+    if URL == "api.shareus.io":
+        url = f'https://{URL}/easy_api'
+        params = {
+            "key": API,
+            "link": link,
+        }
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                    data = await response.json(content_type="text/html")
-                    if data["status"] == "success":
-                        return data["shortlink"]
-                    else:
-                        logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
-
+                    data = await response.text()
+                    return data
         except Exception as e:
             logger.error(e)
-            return f'https://{URL}/shortLink?token={API}&format=json&link={link}'
+            return link
     else:
-        url = f'https://{URL}/api'
-        params = {'api': API,
-                  'url': link,
-                  }
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
-                    data = await response.json()
-                    if data["status"] == "success":
-                        return data['shortenedUrl']
-                    else:
-                        logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/api?api={API}&link={link}'
-
-        except Exception as e:
-            logger.error(e)
-            return f'{URL}/api?api={API}&link={link}'
-
+        shortzy = Shortzy(api_key=API, base_site=URL)
+        link = await shortzy.convert(link)
+        return link
+        
 async def check_token(bot, userid, token):
     user = await bot.get_users(userid)
     if not await db.is_user_exist(user.id):
@@ -587,8 +563,12 @@ async def get_token(bot, userid, link):
     token = ''.join(random.choices(string.ascii_letters + string.digits, k=7))
     TOKENS[user.id] = {token: False}
     link = f"{link}verify-{user.id}-{token}"
-    shortened_verify_url = await get_verify_shorted_link(link)
-    return str(shortened_verify_url)
+    shortened_verify_url = await get_verify_shorted_link(link, VERIFY_SHORTLINK_URL, VERIFY_SHORTLINK_API)
+    if VERIFY_SECOND_SHORTNER == True:
+        snd_link = await get_verify_shorted_link(shortened_verify_url, VERIFY_SND_SHORTLINK_URL, VERIFY_SND_SHORTLINK_API)
+        return str(snd_link)
+    else:
+        return str(shortened_verify_url)
 
 async def verify_user(bot, userid, token):
     user = await bot.get_users(userid)
