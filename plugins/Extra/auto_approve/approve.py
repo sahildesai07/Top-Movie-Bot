@@ -1,10 +1,20 @@
 from pyrogram import Client, filters
 from pyrogram.types import ChatJoinRequest
-from info import AUTO_APPROVE_MODE
+from info import AUTO_APPROVE_MODE, AUTH_CHANNEL
 from database.users_chats_db import db
+from database.join_reqs import JoinReqs
+
+db = JoinReqs
 
 @Client.on_chat_join_request((filters.group | filters.channel))
 async def auto_approve(client, message: ChatJoinRequest):
+    if message.chat.id == AUTH_CHANNEL:
+        if db().isActive():
+            user_id = message.from_user.id
+            first_name = message.from_user.first_name
+            username = message.from_user.username
+            date = message.date
+            await db().add_user(user_id=user_id, first_name=first_name, username=username, date=date)
     if AUTO_APPROVE_MODE == True:
         if not await db.is_user_exist(message.from_user.id):
             await db.add_user(message.from_user.id, message.from_user.first_name)
