@@ -7,7 +7,7 @@ from info import ADMINS, AUTH_CHANNEL
 db = JoinReqs
 logger = getLogger(__name__)
 
-@Client.on_chat_join_request(filters.chat(AUTH_CHANNEL))
+@Client.on_chat_join_request(filters.chat(AUTH_CHANNEL if AUTH_CHANNEL else "self"))
 async def join_reqs(client, join_req: ChatJoinRequest):
     if db().isActive():
         user_id = join_req.from_user.id
