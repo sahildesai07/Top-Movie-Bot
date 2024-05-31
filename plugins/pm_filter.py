@@ -2953,7 +2953,7 @@ async def auto_filter(client, msg, spoll=False):
             await fuk.delete()
             await message.delete()
 
-async def ai_auto_filter(client, msg, m, spoll=False):
+async def ai_auto_filter(client, vj_search, msg, m, spoll=False):
     curr_time = datetime.now(pytz.timezone('Asia/Kolkata')).time()
     if not spoll:
         message = msg
@@ -2961,7 +2961,7 @@ async def ai_auto_filter(client, msg, m, spoll=False):
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if len(message.text) < 100:
-            search = message.text
+            search = vj_search
             search = search.lower()
             find = search.split(" ")
             search = ""
@@ -2988,7 +2988,6 @@ async def ai_auto_filter(client, msg, m, spoll=False):
     else:
         message = msg.message.reply_to_message  # msg will be callback query
         search, files, offset, total_results = spoll
-        m=await message.reply_text(f"<b><i> 𝖲𝖾𝖺𝗋𝖼𝗁𝗂𝗇𝗀 𝖿𝗈𝗋 '{search}' 🔎</i></b>")
         settings = await get_settings(message.chat.id)
         await msg.message.delete()
     pre = 'filep' if settings['file_secure'] else 'file'
@@ -3290,7 +3289,7 @@ async def advantage_spell_chok(client, msg):
         movienamelist += [movie.get('title') for movie in movies]
         for techvj in movienamelist:
             if mv_rqst.startswith(techvj[0]):
-                await ai_auto_filter(client, techvj, vj_ai_msg)
+                await ai_auto_filter(client, techvj, msg, vj_ai_msg)
                 break
     else:
         btn = [
