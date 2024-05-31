@@ -13,7 +13,7 @@
   
 - [x] Premium Plan Feature 
 - [x] Refer To Get Premium
-- [x] Save Restricted Content & On / Off
+- [x] Ai Spell Check 
 - [x] Custom Force Subscribe
 - [x] Rename Feature & On / Off
 - [x] Premium And Refer On / Off 
@@ -24,6 +24,7 @@
 - [x] Custom Stream
 - [x] Stream Feature With Many Player Support 
 - [x] Language & Season & Quality & Episode & Year Choose Option
+- [x] Save Restricted Content & On / Off
 - [x] Auto Approve & On / Off
 - [x] Custom Url Shortner Support
 - [x] Token Verification 
