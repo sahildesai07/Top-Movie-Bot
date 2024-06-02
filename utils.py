@@ -124,6 +124,8 @@ async def get_poster(query, bulk=False, id=False, file=None):
     else:
         movieid = query
     movie = imdb.get_movie(movieid)
+    if not movie:
+        return None
     if movie.get("original air date"):
         date = movie["original air date"]
     elif movie.get("year"):
