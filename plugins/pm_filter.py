@@ -2950,7 +2950,7 @@ async def advantage_spell_chok(client, name, msg, reply_msg, vj_search):
     try:
         movies = await get_poster(mv_rqst, bulk=True)
     except Exception as e:
-    #    logger.exception(e)
+        logger.exception(e)
         reqst_gle = mv_rqst.replace(" ", "+")
         button = [[
             InlineKeyboardButton("Gᴏᴏɢʟᴇ", url=f"https://www.google.com/search?q={reqst_gle}")
