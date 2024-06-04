@@ -54,6 +54,7 @@ class Database:
             name = name,
             file_id=None,
             caption=None,
+            message_command=None,
             save=False,
             ban_status=dict(
                 is_banned=False,
@@ -253,6 +254,13 @@ class Database:
     async def get_caption(self, id):
         user = await self.col.find_one({'id': int(id)})
         return user.get('caption', None)
+
+    async def set_msg_command(self, id, com):
+        await self.col.update_one({'id': int(id)}, {'$set': {'message_command': com}})
+
+    async def get_msg_command(self, id):
+        user = await self.col.find_one({'id': int(id)})
+        return user.get('message_command', None)
 
     async def set_save(self, id, save):
         await self.col.update_one({'id': int(id)}, {'$set': {'save': save}})
