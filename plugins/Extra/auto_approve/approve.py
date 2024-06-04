@@ -1,9 +1,19 @@
-from pyrogram import Client, filters
-from pyrogram.types import ChatJoinRequest
-from info import AUTO_APPROVE_MODE, AUTH_CHANNEL
-from database.users_chats_db import db
+import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
+from Script import script
+from pyrogram import Client, filters, enums
+from pyrogram.errors import ChatAdminRequired, FloodWait
+from pyrogram.types import *
+from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
+from database.users_chats_db import db, delete_all_referal_users, get_referal_users_count, get_referal_all_users, referal_add_user
 from database.join_reqs import JoinReqs
+from info import *
+from utils import get_settings, pub_is_subscribed, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial, get_seconds
+from database.connections_mdb import active_connection
+from urllib.parse import quote_plus
+from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
+logger = logging.getLogger(__name__)
 
+BATCH_FILES = {}
 join_db = JoinReqs
 
 @Client.on_chat_join_request((filters.group | filters.channel))
