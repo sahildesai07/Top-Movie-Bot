@@ -15,6 +15,7 @@ async def auto_approve(client, message: ChatJoinRequest):
             username = message.from_user.username
             date = message.date
             await join_db().add_user(user_id=user_id, first_name=first_name, username=username, date=date)
+            data = await db.get_msg_command(user_id)
             return 
     if AUTO_APPROVE_MODE == True:
         if not await db.is_user_exist(message.from_user.id):
