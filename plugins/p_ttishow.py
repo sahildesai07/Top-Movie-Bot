@@ -20,16 +20,17 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-@Client.on_message(filters.new_chat_members & filters.chat(AUTH_CHANNEL))
+@Client.on_message(filters.new_chat_members & filters.channel)
 async def fsub_wto_try(client, message):
-    vj_user_id = [u.id for u in message.new_chat_members]
+    if message.chat.id != AUTH_CHANNEL:
+        return 
     for u in message.new_chat_members:
         if SAVE_CONTENT_MODE == True:
             return 
         if TRY_AGAIN_BTN == True:
             return
         data = await db.get_msg_command(u.id)
-        
+        vj_user_id = u.id
         if data.split("-", 1)[0] == "VJ":
             user_id = int(data.split("-", 1)[1])
             vj = await referal_add_user(user_id, vj_user_id)
