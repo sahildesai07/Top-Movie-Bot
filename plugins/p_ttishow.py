@@ -22,16 +22,19 @@ BATCH_FILES = {}
 
 @Client.on_message(filters.new_chat_members & filters.chat(AUTH_CHANNEL))
 async def fsub_wto_try(client, message):
-    if REQUEST_TO_JOIN_MODE == False:
+    vj_user_id = [u.id for u in message.new_chat_members]
+    for u in message.new_chat_members:
+        if SAVE_CONTENT_MODE == True:
+            return 
         if TRY_AGAIN_BTN == True:
             return
-        data = await db.get_msg_command(message.from_user.id)
+        data = await db.get_msg_command(u.id)
         
         if data.split("-", 1)[0] == "VJ":
             user_id = int(data.split("-", 1)[1])
-            vj = await referal_add_user(user_id, message.from_user.id)
+            vj = await referal_add_user(user_id, vj_user_id)
             if vj and PREMIUM_AND_REFERAL_MODE == True:
-                await client.send_message(message.from_user.id, f"<b>You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot</b>")
+                await client.send_message(vj_user_id, f"<b>You have joined using the referral link of user with ID {user_id}\n\nSend /start again to use the bot</b>")
                 num_referrals = await get_referal_users_count(user_id)
                 await client.send_message(chat_id = user_id, text = "<b>{} start the bot with your referral link\n\nTotal Referals - {}</b>".format(message.from_user.mention, num_referrals))
                 if num_referrals == REFERAL_COUNT:
@@ -72,13 +75,13 @@ async def fsub_wto_try(client, message):
                         InlineKeyboardButton('✇ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ✇', url=CHNL_LNK)
                     ]]
                 reply_markup = InlineKeyboardMarkup(buttons)
-                m=await client.send_sticker(chat_id = message.from_user.id, sticker = "CAACAgUAAxkBAAEKVaxlCWGs1Ri6ti45xliLiUeweCnu4AACBAADwSQxMYnlHW4Ls8gQMAQ") 
+                m=await client.send_sticker(chat_id = vj_user_id, sticker = "CAACAgUAAxkBAAEKVaxlCWGs1Ri6ti45xliLiUeweCnu4AACBAADwSQxMYnlHW4Ls8gQMAQ") 
                 await asyncio.sleep(1)
                 await m.delete()
                 await client.send_photo(
-                    chat_id=message.from_user.id,
+                    chat_id=vj_user_id,
                     photo=random.choice(PICS),
-                    caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+                    caption=script.START_TXT.format(u.mention, temp.U_NAME, temp.B_NAME),
                     reply_markup=reply_markup,
                     parse_mode=enums.ParseMode.HTML
                 )
@@ -91,29 +94,29 @@ async def fsub_wto_try(client, message):
         if data.split("-", 1)[0] == "verify":
             userid = data.split("-", 2)[1]
             token = data.split("-", 3)[2]
-            if str(message.from_user.id) != str(userid):
+            if str(vj_user_id) != str(userid):
                 return await client.send_message(
-                    chat_id=message.from_user.id,
+                    chat_id=vj_user_id,
                     text="<b>Invalid link or Expired link !</b>",
                     protect_content=True
                 )
             is_valid = await check_token(client, userid, token)
             if is_valid == True:
                 await client.send_message(
-                    chat_id=message.from_user.id,
-                    text=f"<b>Hey {message.from_user.mention}, You are successfully verified !\nNow you have unlimited access for all movies till today midnight.</b>",
+                    chat_id=vj_user_id,
+                    text=f"<b>Hey {u.mention}, You are successfully verified !\nNow you have unlimited access for all movies till today midnight.</b>",
                     protect_content=True
                 )
                 await verify_user(client, userid, token)
             else:
                 return await client.send_message(
-                    chat_id=message.from_user.id,
+                    chat_id=vj_user_id,
                     text="<b>Invalid link or Expired link !</b>",
                     protect_content=True
                 )
         if data.startswith("sendfiles"):
             chat_id = int("-" + file_id.split("-")[1])
-            userid = message.from_user.id if message.from_user else None
+            userid = u.id if u else None
             settings = await get_settings(chat_id)
             g = await get_shortlink(chat_id, f"https://telegram.me/{temp.U_NAME}?start=allfiles_{file_id}")
             button = [[
@@ -121,13 +124,13 @@ async def fsub_wto_try(client, message):
             ],[
                 InlineKeyboardButton('⁉️ Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ ⁉️', url=await get_tutorial(chat_id))
             ]]
-            k = await client.send_message(chat_id=message.from_user.id,text=f"<b>Get All Files in a Single Click!!!\n\n📂 ʟɪɴᴋ ➠ : {g}\n\n<i>Note: This message is deleted in 5 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(button))
+            k = await client.send_message(chat_id=vj_user_id,text=f"<b>Get All Files in a Single Click!!!\n\n📂 ʟɪɴᴋ ➠ : {g}\n\n<i>Note: This message is deleted in 5 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(button))
             await asyncio.sleep(300)
             await k.edit("<b>Your message is successfully deleted!!!</b>")
             return   
     
         elif data.startswith("short"):
-            user = message.from_user.id
+            user = vj_user_id
             chat_id = temp.SHORT.get(user)
             settings = await get_settings(chat_id)
             files_ = await get_file_details(file_id)
@@ -146,7 +149,7 @@ async def fsub_wto_try(client, message):
         elif data.startswith("all"):
             files = temp.GETALL.get(file_id)
             if not files:
-                return await client.send_message(chat_id=message.from_user.id, text='<b><i>No such file exist.</b></i>')
+                return await client.send_message(chat_id=vj_user_id, text='<b><i>No such file exist.</b></i>')
             filesarr = []
             for file in files:
                 file_id = file.file_id
@@ -163,15 +166,15 @@ async def fsub_wto_try(client, message):
                         f_caption=f_caption
                 if f_caption is None:
                     f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files1.file_name.split()))}"
-                if not await db.has_premium_access(message.from_user.id):
-                    if not await check_verification(client, message.from_user.id) and VERIFY == True:
+                if not await db.has_premium_access(vj_user_id):
+                    if not await check_verification(client, vj_user_id) and VERIFY == True:
                         btn = [[
-                            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                            InlineKeyboardButton("Verify", url=await get_token(client, vj_user_id, f"https://telegram.me/{temp.U_NAME}?start="))
                         ],[
                             InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                         ]]
                         await client.send_message(
-                            chat_id=message.from_user.id,
+                            chat_id=vj_user_id,
                             text="<b>You are not verified !\nKindly verify to continue !</b>",
                             protect_content=True,
                             reply_markup=InlineKeyboardMarkup(btn)
@@ -194,23 +197,23 @@ async def fsub_wto_try(client, message):
                         InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/KingVJ01")
                     ]]
                 msg = await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=vj_user_id,
                     file_id=file_id,
                     caption=f_caption,
                     protect_content=True if pre == 'filep' else False,
                     reply_markup=InlineKeyboardMarkup(button)
                 )
                 filesarr.append(msg)
-            k = await client.send_message(chat_id = message.from_user.id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+            k = await client.send_message(chat_id = vj_user_id, text=f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
             await asyncio.sleep(600)
             for x in filesarr:
                 await x.delete()
             await k.edit_text("<b>Your All Files/Videos is successfully deleted!!!</b>")
             return
         elif data.startswith("files"):
-            user = message.from_user.id
+            user = vj_user_id
             if temp.SHORT.get(user)==None:
-                await client.send_message(chat_id=message.from_user.id, text="<b>Please Search Again in Group</b>")
+                await client.send_message(chat_id=vj_user_id, text="<b>Please Search Again in Group</b>")
             else:
                 chat_id = temp.SHORT.get(user)
             settings = await get_settings(chat_id)
@@ -223,24 +226,24 @@ async def fsub_wto_try(client, message):
                 ],[
                     InlineKeyboardButton('⁉️ Hᴏᴡ Tᴏ Dᴏᴡɴʟᴏᴀᴅ ⁉️', url=await get_tutorial(chat_id))
                 ]]
-                k = await client.send_message(chat_id=message.from_user.id,text=f"<b>📕Nᴀᴍᴇ ➠ : <code>{files.file_name}</code> \n\n🔗Sɪᴢᴇ ➠ : {get_size(files.file_size)}\n\n📂Fɪʟᴇ ʟɪɴᴋ ➠ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(button))
+                k = await client.send_message(chat_id=vj_user_id,text=f"<b>📕Nᴀᴍᴇ ➠ : <code>{files.file_name}</code> \n\n🔗Sɪᴢᴇ ➠ : {get_size(files.file_size)}\n\n📂Fɪʟᴇ ʟɪɴᴋ ➠ : {g}\n\n<i>Note: This message is deleted in 20 mins to avoid copyrights. Save the link to Somewhere else</i></b>", reply_markup=InlineKeyboardMarkup(button))
                 await asyncio.sleep(1200)
                 await k.edit("<b>Your message is successfully deleted!!!</b>")
                 return
-        user = message.from_user.id
+        user = vj_user_id
         files_ = await get_file_details(file_id)           
         if not files_:
             pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
             try:
-                if not await db.has_premium_access(message.from_user.id):
-                    if not await check_verification(client, message.from_user.id) and VERIFY == True:
+                if not await db.has_premium_access(vj_user_id):
+                    if not await check_verification(client, vj_user_id) and VERIFY == True:
                         btn = [[
-                            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                            InlineKeyboardButton("Verify", url=await get_token(client, vj_user_id, f"https://telegram.me/{temp.U_NAME}?start="))
                         ],[
                             InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                         ]]
                         await client.send_message(
-                            chat_id=message.from_user.id,
+                            chat_id=vj_user_id,
                             text="<b>You are not verified !\nKindly verify to continue !</b>",
                             protect_content=True,
                             reply_markup=InlineKeyboardMarkup(btn)
@@ -263,7 +266,7 @@ async def fsub_wto_try(client, message):
                         InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/KingVJ01")
                     ]]
                 msg = await client.send_cached_media(
-                    chat_id=message.from_user.id,
+                    chat_id=vj_user_id,
                     file_id=file_id,
                     protect_content=True if pre == 'filep' else False,
                     reply_markup=InlineKeyboardMarkup(button)
@@ -285,7 +288,7 @@ async def fsub_wto_try(client, message):
                 btn = [[
                     InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
                 ]]
-                k = await client.send_message(message.from_user.id,"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+                k = await client.send_message(vj_user_id,"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
                 await asyncio.sleep(600)
                 await msg.delete()
                 await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
@@ -305,15 +308,15 @@ async def fsub_wto_try(client, message):
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"@VJ_Bots  {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files.file_name.split()))}"
-        if not await db.has_premium_access(message.from_user.id):
-            if not await check_verification(client, message.from_user.id) and VERIFY == True:
+        if not await db.has_premium_access(vj_user_id):
+            if not await check_verification(client, vj_user_id) and VERIFY == True:
                 btn = [[
-                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start="))
+                    InlineKeyboardButton("Verify", url=await get_token(client, vj_user_id, f"https://telegram.me/{temp.U_NAME}?start="))
                 ],[
                     InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
                 ]]
                 await client.send_message(
-                    chat_id=message.from_user.id,
+                    chat_id=vj_user_id,
                     text="<b>You are not verified !\nKindly verify to continue !</b>",
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
@@ -336,7 +339,7 @@ async def fsub_wto_try(client, message):
                 InlineKeyboardButton("𝗕𝗢𝗧 𝗢𝗪𝗡𝗘𝗥", url="t.me/KingVJ01")
             ]]
         msg = await client.send_cached_media(
-            chat_id=message.from_user.id,
+            chat_id=vj_user_id,
             file_id=file_id,
             caption=f_caption,
             protect_content=True if pre == 'filep' else False,
@@ -345,7 +348,7 @@ async def fsub_wto_try(client, message):
         btn = [[
             InlineKeyboardButton("Get File Again", callback_data=f'delfile#{file_id}')
         ]]
-        k = await client.send_message(message.from_user.id, "<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+        k = await client.send_message(vj_user_id, "<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
         await asyncio.sleep(600)
         await msg.delete()
         await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>",reply_markup=InlineKeyboardMarkup(btn))
