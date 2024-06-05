@@ -27,7 +27,7 @@ async def fsub_wto_try(client, message):
             return 
         if TRY_AGAIN_BTN == True:
             return
-        data = await db.get_msg_command(ap_user_id)
+        data = await db.get_msg_command(message.from_user.id)
         
         if data.split("-", 1)[0] == "VJ":
             user_id = int(data.split("-", 1)[1])
