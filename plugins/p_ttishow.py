@@ -2,16 +2,31 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
-import asyncio
-from pyrogram import Client, filters, enums
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
-from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS, MELCOW_VID, CHNL_LNK, GRP_LNK
-from database.users_chats_db import db
-from database.ia_filterdb import Media
-from utils import get_size, temp, get_settings
+import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
 from Script import script
-from pyrogram.errors import ChatAdminRequired
+from pyrogram import Client, filters, enums
+from pyrogram.errors import ChatAdminRequired, FloodWait
+from pyrogram.types import *
+from database.ia_filterdb import Media, get_file_details, unpack_new_file_id, get_bad_files
+from database.users_chats_db import db, delete_all_referal_users, get_referal_users_count, get_referal_all_users, referal_add_user
+from database.join_reqs import JoinReqs
+from info import *
+from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
+from utils import get_settings, pub_is_subscribed, get_size, is_subscribed, save_group_settings, temp, verify_user, check_token, check_verification, get_token, get_shortlink, get_tutorial, get_seconds
+from database.connections_mdb import active_connection
+from urllib.parse import quote_plus
+from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
+logger = logging.getLogger(__name__)
+
+BATCH_FILES = {}
+
+@Client.on_message(filters.new_chat_members & filters.channel)
+async def fsub_wto_try(client, message):
+    if message.chat.id == AUTH_CHANNEL:
+        if REQUEST_TO_JOIN_MODE == True:
+            return 
+        if TRY_AGAIN_BTN == True:
+            return 
 
 @Client.on_message(filters.new_chat_members & filters.group)
 async def save_group(bot, message):
