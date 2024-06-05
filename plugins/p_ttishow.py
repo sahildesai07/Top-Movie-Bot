@@ -25,7 +25,7 @@ async def fsub_wto_try(client, message):
     if message.chat.id != AUTH_CHANNEL:
         return 
     for u in message.new_chat_members:
-        if SAVE_CONTENT_MODE == True:
+        if REQUEST_TO_JOIN_MODE == True:
             return 
         if TRY_AGAIN_BTN == True:
             return
