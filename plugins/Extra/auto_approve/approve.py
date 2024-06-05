@@ -356,6 +356,8 @@ async def auto_approve(client, message: ChatJoinRequest):
     if AUTO_APPROVE_MODE == True:
         if not await db.is_user_exist(message.from_user.id):
             await db.add_user(message.from_user.id, message.from_user.first_name)
+        if message.chat.id == AUTH_CHANNEL:
+            return 
         chat = message.chat 
         user = message.from_user  
         await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
