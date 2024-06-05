@@ -20,11 +20,9 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-@Client.on_message(filters.new_chat_members & filters.channel)
+@Client.on_message(filters.new_chat_members & filters.chat(AUTH_CHANNEL))
 async def fsub_wto_try(client, message):
-    if message.chat.id == AUTH_CHANNEL:
-        if REQUEST_TO_JOIN_MODE == True:
-            return 
+    if REQUEST_TO_JOIN_MODE == False:
         if TRY_AGAIN_BTN == True:
             return
         data = await db.get_msg_command(message.from_user.id)
