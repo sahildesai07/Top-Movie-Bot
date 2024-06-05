@@ -29,8 +29,8 @@ async def fsub_wto_try(client, message):
             return 
         if TRY_AGAIN_BTN == True:
             return
-        data = await db.get_msg_command(u.id)
-        vj_user_id = u.id
+        data = await db.get_msg_command(int(u.id))
+        vj_user_id = int(u.id)
         if data.split("-", 1)[0] == "VJ":
             user_id = int(data.split("-", 1)[1])
             vj = await referal_add_user(user_id, vj_user_id)
