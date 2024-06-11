@@ -20,7 +20,7 @@
 - [x] Stream Feature On / Off 
 - [x] Url Shortner On / Off Feature 
 - [x] Pm Search On / Off
-- [x] Request To Join Force Subscribe 
+- [x] Request To Join Force Subscribe With Auto File Send 
 - [x] Custom Stream
 - [x] Stream Feature With Many Player Support 
 - [x] Language & Season & Quality & Episode & Year Choose Option
