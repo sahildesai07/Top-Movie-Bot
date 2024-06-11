@@ -687,7 +687,7 @@ special Thanks To ❤️ Developers -
 
 -Dev 3 <a href='https://t.me/PhdLust>PhdLust</a>
 
-- Dev 4 <a href='https://t.me/ultroidxTeam'>TEAM</a>
+- Dev 4 <a href='https://t.me/ultroidxTeam'>TEAM</a>"""
 
     RENAME_TXT = """
 🌌 <b><u>HOW TO SET THUMBNAIL</u></b>
