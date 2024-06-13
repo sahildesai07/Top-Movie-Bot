@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://graph.org/file/70a8d686639e4dfbc57b9.jpg" alt="VJ-Filter-Bot Logo">
+  <img src="https://graph.org/file/70a8d686639e4dfbc57b9.jpg" alt="Top-Movie-Bot Logo">
 </p>
 <h1 align="center">
   UxB FILTER BOT
@@ -32,7 +32,7 @@
 - [x] Custom Tutorial Button
 - [x] Bot Pm File Auto Delete 
 
-Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Update Regarding Repo.</b>
+Join My <a href='https://telegram.dog/ultroid_official'>Update Channel</a> For More Update Regarding Repo.</b>
 
 ### How To Deploy : [Video Tutorial](https://youtu.be/J5tiWdc_AWM)
 
@@ -121,13 +121,13 @@ Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Updat
 ### Optional Variables
 * <b>`PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/VJBots/VJ-Filter-Bot/blob/PhdLust/info.py) for more optional variables.</b>
+* Check [info.py](https://github.com/sahildesai07/Top-Movie-Bot/blob/PhdLust/info.py) for more optional variables.</b>
 
 
 <details><summary><b>Deploy To Heroku</b></summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/VJBots/VJ-Filter-Bot">
+<a href="https://heroku.com/deploy?template=https://github.com/sahildesai07/Top-Movie-Bot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
 </a>
 </p>
@@ -139,7 +139,7 @@ Join My <a href='https://telegram.dog/vj_botz'>Update Channel</a> For More Updat
 <br>
 <br>
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/VJBots/VJ-Filter-Bot&branch=PhdLust&name=VJ-Filter-Bot)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/sahildesai07/Top-Movie-Bot&branch=PhdLust&name=Top-Movie-Bot)
 </details>
 
 <details><summary><b>Deploy To Render</b></summary>
@@ -166,7 +166,7 @@ Use these settings when adding a monitor:</b>
 <b>Click on the below button to deploy directly to render ↓</b>
 <br>
 <br>
-<a href="https://render.com/deploy?repo=https://github.com/VJBots/VJ-Filter-Bot/tree/PhdLust">
+<a href="https://render.com/deploy?repo=https://github.com/sahildesai07/Top-Movie-Bot/tree/PhdLust">
 <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
 </a>
 </details>
@@ -174,7 +174,7 @@ Use these settings when adding a monitor:</b>
 <details><summary><b>Deploy To VPS</summary>
 
 
-`git clone https://github.com/VJBots/VJ-Filter-Bot`
+`git clone https://github.com/sahildesai07/Top-Movie-Bot`
 
 Install Packages
 
@@ -206,7 +206,7 @@ Fork The Repo And Edit As Per Your Needs.</b>
 
 ## Disclaimer
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-<b>Licensed under [GNU AGPL 2.0.](https://github.com/VJBots/VJ-Filter-Bot/blob/PhdLust/LICENSE)
+<b>Licensed under [GNU AGPL 2.0.](https://github.com/sahildesai07/Top-Movie-Bot/blob/PhdLust/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.</b>
 
 </pre>
