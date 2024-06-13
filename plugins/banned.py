@@ -1,4 +1,4 @@
-# Don't Remove Credit @VJ_Botz
+# Don't Remove Credit @Ultroid_official
 
 
 from pyrogram import Client, filters

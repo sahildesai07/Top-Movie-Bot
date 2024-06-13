@@ -1,4 +1,4 @@
-# Don't Remove Credit @VJ_Botz @ultroidxTeam
+# Don't Remove Credit @Ultroid_official @ultroidxTeam
 
 import os, logging, string, asyncio, time, re, ast, random, math, pytz, pyrogram
 from datetime import datetime, timedelta, date, time
@@ -15,7 +15,7 @@ from database.filters_mdb import del_all, find_filter, get_filters
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, make_inactive
 from database.gfilters_mdb import find_gfilter, get_gfilters, del_allg
 from urllib.parse import quote_plus
-from TechVJ.util.file_properties import get_name, get_hash, get_media_file_size
+from PhdLust.util.file_properties import get_name, get_hash, get_media_file_size
 from plugins.Extra.save_restrict_content.save import run_save, get_link
 from plugins.Extra.save_restrict_content.join import join
 

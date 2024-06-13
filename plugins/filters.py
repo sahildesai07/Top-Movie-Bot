@@ -1,6 +1,6 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+# Don't Remove Credit @Ultroid_official
+# Subscribe YouTube Channel For Amazing Bot @PhdLust
+# Ask Doubt on telegram @UltroidxTeam
 
 import io
 from pyrogram import filters, Client, enums

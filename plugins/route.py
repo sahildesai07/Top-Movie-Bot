@@ -1,17 +1,17 @@
-# Don't Remove Credit @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+# Don't Remove Credit @Ultroid_official
+# Subscribe YouTube Channel For Amazing Bot @PhdLust
+# Ask Doubt on telegram @UltroidxTeam
 
 import re, math, logging, secrets, mimetypes, time
 from info import *
 from aiohttp import web
 from aiohttp.http_exceptions import BadStatusLine
-from TechVJ.bot import multi_clients, work_loads, TechVJBot
-from TechVJ.server.exceptions import FIleNotFound, InvalidHash
-from TechVJ import StartTime, __version__
-from TechVJ.util.custom_dl import ByteStreamer
-from TechVJ.util.time_format import get_readable_time
-from TechVJ.util.render_template import render_page
+from PhdLust.bot import multi_clients, work_loads, PhdLustBot
+from PhdLust.server.exceptions import FIleNotFound, InvalidHash
+from PhdLust import StartTime, __version__
+from PhdLust.util.custom_dl import ByteStreamer
+from PhdLust.util.time_format import get_readable_time
+from PhdLust.util.render_template import render_page
 
 routes = web.RouteTableDef()
 
