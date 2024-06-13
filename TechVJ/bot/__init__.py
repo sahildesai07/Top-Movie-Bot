@@ -1,4 +1,4 @@
-# Don't Remove Credit @VJ_Botz
+# Don't Remove Credit @Ultroid_official
 import logging
 import logging.config
 logging.config.fileConfig('logging.conf')
@@ -24,7 +24,7 @@ from pyrogram import Client
 from info import *
 
 
-class TechVJXBot(Client):
+class PhdLustXBot(Client):
 
     def __init__(self):
         super().__init__(
@@ -75,7 +75,7 @@ class TechVJXBot(Client):
                 yield message
                 current += 1
       
-TechVJBot = TechVJXBot()
+PhdLustBot = PhdLustXBot()
 
 multi_clients = {}
 work_loads = {}
