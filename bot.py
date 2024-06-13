@@ -1,4 +1,4 @@
-# Don't Remove Credit @VJ_Botz
+# Don't Remove Credit @Ultroid_official
 
 import sys, glob, importlib, logging, logging.config, pytz, asyncio
 from pathlib import Path
@@ -27,20 +27,20 @@ from datetime import date, datetime
 from aiohttp import web
 from plugins import web_server
 
-from TechVJ.bot import TechVJBot
-from TechVJ.util.keepalive import ping_server
-from TechVJ.bot.clients import initialize_clients
+from PhdLust.bot import PhdLustBot
+from PhdLust.util.keepalive import ping_server
+from PhdLust.bot.clients import initialize_clients
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
-TechVJBot.start()
+PhdLustBot.start()
 loop = asyncio.get_event_loop()
 
 
 async def start():
     print('\n')
     print('Initalizing Your Bot')
-    bot_info = await TechVJBot.get_me()
+    bot_info = await PhdLustBot.get_me()
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -59,7 +59,7 @@ async def start():
     temp.BANNED_USERS = b_users
     temp.BANNED_CHATS = b_chats
     await Media.ensure_indexes()
-    me = await TechVJBot.get_me()
+    me = await PhdLustBot.get_me()
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
@@ -69,7 +69,7 @@ async def start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    await TechVJBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
+    await PhdLustBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
     app = web.AppRunner(await web_server())
     await app.setup()
     bind_address = "0.0.0.0"

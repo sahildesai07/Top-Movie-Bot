@@ -1,4 +1,4 @@
-# Don't Remove Credit @VJ_Botz
+# Don't Remove Credit @Ultroid_official
 
 import logging, asyncio, os, re, random, pytz, aiohttp, requests, string, json, http.client
 from info import *
