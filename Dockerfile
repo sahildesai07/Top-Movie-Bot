@@ -1,5 +1,5 @@
 # Don't Remove Credit @Ultroid_official
-# Subscribe YouTube Channel For Amazing Bot @PhdLust
+# Subscribe YouTube Channel For Amazing Bot @dinesh12777
 # Ask Doubt on telegram @UltroidxTeam
 
 FROM python:3.10.8-slim-buster

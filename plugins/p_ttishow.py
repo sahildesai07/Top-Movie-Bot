@@ -1,5 +1,5 @@
 # Don't Remove Credit @Ultroid_official
-# Subscribe YouTube Channel For Amazing Bot @PhdLust
+# Subscribe YouTube Channel For Amazing Bot @dinesh12777
 # Ask Doubt on telegram @UltroidxTeam
 
 import os, string, logging, random, asyncio, time, datetime, re, sys, json, base64
@@ -89,7 +89,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support Group',url="https://t.me/ultroidofficial_chat"),
+            InlineKeyboardButton('Support Group',url="https://t.me/animesagasupport"),
             InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="t.me/ultroidxteam")
         ],[
             InlineKeyboardButton('Use Me Here', url=f'https://t.me/{SUPPORT_CHAT}')

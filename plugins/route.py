@@ -1,23 +1,23 @@
 # Don't Remove Credit @Ultroid_official
-# Subscribe YouTube Channel For Amazing Bot @PhdLust
+# Subscribe YouTube Channel For Amazing Bot @dinesh12777
 # Ask Doubt on telegram @UltroidxTeam
 
 import re, math, logging, secrets, mimetypes, time
 from info import *
 from aiohttp import web
 from aiohttp.http_exceptions import BadStatusLine
-from PhdLust.bot import multi_clients, work_loads, PhdLustBot
-from PhdLust.server.exceptions import FIleNotFound, InvalidHash
-from PhdLust import StartTime, __version__
-from PhdLust.util.custom_dl import ByteStreamer
-from PhdLust.util.time_format import get_readable_time
-from PhdLust.util.render_template import render_page
+from dinesh12777.bot import multi_clients, work_loads, dinesh12777Bot
+from dinesh12777.server.exceptions import FIleNotFound, InvalidHash
+from dinesh12777 import StartTime, __version__
+from dinesh12777.util.custom_dl import ByteStreamer
+from dinesh12777.util.time_format import get_readable_time
+from dinesh12777.util.render_template import render_page
 
 routes = web.RouteTableDef()
 
 @routes.get("/", allow_head=True)
 async def root_route_handler(request):
-    return web.json_response("ultroidxTeam")
+    return web.json_response("dinesh12777")
 
 @routes.get(r"/watch/{path:\S+}", allow_head=True)
 async def stream_handler(request: web.Request):

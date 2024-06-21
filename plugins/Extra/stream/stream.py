@@ -2,8 +2,8 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, CallbackQuery
 from info import STREAM_MODE, URL, LOG_CHANNEL
 from urllib.parse import quote_plus
-from PhdLust.util.file_properties import get_name, get_hash, get_media_file_size
-from PhdLust.util.human_readable import humanbytes
+from dinesh12777.util.file_properties import get_name, get_hash, get_media_file_size
+from dinesh12777.util.human_readable import humanbytes
 import humanize
 import random
 

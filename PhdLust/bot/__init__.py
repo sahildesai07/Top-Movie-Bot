@@ -24,7 +24,7 @@ from pyrogram import Client
 from info import *
 
 
-class PhdLustXBot(Client):
+class dinesh12777XBot(Client):
 
     def __init__(self):
         super().__init__(
@@ -75,7 +75,7 @@ class PhdLustXBot(Client):
                 yield message
                 current += 1
       
-PhdLustBot = PhdLustXBot()
+dinesh12777Bot = dinesh12777XBot()
 
 multi_clients = {}
 work_loads = {}

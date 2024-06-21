@@ -5,10 +5,10 @@
 </div>
 
 <p align="center">
-  <a href="https://t.me/ultroid_official">
+  <a href="https://t.me/Animesagaofficiall">
     <img src="https://img.shields.io/badge/Ultroid%20%F0%9D%95%8F%20Official-Channel-blue?style=for-the-badge&logo=telegram" alt="Ultroid Official Channel">
   </a>
-  <a href="https://t.me/ultroidofficial_chat">
+  <a href="https://t.me/animesagasupport">
     <img src="https://img.shields.io/badge/Ultroid%20%F0%9D%95%8F%20Official-Group-blue?style=for-the-badge&logo=telegram" alt="Ultroid Official Group">
   </a>
 </p>
@@ -46,7 +46,7 @@ You can click the Preview link to take a look at your changes.
 
 Join My <a href='https://telegram.dog/ultroid_official'>Update Channel</a> For More Update Regarding Repo.</b>
 
-### How To Deploy : [Video Tutorial](https://t.me/ultroidxTeam)
+### How To Deploy : [Video Tutorial](https://t.me/dinesh12777)
 
 ## Commands
 ```
@@ -133,7 +133,7 @@ totalrequests - 𝑔𝑒𝑡 𝑡𝑜𝑡𝑎𝑙 𝑛𝑢𝑚𝑏𝑒𝑟 𝑜�
 ### Optional Variables
 * <b>`PICS`: Telegraph links of images to show in start message.( Multiple images can be used separated by space )
 * `FILE_STORE_CHANNEL`: Channel from were file store links of posts should be made.Separate multiple IDs by space
-* Check [info.py](https://github.com/sahildesai07/Top-Movie-Bot/blob/PhdLust/info.py) for more optional variables.</b>
+* Check [info.py](https://github.com/sahildesai07/Top-Movie-Bot/blob/dinesh12777/info.py) for more optional variables.</b>
 
 
 <details><summary><b>Deploy To Heroku</b></summary>
@@ -151,7 +151,7 @@ totalrequests - 𝑔𝑒𝑡 𝑡𝑜𝑡𝑎𝑙 𝑛𝑢𝑚𝑏𝑒𝑟 𝑜�
 <br>
 <br>
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/sahildesai07/Top-Movie-Bot&branch=PhdLust&name=Top-Movie-Bot)
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/sahildesai07/Top-Movie-Bot&branch=dinesh12777&name=Top-Movie-Bot)
 </details>
 
 <details><summary><b>Deploy To Render</b></summary>
@@ -178,7 +178,7 @@ Use these settings when adding a monitor:</b>
 <b>Click on the below button to deploy directly to render ↓</b>
 <br>
 <br>
-<a href="https://render.com/deploy?repo=https://github.com/sahildesai07/Top-Movie-Bot/tree/PhdLust">
+<a href="https://render.com/deploy?repo=https://github.com/sahildesai07/Top-Movie-Bot/tree/dinesh12777">
 <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
 </a>
 </details>
@@ -204,7 +204,7 @@ Edit info.py with variables as given below then run bot
 
 ## Thanks to 
  - <b>Thanks To [Pyrogram Library](https://github.com/pyrogram/pyrogram) & [Pyrofork Library](https://github.com/Mayuri-Chan/pyrofork)
- - Thanks To [Tech VJ](https://youtube.com/@PhdLust) To Modify And Add Amazing Feature In The Repo
+ - Thanks To [Tech VJ](https://youtube.com/@dinesh12777) To Modify And Add Amazing Feature In The Repo
  - Thanks To [Eva Marie](https://t.me/TeamEvamaria) For Base Repo
  - Thanks To All Everyone In This Journey</b>
 
@@ -212,14 +212,14 @@ Edit info.py with variables as given below then run bot
  
 * [![Contact Developer](https://img.shields.io/static/v1?label=Contact+Developer&message=On+Telegram&color=critical)](https://telegram.me/UltroidxTeam)
 
-<b>[Note To A So Called ](https://telegram.dog/ultroidxTeam): 
+<b>[Note To A So Called ](https://telegram.dog/dinesh12777): 
 
 Fork The Repo And Edit As Per Your Needs.</b>
 
 ## Disclaimer
 This is imported repo of Tech_VJ but improved version 
 [![GNU Affero General Public License 2.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-<b>Licensed under [GNU AGPL 2.0.](https://github.com/sahildesai07/Top-Movie-Bot/blob/PhdLust/LICENSE)
+<b>Licensed under [GNU AGPL 2.0.](https://github.com/sahildesai07/Top-Movie-Bot/blob/dinesh12777/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.</b>
 
 </pre>

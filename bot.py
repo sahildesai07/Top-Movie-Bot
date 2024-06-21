@@ -27,20 +27,20 @@ from datetime import date, datetime
 from aiohttp import web
 from plugins import web_server
 
-from PhdLust.bot import PhdLustBot
-from PhdLust.util.keepalive import ping_server
-from PhdLust.bot.clients import initialize_clients
+from dinesh12777.bot import dinesh12777Bot
+from dinesh12777.util.keepalive import ping_server
+from dinesh12777.bot.clients import initialize_clients
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
-PhdLustBot.start()
+dinesh12777Bot.start()
 loop = asyncio.get_event_loop()
 
 
 async def start():
     print('\n')
     print('Initalizing Your Bot')
-    bot_info = await PhdLustBot.get_me()
+    bot_info = await dinesh12777Bot.get_me()
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -52,14 +52,14 @@ async def start():
             load = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(load)
             sys.modules["plugins." + plugin_name] = load
-            print("PhdLust Imported => " + plugin_name)
+            print("dinesh12777 Imported => " + plugin_name)
     if ON_HEROKU:
         asyncio.create_task(ping_server())
     b_users, b_chats = await db.get_banned()
     temp.BANNED_USERS = b_users
     temp.BANNED_CHATS = b_chats
     await Media.ensure_indexes()
-    me = await PhdLustBot.get_me()
+    me = await dinesh12777Bot.get_me()
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
@@ -69,7 +69,7 @@ async def start():
     today = date.today()
     now = datetime.now(tz)
     time = now.strftime("%H:%M:%S %p")
-    await PhdLustBot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
+    await dinesh12777Bot.send_message(chat_id=LOG_CHANNEL, text=script.RESTART_TXT.format(today, time))
     app = web.AppRunner(await web_server())
     await app.setup()
     bind_address = "0.0.0.0"
@@ -81,5 +81,5 @@ if __name__ == '__main__':
     try:
         loop.run_until_complete(start())
     except KeyboardInterrupt:
-        logging.info('Service Stopped Bye 👋 !help : ultroidofficial_chat.t.me')
+        logging.info('Service Stopped Bye 👋 !help : animesagasupport.t.me')
 

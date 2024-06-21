@@ -1,5 +1,5 @@
 # Don't Remove Credit @Ultroid_official
-# Subscribe YouTube Channel For Amazing Bot @PhdLust
+# Subscribe YouTube Channel For Amazing Bot @dinesh12777
 # Ask Doubt on telegram @UltroidxTeam
 
 import datetime, time, asyncio
@@ -49,7 +49,7 @@ async def pm_broadcast(bot, message):
         print(f"error: {e}")
 
 # Don't Remove Credit Tg - @Ultroid_official
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@PhdLust
+# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@dinesh12777
 # Ask Doubt on telegram @UltroidxTeam
 
 @Client.on_message(filters.command("grp_broadcast") & filters.user(ADMINS))

@@ -1,17 +1,17 @@
 import jinja2
 from info import *
-from PhdLust.bot import PhdLustBot
-from PhdLust.util.human_readable import humanbytes
-from PhdLust.util.file_properties import get_file_ids
-from PhdLust.server.exceptions import InvalidHash
+from dinesh12777.bot import dinesh12777Bot
+from dinesh12777.util.human_readable import humanbytes
+from dinesh12777.util.file_properties import get_file_ids
+from dinesh12777.server.exceptions import InvalidHash
 import urllib.parse
 import logging
 import aiohttp
 
 
 async def render_page(id, secure_hash, src=None):
-    file = await PhdLustBot.get_messages(int(LOG_CHANNEL), int(id))
-    file_data = await get_file_ids(PhdLustBot, int(LOG_CHANNEL), int(id))
+    file = await dinesh12777Bot.get_messages(int(LOG_CHANNEL), int(id))
+    file_data = await get_file_ids(dinesh12777Bot, int(LOG_CHANNEL), int(id))
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f"link hash: {secure_hash} - {file_data.unique_id[:6]}")
         logging.debug(f"Invalid hash for message with - ID {id}")
@@ -25,9 +25,9 @@ async def render_page(id, secure_hash, src=None):
     tag = file_data.mime_type.split("/")[0].strip()
     file_size = humanbytes(file_data.file_size)
     if tag in ["video", "audio"]:
-        template_file = "PhdLust/template/req.html"
+        template_file = "dinesh12777/template/req.html"
     else:
-        template_file = "PhdLust/template/dl.html"
+        template_file = "dinesh12777/template/dl.html"
         async with aiohttp.ClientSession() as s:
             async with s.get(src) as u:
                 file_size = humanbytes(int(u.headers.get("Content-Length")))
