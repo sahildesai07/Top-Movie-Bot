@@ -8,7 +8,7 @@ from PhdLust.bot import multi_clients, work_loads, PhdLustBot
 
 
 async def initialize_clients():
-    multi_clients[0] = dinesh12777Bot
+    multi_clients[0] = PhdLustBot
     work_loads[0] = 0
     all_tokens = TokenParser().parse_from_env()
     if not all_tokens:
