@@ -27,9 +27,9 @@ from datetime import date, datetime
 from aiohttp import web
 from plugins import web_server
 
-from dinesh12777.bot import dinesh12777Bot
-from dinesh12777.util.keepalive import ping_server
-from dinesh12777.bot.clients import initialize_clients
+from PhdLust.bot import PhdLustBot
+from PhdLust.util.keepalive import ping_server
+from PhdLust.bot.clients import initialize_clients
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
