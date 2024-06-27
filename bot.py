@@ -33,14 +33,14 @@ from PhdLust.bot.clients import initialize_clients
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
-dinesh12777Bot.start()
+PhdLustBot.start()
 loop = asyncio.get_event_loop()
 
 
 async def start():
     print('\n')
     print('Initalizing Your Bot')
-    bot_info = await dinesh12777Bot.get_me()
+    bot_info = await PhdLustBot.get_me()
     await initialize_clients()
     for name in files:
         with open(name) as a:
@@ -59,7 +59,7 @@ async def start():
     temp.BANNED_USERS = b_users
     temp.BANNED_CHATS = b_chats
     await Media.ensure_indexes()
-    me = await dinesh12777Bot.get_me()
+    me = await PhdLustBot.get_me()
     temp.ME = me.id
     temp.U_NAME = me.username
     temp.B_NAME = me.first_name
