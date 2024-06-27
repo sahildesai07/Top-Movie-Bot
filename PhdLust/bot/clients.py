@@ -3,8 +3,8 @@ import asyncio
 import logging
 from info import *
 from pyrogram import Client
-from dinesh12777.util.config_parser import TokenParser
-from dinesh12777.bot import multi_clients, work_loads, dinesh12777Bot
+from PhdLust.util.config_parser import TokenParser
+from PhdLust.bot import multi_clients, work_loads, PhdLustBot
 
 
 async def initialize_clients():
