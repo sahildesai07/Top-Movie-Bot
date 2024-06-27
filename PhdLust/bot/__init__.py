@@ -24,7 +24,7 @@ from pyrogram import Client
 from info import *
 
 
-class PhdLust(Client):
+class PhdLustXBot(Client):
 
     def __init__(self):
         super().__init__(
